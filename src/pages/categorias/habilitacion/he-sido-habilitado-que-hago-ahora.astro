@@ -1,0 +1,377 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title = "¡He sido habilitado para comprar! ¿Qué hago ahora? · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué sigue después de ser habilitado en VMC Subastas: las instrucciones de pago del vendedor, el Fee de Habilitación, el pago directo al vendedor en dólares, los gastos adicionales, las sanciones por incumplir la compra y dónde encontrar tus comprobantes.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Ya pagué la comisión y subí los documentos solicitados, ¿ahora qué tengo que hacer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Solo debes esperar a que te proporcionemos las instrucciones de pago del vendedor, para que puedas continuar con el proceso de compra. En caso se indique en las condiciones de oferta, deberás pagar el Fee de Habilitación en esta etapa: es un monto que el ganador habilitado deberá pagar a VMC Subastas por concepto de gastos administrativos, gestión interna y evaluaciones requeridas para ser habilitado, cuando se indique en las Condiciones del Ofrecimiento. El Fee de Habilitación es un monto adicional a la comisión por uso del servicio. Debes seguir las instrucciones tal como se te indica dentro del plazo establecido o serás sancionado por incumplir tus responsabilidades como comprador.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Ya hice el pago de la oferta, ¿ahora qué sigue?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Una vez realizado el pago, deberás adjuntar el comprobante para seguir con el proceso de compra: sigue las instrucciones de pago, adjunta tu comprobante y dale a Enviar. Finalmente, te brindaremos la información de contacto del vendedor y, cuando sea posible, las instrucciones de transferencia (si es un carro) y recojo. Esta información es proporcionada por el mismo vendedor, por lo tanto la gestión en esta fase es entre comprador y vendedor.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Tengo fondos en mi billetera, ¿puedo usarlos para pagar la oferta?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Los fondos disponibles en tu Billetera solo sirven para realizar consignaciones y pagar comisiones. El pago de la oferta se hace directamente al vendedor, en dólares americanos, según lo indicado en las condiciones de compra en el detalle de la oferta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Hay pagos adicionales que hacer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Tendrás que hacerte cargo de los gastos administrativos que puedan surgir al momento de la transferencia del bien. En el caso de tener que cubrir otros gastos, se te indicará en las Condiciones de Compra publicadas en el detalle de la oferta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Si incumplo con la compra de una oferta, ¿qué pasa?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Si incumples con tus responsabilidades como ganador habilitado, deberás pagar la comisión por el uso de los servicios de igual manera. En caso tengas deudas, el acceso a tu cuenta permanecerá restringido y te impedirá usar el servicio. También serás sancionado, lo que aumenta tu Riesgo Usuario: se inhabilita tu cuenta durante 7 días calendario, se cobra la comisión por uso del servicio y pierdes 75 Puntos. Si incurres en tres incumplimientos de compra con un mismo vendedor, se te suspenderá de manera permanente para participar en cualquier proceso de dicho vendedor.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Terminé el proceso de compra y necesito mi comprobante de pago (boleta/factura), ¿a quién y cómo lo solicito?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Todo comprobante por la compra de una oferta deberá ser solicitado directamente al vendedor.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Dónde encuentro el comprobante de pago de comisión?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Puedes encontrar tus comprobantes de pago por las comisiones pagadas ingresando a tu Zona de Usuario, en Transacciones dentro del módulo Billetera, y descargar los comprobantes.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La habilitación", url: "/categorias/habilitacion" },
+    {
+      name: "¡He sido habilitado para comprar! ¿Qué hago ahora?",
+      url: "/categorias/habilitacion/he-sido-habilitado-que-hago-ahora",
+    },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La habilitación"
+    categorySlug="habilitacion"
+    subtitle="Subastín te guía en el proceso de compra: pagos, comprobantes y responsabilidades."
+    updated={updated}
+  >
+    ¡He sido habilitado para comprar! ¿Qué hago <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >ahora?</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Tras pagar la comisión y subir tus documentos, solo esperas las instrucciones de pago
+      del vendedor: el pago de la oferta se hace directamente al vendedor, en dólares
+      americanos (los fondos de tu Billetera solo sirven para consignar y pagar comisiones).
+      Adjuntas el comprobante de pago y recibes el contacto del vendedor para la
+      transferencia y el recojo. Puede aplicar un Fee de Habilitación adicional a la comisión
+      si las condiciones lo indican, más los gastos administrativos de la transferencia.
+      Incumplir la compra se sanciona: pagas igual la comisión, tu cuenta se inhabilita 7
+      días, pierdes 75 Puntos, y al tercer incumplimiento con un mismo vendedor quedas
+      suspendido permanentemente con él.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: Ya pagué la comisión -->
+    <section aria-labelledby="pague-comision" class="space-y-4">
+      <ChatQ id="pague-comision">
+        Ya pagué la comisión y subí los documentos solicitados, ¿ahora qué tengo que hacer?
+      </ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Solo debes esperar a que <strong>te proporcionemos las instrucciones de pago del
+          vendedor</strong>, para que puedas continuar con el proceso de compra.
+        </p>
+        <ol class="mt-4 space-y-6 text-sm leading-relaxed text-vault-900/80">
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 1:</strong> Al ser habilitado, verás la <strong>fecha y hora límite para concretar el proceso de compra</strong>.
+              Recuerda cumplir el plazo de pago desde el módulo “Tu Actividad”.
+            </p>
+            <img
+              src="/images/articulos/habilitado-paso-1-has-sido-habilitado.png"
+              alt="Notificación Felicidades, has sido habilitado, con la fecha y hora límite para concretar el proceso de compra"
+              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 2:</strong> Adjunta la <strong>documentación que solicita el vendedor</strong> y dale a <strong>“Enviar Documentos”</strong>.
+            </p>
+            <img
+              src="/images/articulos/habilitado-paso-2-adjunta-dni.png"
+              alt="Sección Documentación Requerida para adjuntar el DNI y enviar los documentos"
+              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 3:</strong> Para ingresar a tu Zona de
+              Usuario, haz clic o tap en tu <strong>C.U.U.</strong>, ubicado en la esquina
+              superior derecha de la plataforma.
+            </p>
+            <img
+              src="/images/articulos/habilitado-paso-3-pregunta-max.png"
+              alt="Plataforma de VMC Subastas con el C.U.U. en la esquina superior derecha"
+              class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 4:</strong> En el módulo <strong>“Tu Actividad”</strong>, entra a <strong>Procesos de Compra</strong> y
+              abre el detalle de tu oferta ganada con <strong>“Ver Detalle”</strong>.
+            </p>
+            <img
+              src="/images/articulos/habilitado-paso-4-procesos-compra.png"
+              alt="Sección Procesos de Compra de Tu Actividad con el vehículo ganado y el botón Ver Detalle"
+              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 5:</strong> Ahí podrás ver el <strong>plazo de pago</strong> para cumplir tus responsabilidades como ganador
+              habilitado.
+            </p>
+            <img
+              src="/images/articulos/habilitado-paso-5-fecha-limite.png"
+              alt="Detalle del proceso de compra habilitado con la fecha límite para concretarlo"
+              class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 6:</strong> Descarga los <strong>documentos requeridos</strong>: Carta de origen de fondos y las
+              Declaraciones Juradas (PPNN o PPJJ).
+            </p>
+            <img
+              src="/images/articulos/habilitado-paso-6-documentos-requeridos.png"
+              alt="Documentos requeridos para descarga: Carta de origen de fondos y Declaraciones Juradas PPNN y PPJJ"
+              class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+        </ol>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          En caso se indique en las condiciones de oferta, deberás pagar el <strong class="text-orange-vmc">Fee de Habilitación</strong> en esta etapa.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          El <strong>Fee de Habilitación</strong> es un monto que el ganador habilitado
+          deberá pagar a VMC SUBASTAS por concepto de <strong>gastos administrativos, gestión
+          interna y evaluaciones requeridas para ser habilitado</strong>, cuando se indique
+          en las Condiciones del Ofrecimiento.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          El Fee de Habilitación es un <strong>monto adicional a la comisión</strong> por uso
+          de nuestro servicio.
+        </p>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">Importante:</strong> <span class="text-white/90">
+            Debes seguir las instrucciones tal como se te indica dentro del plazo
+            establecido o <strong>serás sancionado</strong> por incumplir tus
+            responsabilidades como comprador.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q2: Ya hice el pago -->
+    <section aria-labelledby="hice-pago" class="space-y-4">
+      <ChatQ id="hice-pago">Ya hice el pago de la oferta, ¿ahora qué sigue?</ChatQ>
+      <ChatA>
+        <p class="bg-gradient-to-br from-vault-500 to-vault-700 bg-clip-text text-base font-bold text-transparent">
+          Una vez realizado el pago, deberás adjuntar el comprobante para seguir con el
+          proceso de compra.
+        </p>
+        <ol class="mt-3 list-decimal space-y-2 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-500">
+          <li>
+            Sigue las <strong>instrucciones de pago</strong> de la oferta (banco y cuenta de
+            destino indicados) y <strong>adjunta tu comprobante de pago</strong>.
+          </li>
+          <li>Dale clic o tap a <strong>“Enviar”</strong>.</li>
+        </ol>
+        <img
+          src="/images/articulos/habilitado-paso-7-instrucciones-pago.png"
+          alt="Instrucciones de pago de la oferta con la cuenta de destino, las indicaciones importantes, el adjunto del voucher y el botón Enviar"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Finalmente, te brindaremos la <strong>Información de Contacto del vendedor</strong> y cuando sea posible las instrucciones de <strong>transferencia</strong> (si es un
+          carro) <strong>y recojo</strong>.
+        </p>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">Importante:</strong> <span class="text-white/90">
+            Cabe resaltar que esta información es proporcionada por el mismo vendedor y por
+            lo tanto <strong>la gestión en esta fase es entre comprador y el
+            vendedor</strong>.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q3: ¿Puedo pagar con la billetera? -->
+    <section aria-labelledby="fondos-billetera" class="space-y-4">
+      <ChatQ id="fondos-billetera">
+        Tengo fondos en mi billetera, ¿puedo usarlos para pagar la oferta?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Recuerda que los fondos disponibles en <strong>tu Billetera</strong> solo sirven
+          para realizar <strong>consignaciones y pagar comisiones</strong>.
+        </p>
+        <img
+          src="/images/articulos/consignacion-billetera-adquiere.png"
+          alt="Módulo Billetera con el saldo en SubasCoins y dólares"
+          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>El pago de la oferta se hace directamente al vendedor</strong>, en dólares
+          americanos, según lo indicado en las condiciones de compra en el detalle de la
+          oferta.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q4: ¿Pagos adicionales? -->
+    <section aria-labelledby="pagos-adicionales" class="space-y-4">
+      <ChatQ id="pagos-adicionales">¿Hay pagos adicionales que hacer?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Tendrás que hacerte cargo de los gastos administrativos</strong> que puedan
+          surgir al momento de la transferencia del bien.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          En el caso de tener que cubrir otros gastos se te indicará en las <strong>Condiciones de Compra</strong> publicadas en el detalle de la oferta.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q5: Incumplimiento -->
+    <section aria-labelledby="incumplo-compra" class="space-y-4">
+      <ChatQ id="incumplo-compra">Si incumplo con la compra de una oferta, ¿qué pasa?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Si incumples con tus responsabilidades como ganador habilitado, deberás
+          pagar la comisión por el uso de nuestros servicios de igual manera.</strong> En
+          caso que tengas deudas con nosotros, el acceso a tu cuenta permanecerá restringido
+          y te impedirá usar nuestro servicio. También se te sancionará, significa que
+          aumentarás tu Riesgo Usuario.
+        </p>
+        <div class="alert-card mt-4 rounded-xl p-4 text-sm leading-relaxed">
+          <strong class="text-white">Has sido sancionado:</strong>
+          <ul class="mt-2 list-[square] space-y-1 pl-5 text-white/90 marker:text-white">
+            <li>Se inhabilitará tu cuenta durante <strong>siete (7) días calendario</strong>.</li>
+            <li>Se procederá a cobrar la comisión por <strong>uso de nuestro servicio</strong>.</li>
+            <li>Perdiste <strong>75 Puntos</strong>.</li>
+          </ul>
+        </div>
+        {/* TODO DESACTUALIZADA: reemplazar captura de la notificación de sanción */}
+        <img
+          src="/images/articulos/habilitado-sancion.png"
+          alt="Notificación Has sido sancionado: cuenta inhabilitada 7 días, cobro de la comisión y pérdida de 75 Puntos"
+          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">Importante:</strong> <span class="text-white/90">
+            Si incurres en <strong>tres incumplimientos de compra con un mismo
+            vendedor</strong>, se te suspenderá de manera permanente para participar en
+            cualquier proceso de dicho vendedor.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q6: Boleta/factura -->
+    <section aria-labelledby="comprobante-compra" class="space-y-4">
+      <ChatQ id="comprobante-compra">
+        Terminé el proceso de compra de la oferta y necesito mi comprobante de pago
+        (boleta/factura), ¿a quién y cómo lo solicito?
+      </ChatQ>
+      <ChatA>
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Todo comprobante por la compra de una oferta deberá ser <strong>solicitado directamente al vendedor</strong>.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q7: Comprobante de comisión -->
+    <section aria-labelledby="comprobante-comision" class="space-y-4">
+      <ChatQ id="comprobante-comision">¿Dónde encuentro el comprobante de pago de comisión?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Puedes encontrar tus comprobantes de pago por las comisiones pagadas ingresando a
+          tu <strong>Zona de Usuario</strong>, en <strong>“transacciones”</strong> dentro del
+          módulo <strong>Billetera</strong> y descargar los comprobantes.
+        </p>
+        <img
+          src="/images/articulos/habilitado-tu-historial.png"
+          alt="Tu Historial de transacciones con las ofertas y sus fechas para descargar los comprobantes"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,194 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import Button from "../../../components/Button.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title = "Canjea puntos VMC y mejora tu Riesgo Usuario · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué es el canje de Puntos VMC en VMC Subastas (operación final y definitiva que usa SubasCoins, 1 SubasCoin = 1 Punto VMC) y cómo canjearlos paso a paso desde Tu perfil en la Zona de Usuario para mejorar tu Riesgo Usuario de inmediato.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es el canje de Puntos VMC?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es una operación final y definitiva en la que el usuario usa SubasCoins para canjear Puntos VMC y mejora su Riesgo Usuario de forma inmediata.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo canjeo Puntos VMC?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ingresa a tu Zona de Usuario, sección Tu perfil; ahí encontrarás el botón Canjea Puntos VMC. La única manera de canjear Puntos VMC es usando SubasCoins: 1 SubasCoin es equivalente a 1 Punto VMC. Pasos: 1) en tu Zona de Usuario dale clic o tap a Tu perfil; 2) presiona el botón Canjea Puntos VMC; 3) elige cuántos Puntos VMC quieres canjear (o ingresa un monto libre) y dale clic o tap a Canjea; 4) confirma tu canje con ¡Confirmar! Y listo: canjeaste tus Puntos VMC y mejoraste tu Riesgo Usuario. Recuerda que canjear SubasCoins por Puntos VMC es una operación final y definitiva.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "El Riesgo Usuario", url: "/categorias/riesgo-usuario" },
+    { name: "Canjea puntos VMC y mejora tu Riesgo Usuario", url: "/categorias/riesgo-usuario/canjea-puntos-vmc-y-mejora-tu-riesgo-usuario" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="El Riesgo Usuario"
+    categorySlug="riesgo-usuario"
+    subtitle="Subastín te enseña a canjear tus Puntos VMC paso a paso desde Tu perfil."
+    updated={updated}
+  >
+    Canjea <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >Puntos VMC</span
+    > y mejora tu Riesgo Usuario
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      El canje de Puntos VMC es una operación final y definitiva en la que usas SubasCoins
+      para canjear Puntos VMC y mejorar tu Riesgo Usuario de forma inmediata (1 SubasCoin
+      equivale a 1 Punto VMC). Se hace desde la Zona de Usuario: entra a “Tu perfil”,
+      presiona “Canjea Puntos VMC”, elige cuántos puntos canjear y confirma la operación.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué es el canje? -->
+    <section aria-labelledby="que-es-canje" class="space-y-4">
+      <ChatQ id="que-es-canje">¿Qué es el canje de Puntos VMC?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Es una <strong class="text-orange-vmc">operación final y definitiva</strong> en
+          la que el usuario usa <a
+            href="/categorias/billetera/subascoins"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >SubasCoins</a
+          > para canjear <strong>Puntos VMC</strong> y <strong>mejora su Riesgo Usuario de forma inmediata</strong>.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          Mejora tu Riesgo Usuario y disfruta de <strong>sus beneficios</strong>.
+        </p>
+        <img
+          src="/images/articulos/canjea-perfil-puntos.png"
+          alt="Cabecera del perfil de usuario con el Riesgo del Perfil y los Puntos VMC"
+          class="mt-4 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        {/* TODO DESACTUALIZADA: reemplazar captura del modal con las 4 categorías de Riesgo */}
+        <img
+          src="/images/articulos/canjea-modal-categorias.png"
+          alt="Modal Puntos VMC con las 4 categorías: Riesgo alto (puntaje negativo), regular (0 a 149), bajo (150 a 299) y muy bajo (300 a más)"
+          class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Para conocer todas <strong>las condiciones de cada categoría</strong> de Riesgo
+            Usuario ingresa:
+          </p>
+        </div>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="/categorias/riesgo-usuario/el-riesgo-usuario-y-sus-categorias">AQUÍ</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Cómo canjeo? -->
+    <section aria-labelledby="como-canjeo" class="space-y-4">
+      <ChatQ id="como-canjeo">¿Cómo canjeo Puntos VMC?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Ingresa a tu Zona de Usuario, sección <strong>“Tu perfil”</strong>; ahí
+          encontrarás el botón de <strong class="text-orange-vmc">“Canjea Puntos
+          VMC”</strong>.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          La única manera de <strong>canjear Puntos VMC</strong> es <strong>usando SubasCoins</strong>. <strong class="text-orange-vmc">1 SubasCoin es equivalente a 1 Punto VMC.</strong>
+        </p>
+
+        <ol class="mt-4 list-decimal space-y-4 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+          <li>
+            En tu Zona de Usuario dale <strong>clic o tap a “Tu perfil”</strong>.
+            <img
+              src="/images/articulos/canjea-perfil-puntos.png"
+              alt="Zona de Usuario con el acceso a Tu Perfil"
+              class="mt-2 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            Presiona el botón <strong>“Canjea Puntos VMC”</strong>.
+            <img
+              src="/images/articulos/canjea-tu-perfil-boton.png"
+              alt="Tu Perfil con los Puntos VMC, el aviso de puntos por expirar y el botón Canjear Puntos VMC"
+              class="mt-2 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            Elige <strong>cuántos Puntos VMC quieres canjear</strong> (o ingresa un monto
+            libre) y dale <strong>clic o tap a “Canjea”</strong>.
+            <img
+              src="/images/articulos/canjea-selector-puntos.png"
+              alt="Pantalla ¡Canjea Puntos VMC usando tus SubasCoins! con opciones de 30, 50, 80 y 130 Puntos, monto libre y el botón Canjea"
+              class="mt-2 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            Ahora <strong>confirma tu canje</strong> con <strong class="text-orange-vmc">“¡Confirmar!”</strong>.
+            <img
+              src="/images/articulos/canjea-confirmar.png"
+              alt="Modal Ahora confirma tu canje: 50 SubasCoins por 50 Puntos VMC, con el botón Confirmar"
+              class="mx-auto mt-2 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+        </ol>
+
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong class="text-orange-vmc">¡Y listo!</strong> Canjeaste tus Puntos VMC y <strong>mejoraste tu Riesgo Usuario</strong>.
+        </p>
+        {/* TODO DESACTUALIZADA: reemplazar captura del canje exitoso */}
+        <img
+          src="/images/articulos/canjea-exito.png"
+          alt="Confirmación ¡Canjeaste 30 Puntos VMC con éxito! con el recordatorio de que es una operación final y definitiva"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 rounded-xl border-2 border-orange-vmc p-4 text-sm leading-relaxed">
+            <strong class="text-orange-vmc">Importante:</strong> <span class="text-vault-900/80">
+              Canjear SubasCoins por Puntos VMC es una <strong>operación final y definitiva</strong>.
+            </span>
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

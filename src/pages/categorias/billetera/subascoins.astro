@@ -1,0 +1,277 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import Button from "../../../components/Button.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title =
+  "SubasCoins: ¿Qué son, para qué sirven y cómo se adquieren? · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué son las SubasCoins de VMC Subastas, cómo adquirirlas, montos mínimos, tarjetas y métodos de pago aceptados, y el Fee por uso de pasarela.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué son las subascoins y para qué me sirven?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Son la moneda virtual que usamos en VMC. La equivalencia es de 1 US$ = 1 Subascoin. Podrás usar tus subascoins para consignar en las ofertas disponibles, pagar comisiones, penalizaciones, comprar subaspass o canjear puntos.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo adquiero Subascoins?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Solo debes iniciar sesión e ingresar a tu zona y dentro del card de Billetera darle al botón Adquiere SubasCoins.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuál es el monto mínimo y máximo de subascoins que puedo adquirir?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El monto mínimo que puedes adquirir en tu recarga es 30 subascoins. Puedes adquirir tus subascoins cuando lo desees, no hay un monto máximo y todo estará en tu cuenta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Puedo adquirir SubasCoins con cualquier tarjeta?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Puedes realizar la recarga con tarjeta de crédito o débito Visa, Mastercard, American Express, Diners Club, oh!, CMR, Ripley, Cencosud, pre-pagos y muchas más, siempre que se encuentre habilitada para compras por internet. Sí, sí puedes comprar SubasCoins con una tarjeta en soles: si tu tarjeta está asociada a una cuenta en soles, el banco realizará la conversión a dólares con el tipo de cambio que manejen en ese momento. La adquisición se procesa automáticamente, por lo que podrás disponer de tus SubasCoins de manera inmediata.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Existe algún recargo adicional por el uso de pasarela?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. A partir del 01 de agosto, las adquisiciones de SubasCoins realizadas a través de la pasarela de pagos Niubiz tendrán un recargo adicional del 5.90%, informado cumpliendo con la normativa de Indecopi (artículo 7 de la Ley 29571). Para evitarlo, puedes recargar tu saldo en dólares a través de ventanilla, agente o la app del BCP utilizando tu C.U.U., operación que carece del cobro de este Fee.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué es el Recibo VMC?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es la constancia que avala una operación de adquisición de SubasCoins o Recarga en la plataforma. Se emitirá el comprobante correspondiente al momento de utilizar los Dólares o SubasCoins en una operación final, derivada de los servicios prestados como lo es el pago de comisiones.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La billetera", url: "/categorias/billetera" },
+    { name: "SubasCoins: ¿Qué son, para qué sirven y cómo se adquieren?", url: "/categorias/billetera/subascoins" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La billetera"
+    categorySlug="billetera"
+    subtitle="Subastín responde las preguntas más frecuentes sobre las SubasCoins."
+    updated={updated}
+  >
+    SubasCoins: ¿Qué son, para qué sirven y <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >cómo se adquieren?</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Las SubasCoins son la moneda virtual de VMC Subastas: 1 US$ = 1 SubasCoin. Adquiérelas
+      desde tu zona, en la card de Billetera, con tarjeta de crédito o débito (incluida en
+      soles) desde 30 SubasCoins, sin monto máximo. Si usas la pasarela Niubiz se aplica un
+      recargo del 5.90%; recarga por el BCP con tu C.U.U. para evitarlo.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué son y para qué sirven? -->
+    <section aria-labelledby="que-son" class="space-y-4">
+      <ChatQ id="que-son">¿Qué son las subascoins y para qué me sirven?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Son la moneda virtual que usamos en VMC. La
+          equivalencia es de <strong>1 US$ = 1 Subascoin</strong>.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Podrás usar tus subascoins para consignar en las ofertas disponibles, pagar
+          comisiones, penalizaciones, comprar subaspass o canjear puntos.
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 text-sm text-vault-900/75">
+            Para más información sobre nuestras Condiciones y Términos:
+          </p>
+        </div>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="https://subastop.com/terminos-y-condiciones">¡Ingresa Aquí!</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Cómo adquiero Subascoins? -->
+    <section aria-labelledby="como-adquiero" class="space-y-4">
+      <ChatQ id="como-adquiero">¿Cómo adquiero Subascoins?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Solo debes iniciar sesión e ingresar a tu zona y dentro del card de <strong>Billetera</strong>
+          darle al botón <strong>Adquiere SubasCoins</strong>.
+        </p>
+        <ol class="mt-3 space-y-6 text-sm leading-relaxed text-vault-900/80">
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 1:</strong> En tu zona, dentro de la card de
+              <strong>Billetera</strong> dale clic al botón <strong>Adquiere SubasCoins</strong>.
+            </p>
+            <img
+              src="/images/articulos/subascoins-paso-1-billetera.jpg"
+              alt="Zona VMC con la card de Billetera y el botón Adquiere SubasCoins"
+              class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 2:</strong> Selecciona o ingresa la cantidad de
+              SubasCoins que deseas adquirir y dale clic a <strong>Sigamos</strong>. Recuerda que
+              1 SubasCoin es equivalente a US$ 1 (Un Dólar Americano).
+            </p>
+            <img
+              src="/images/articulos/subascoins-paso-2-monto.png"
+              alt="Pantalla Adquiere SubasCoins con opciones de 30, 50, 80 y 130 SubasCoins y campo de monto libre"
+              class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 3:</strong> Completa los datos de tu tarjeta
+              y confirma el pago. <strong>Recuerda activar las compras por internet con tu
+              banco.</strong>
+            </p>
+            <img
+              src="/images/articulos/subascoins-paso-3-pago.png"
+              alt="Pasarela de pago de VMC Subastas con formulario de tarjeta y botón Pagar"
+              class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+        </ol>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          ¡Listo! Verás la confirmación con las SubasCoins adquiridas, disponibles al instante
+          en tu Billetera.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q3: Monto mínimo y máximo -->
+    <section aria-labelledby="monto-minimo" class="space-y-4">
+      <ChatQ id="monto-minimo">
+        ¿Cuál es el monto mínimo y máximo de subascoins que puedo adquirir?
+      </ChatQ>
+      <ChatA>
+        <ul class="list-[square] space-y-3 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>El monto mínimo que puedes adquirir en tu recarga es <strong>30 subascoins</strong>.</li>
+          <li>
+            Puedes adquirir tus subascoins cuando lo desees, no hay un monto máximo y todo
+            estará en tu cuenta.
+          </li>
+        </ul>
+      </ChatA>
+    </section>
+
+    <!-- Q4: Tarjetas y métodos de pago -->
+    <section aria-labelledby="tarjetas" class="space-y-4">
+      <ChatQ id="tarjetas">¿Puedo adquirir SubasCoins con cualquier tarjeta?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Puedes realizar la recarga a través del pago con tarjeta de crédito o débito de las
+          siguientes marcas: Visa, Mastercard, American Express, Diners Club, oh!, CMR, Ripley,
+          Cencosud, pre-pagos, y muchas más...
+        </p>
+        <img
+          src="/images/articulos/subascoins-tarjetas.png"
+          alt="Logotipos de tarjetas aceptadas: Visa, Mastercard, Amex, Diners Club, oh!, Ripley, CMR, Cencosud y UnionPay"
+          class="mx-auto mt-4 w-full max-w-lg"
+          loading="lazy"
+        />
+        <div class="mt-4 flex items-start gap-4">
+          <ul class="flex-1 list-[square] space-y-3 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+            <li>
+              Solo debes asegurarte que se encuentre <strong>habilitada para compras por
+              internet</strong>.
+            </li>
+            <li>
+              En caso tu tarjeta esté asociada a una cuenta en soles, <strong>el banco
+              realizará la conversión a dólares</strong> y usará el tipo de cambio que manejen
+              en ese momento.
+            </li>
+            <li><strong>Sí, sí puedes comprar SubasCoins con una tarjeta en soles.</strong></li>
+            <li>
+              <strong>La adquisición de SubasCoins se procesa automáticamente</strong>, por lo
+              que podrás disponer de tus SubasCoins de manera inmediata.
+            </li>
+          </ul>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q5: ¿Existe algún recargo adicional por el uso de pasarela? -->
+    <section aria-labelledby="recargo-pasarela" class="space-y-4">
+      <ChatQ id="recargo-pasarela">¿Existe algún recargo adicional por el uso de pasarela?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Sí. A partir del <strong>01 de agosto</strong>, las adquisiciones de SubasCoins
+          realizadas a través de la pasarela de pagos Niubiz tendrán un <strong class="text-orange-vmc">recargo adicional del 5.90%</strong>, informado
+          cumpliendo con la normativa de Indecopi (artículo 7 de la Ley 29571).
+        </p>
+        <div class="alert-card mt-4 rounded-2xl px-5 py-4 text-sm leading-relaxed text-white">
+          <strong>¿Quieres evitarlo?</strong> Recarga tu saldo en dólares a través de ventanilla,
+          agente o la app del <strong>BCP</strong> utilizando tu C.U.U. Esta operación carece
+          del cobro de este Fee.
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q6: ¿Qué es el Recibo VMC? -->
+    <section aria-labelledby="recibo-vmc" class="space-y-4">
+      <ChatQ id="recibo-vmc">¿Qué es el Recibo VMC?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Es la constancia que avala una operación</strong> de adquisición de SubasCoins
+          o Recarga en la plataforma.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>Se emitirá el comprobante correspondiente</strong> al momento de utilizar los
+          Dólares o SubasCoins <strong>en una operación final</strong>, derivada de los
+          servicios prestados como lo es el pago de comisiones.
+        </p>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

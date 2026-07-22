@@ -1,0 +1,76 @@
+---
+/* Reacción de cierre — "¿Ha quedado contestada tu pregunta?" (réplica del widget de Intercom con estilo Concorde) */
+---
+
+<section
+  aria-labelledby="reaccion-pregunta"
+  class="reaction-picker rounded-3xl border border-vault-100 bg-white px-6 py-8 text-center shadow-[0_2px_10px_rgba(32,0,104,0.06)] sm:px-10"
+>
+  <h2
+    id="reaccion-pregunta"
+    class="bg-gradient-to-br from-vault-500 to-vault-700 bg-clip-text text-base font-bold text-transparent"
+  >
+    ¿Ha quedado contestada tu pregunta?
+  </h2>
+
+  <div class="mt-5 flex items-center justify-center gap-4" role="group" aria-label="Reacciones">
+    <button
+      type="button"
+      class="reaction-btn flex h-14 w-14 items-center justify-center rounded-full border-2 border-vault-100 bg-vault-50 text-2xl transition duration-200 [transition-timing-function:cubic-bezier(0.25,0.8,0.25,1)] hover:-translate-y-0.5 hover:border-vault-400 hover:shadow-[0_8px_16px_rgba(32,0,104,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vault-500"
+      data-reaction="disappointed"
+      data-message="Lo sentimos. Cuéntanos qué faltó: escríbenos y te ayudamos a resolverlo."
+      aria-pressed="false"
+      aria-label="Reacción: decepcionado/a"
+    >
+      <span aria-hidden="true" title="Decepcionado/a">😞</span>
+    </button>
+    <button
+      type="button"
+      class="reaction-btn flex h-14 w-14 items-center justify-center rounded-full border-2 border-vault-100 bg-vault-50 text-2xl transition duration-200 [transition-timing-function:cubic-bezier(0.25,0.8,0.25,1)] hover:-translate-y-0.5 hover:border-vault-400 hover:shadow-[0_8px_16px_rgba(32,0,104,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vault-500"
+      data-reaction="neutral"
+      data-message="Gracias por tu opinión. Seguimos mejorando este artículo."
+      aria-pressed="false"
+      aria-label="Reacción: imparcial"
+    >
+      <span aria-hidden="true" title="Imparcial">😐</span>
+    </button>
+    <button
+      type="button"
+      class="reaction-btn flex h-14 w-14 items-center justify-center rounded-full border-2 border-vault-100 bg-vault-50 text-2xl transition duration-200 [transition-timing-function:cubic-bezier(0.25,0.8,0.25,1)] hover:-translate-y-0.5 hover:border-vault-400 hover:shadow-[0_8px_16px_rgba(32,0,104,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vault-500"
+      data-reaction="smiley"
+      data-message="¡Genial! Gracias por confirmarlo."
+      aria-pressed="false"
+      aria-label="Reacción: sonriente"
+    >
+      <span aria-hidden="true" title="Sonriente">😃</span>
+    </button>
+  </div>
+
+  <p class="reaction-thanks mt-4 hidden text-sm font-semibold text-vault-700" role="status"></p>
+</section>
+
+<style>
+  .reaction-btn[aria-pressed="true"] {
+    border-color: var(--color-vault-500);
+    background-color: var(--color-vault-100);
+    box-shadow: 0 8px 16px rgba(32, 0, 104, 0.12);
+    transform: translateY(-2px);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".reaction-picker").forEach((picker) => {
+    const buttons = picker.querySelectorAll<HTMLButtonElement>(".reaction-btn");
+    const thanks = picker.querySelector<HTMLElement>(".reaction-thanks");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+        if (thanks) {
+          thanks.textContent = btn.dataset.message ?? "¡Gracias por tu feedback!";
+          thanks.classList.remove("hidden");
+        }
+      });
+    });
+  });
+</script>

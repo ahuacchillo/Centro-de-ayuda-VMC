@@ -1,0 +1,303 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import Button from "../../../components/Button.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title =
+  "¿Tienes una deuda y quieres participar en una oferta? · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué es una deuda con VMC Subastas, por qué se genera al incumplir como ganador habilitado, y cómo pagarla en su totalidad mediante una Recarga en el BCP o adquiriendo SubasCoins para volver a participar en las ofertas.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es una deuda y por qué tengo una con VMC Subastas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es el monto que tienes pendiente de pago para cubrir la(s) comisión(es), fee(s) o cualquier otro cobro por el uso de nuestro servicio. Si registras una deuda, es porque incumpliste tus responsabilidades como ganador habilitado en una o más ofertas. También puedes ver el modal de deuda en caso hayas incumplido tus responsabilidades como ganador habilitado.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuándo se generó mi deuda?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Al ser habilitado por el vendedor, te enviamos un correo para que compres la oferta. Si venció el plazo de dos días hábiles y dejaste de hacerla, se aplicarán las sanciones y penalizaciones respectivas, así como cualquier otro concepto indicado en las Condiciones de Compra.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Tengo que pagar el total de mi deuda?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Para volver a participar en las mejores ofertas, es necesario que pagues la totalidad de tu deuda que se muestra en tu Zona de Usuario.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo puedo pagar mi deuda?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Puedes realizarlo mediante una Recarga o adquiriendo SubasCoins. La Recarga es agregar fondos en US$ a tu Billetera en VMC a través de un depósito en ventanilla en una agencia del BCP o por transferencia electrónica por los medios digitales del BCP, a la cuenta recaudadora de VMC Subastas, usando tu Código Único de Usuario (C.U.U.). La validación de la recarga puede tomar hasta 24 horas hábiles en verse reflejada en tu Billetera.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué son los SubasCoins y cómo los adquiero?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es el nombre de nuestra moneda digital. El valor de 1.00 SubasCoin es equivalente a US$ 1 (un Dólar Americano) para efectos de uso solo en plataforma. Inicia sesión e ingresa al módulo de Billetera, en el botón Adquiere SubasCoins; puedes hacerlo desde cualquier dispositivo con conexión a internet.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "Responsabilidades y sanciones", url: "/categorias/responsabilidades-sanciones" },
+    { name: "¿Tienes una deuda y quieres participar en una oferta?", url: "/categorias/responsabilidades-sanciones/tienes-una-deuda-y-quieres-participar" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="Responsabilidades y sanciones"
+    categorySlug="responsabilidades-sanciones"
+    subtitle="¡Puedes volver a utilizar nuestro servicio! Subastín te explica cómo pagar tu deuda."
+    updated={updated}
+  >
+    ¿Tienes una <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >deuda</span
+    > y quieres participar en una oferta?
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      La deuda es el monto pendiente de pago por comisiones, fees o cualquier otro cobro
+      por el uso del servicio, y se genera cuando incumples tus responsabilidades como
+      ganador habilitado. Para volver a participar debes pagar la totalidad de la deuda
+      que se muestra en tu Zona de Usuario, ya sea mediante una Recarga en US$ por el BCP
+      (digital o ventanilla, con tu Código Único de Usuario) o adquiriendo SubasCoins
+      desde el módulo Billetera. La validación de una recarga puede tomar hasta 24 horas
+      hábiles.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué es una deuda? -->
+    <section aria-labelledby="que-es-deuda" class="space-y-4">
+      <ChatQ id="que-es-deuda">¿Qué es una deuda y por qué tengo una con VMC Subastas?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Es el monto que tienes <strong>pendiente de pago</strong> para cubrir la(s) <a
+            href="/categorias/compra-venta/la-comision-por-que-cuanto-y-como-se-paga"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >comisión(es)</a
+          >, fee(s) o cualquier otro cobro <strong>por el uso de nuestro servicio</strong>.
+        </p>
+        {/* TODO DESACTUALIZADA: reemplazar captura de la notificación de deuda */}
+        <img
+          src="/images/articulos/deuda-notificacion-vamos.png"
+          alt="Notificación ¡Las mejores ofertas te están esperando! con el monto de tu deuda y el botón ¡VAMOS!"
+          class="mx-auto mt-4 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Si registras una deuda, es porque <strong class="text-orange-vmc">incumpliste
+          tus responsabilidades</strong> como ganador habilitado en una o más ofertas.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          También puedes ver el <strong>modal de deuda</strong> en caso hayas incumplido
+          tus responsabilidades como ganador habilitado.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: Responsabilidades como ganador habilitado -->
+    <section aria-labelledby="responsabilidades-ganador" class="space-y-4">
+      <ChatQ id="responsabilidades-ganador"
+        >¿Cuáles son mis responsabilidades como ganador habilitado?</ChatQ
+      >
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Como <strong>ganador habilitado</strong>:
+        </p>
+        <div class="mt-3 flex items-center gap-4">
+          <ul class="flex-1 list-[square] space-y-3 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+            <li>
+              Eres responsable de <strong>concretar el proceso de compra de la oferta que
+              ganaste</strong>, según las instrucciones del vendedor y <strong>de acuerdo con los plazos e instrucciones que se indiquen en el
+              módulo “Tu Actividad”</strong>.
+            </li>
+            <li>
+              Declaras y reconoces que deberás <strong class="text-orange-vmc">pagar la comisión</strong>, por uso del
+              servicio respectivo y <strong>seguir las Condiciones de Compra</strong> según
+              se indica en el detalle de cada ofrecimiento, <strong>incluso si incurres en incumplimiento</strong>.
+            </li>
+          </ul>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q3: ¿Cuándo se generó mi deuda? -->
+    <section aria-labelledby="cuando-se-genero" class="space-y-4">
+      <ChatQ id="cuando-se-genero">¿Cuándo se generó mi deuda?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Al ser habilitado por el vendedor, <strong>te enviamos un correo para que compres
+          la oferta</strong>.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          Si venció el plazo de <strong class="text-orange-vmc">dos días hábiles</strong> y
+          dejaste de hacerla, <strong>se aplicarán las sanciones y penalizaciones
+          respectivas</strong>, así como cualquier otro concepto indicado en las
+          Condiciones de Compra.
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Para <strong>más información</strong> sobre nuestras <strong class="text-orange-vmc">Condiciones y Términos</strong> ingresa:
+          </p>
+        </div>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="https://subastop.com/terminos-y-condiciones">AQUÍ</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q4: ¿Pagar el total? -->
+    <section aria-labelledby="pagar-total" class="space-y-4">
+      <ChatQ id="pagar-total">¿Tengo que pagar el total de mi deuda?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Para volver a participar en las mejores ofertas, es necesario que pagues la <strong class="text-orange-vmc">totalidad de tu deuda</strong> que se muestra en
+          tu <strong>Zona de Usuario</strong>.
+        </p>
+        {/* TODO DESACTUALIZADA: reemplazar captura de la Billetera con deuda pendiente */}
+        <img
+          src="/images/articulos/deuda-billetera-pendiente.png"
+          alt="Billetera con la fila Deuda pendiente resaltada y el botón Adquiere SubasCoins"
+          class="mx-auto mt-4 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q5: ¿Cómo pagar? -->
+    <section aria-labelledby="como-pagar-deuda" class="space-y-4">
+      <ChatQ id="como-pagar-deuda">¿Cómo puedo pagar mi deuda?</ChatQ>
+      <ChatA>
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Puedes realizarlo mediante una <a
+              href="/categorias/billetera/la-recarga"
+              class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+              >recarga</a
+            > o adquiriendo <a
+              href="/categorias/billetera/subascoins"
+              class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+              >SubasCoins</a
+            >.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q6: ¿Qué es una recarga? -->
+    <section aria-labelledby="que-es-recarga" class="space-y-4">
+      <ChatQ id="que-es-recarga">¿Qué es una recarga y cómo la realizo?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Le decimos <strong>Recarga</strong> a la acción de <strong>agregar fondos en US$
+          a tu Billetera en VMC</strong> a través de <strong class="text-orange-vmc">un depósito en ventanilla</strong> en una agencia
+          del BCP <strong class="text-orange-vmc">o por transferencia electrónica</strong> por los medios digitales del BCP, a la cuenta recaudadora de VMC Subastas.
+        </p>
+        <p class="mt-4 text-sm font-bold text-vault-900">
+          Puedes realizarla de dos maneras:
+        </p>
+
+        <p class="mt-3 text-sm font-bold text-orange-vmc">
+          a. Mediante los medios digitales del BCP (Banca Electrónica y/o Banca Móvil)
+        </p>
+        <ol class="mt-2 list-decimal space-y-1.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-500">
+          <li>Haciendo tap o clic en <strong>“Pagos de Servicios”</strong> en el menú lateral.</li>
+          <li>Busca <strong>“VMC Subastas”</strong>.</li>
+          <li>Selecciona <strong>“Recarga”</strong>.</li>
+          <li>Te solicitará tu <strong>Código Único de Usuario</strong> y el <strong>monto</strong> que deseas recargar.</li>
+        </ol>
+
+        <p class="mt-4 text-sm font-bold text-orange-vmc">
+          b. En ventanilla, acercándote a cualquier agencia del BCP
+        </p>
+        <ol class="mt-2 list-decimal space-y-1.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-500">
+          <li>Indícale al cajero que deseas hacer un <strong>depósito a la cuenta recaudadora en dólares de VMC Subastas</strong>.</li>
+          <li>Elige el <strong>servicio de Recarga</strong>.</li>
+          <li>Luego, te pedirá tu <strong>Código Único de Usuario</strong> y el <strong>monto</strong> que deseas recargar.</li>
+        </ol>
+
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Recuerda que la <strong class="text-orange-vmc">validación de la recarga puede
+          tomar hasta 24 horas hábiles</strong> en verse reflejada en tu Billetera.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q7: ¿Dónde encuentro mi C.U.U.? -->
+    <section aria-labelledby="donde-cuu" class="space-y-4">
+      <ChatQ id="donde-cuu">¿Dónde encuentro mi Código Único de Usuario (C.U.U.)?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Encuentra tu <strong class="text-orange-vmc">C.U.U.</strong> en la <strong>parte superior de la plataforma</strong>; también lo puedes encontrar en
+          tu <strong>zona de usuario</strong>.
+        </p>
+        {/* TODO DESACTUALIZADA: reemplazar captura del C.U.U. en la zona de usuario */}
+        <img
+          src="/images/articulos/deuda-cuu-zona-usuario.png"
+          alt="Plataforma de VMC Subastas con el C.U.U. resaltado en la parte superior y en la zona de usuario"
+          class="mx-auto mt-4 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q8: ¿Qué son los SubasCoins? -->
+    <section aria-labelledby="que-son-subascoins" class="space-y-4">
+      <ChatQ id="que-son-subascoins">¿Qué son los SubasCoins y cómo los adquiero?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Es el nombre de nuestra <strong>moneda digital</strong>. El valor de <strong class="text-orange-vmc">1.00 SubasCoin es equivalente a US$ 1</strong> (un Dólar Americano) para efectos de uso solo en plataforma.
+        </p>
+        <div class="mt-3 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Inicia sesión e ingresa al módulo de <strong>Billetera</strong>, en el botón <strong>“Adquiere SubasCoins”</strong>. Puedes hacerlo desde cualquier
+            dispositivo con conexión a internet haciendo clic o tap:
+          </p>
+        </div>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="/categorias/billetera/subascoins">AQUÍ</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,175 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title =
+  "La oferta “En Vivo”: El proceso terminó. ¿Ahora, qué sigue? · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué pasa cuando termina el proceso En Vivo de VMC Subastas: cuándo se devuelve la consignación, qué es la oportunidad de compra del mejor postor o del 2do y 3er lugar, y la opción de compra que el vendedor puede ofrecerte aunque no hayas quedado primero.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "La consignación, ¿cuándo me la devuelven?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La consignación será devuelta a tu Billetera cuando haya concluido el proceso, a menos que: a) resultes Ganador Directo de un proceso En Vivo; b) resultes Mejor Postor de un proceso En Vivo; c) tengas oportunidad de compra al estar en el 2do o 3er lugar de una oferta En Vivo sin Precio Reserva; en ese caso, lo consignado se liberará a tu Billetera cuando culmine el proceso de compra. Si incumples tus responsabilidades como participante o tu categoría de Riesgo Usuario es Alto, tu consignación será liberada a las 23:59:59 horas del mismo día del proceso En Vivo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué es oportunidad de compra?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La oportunidad de compra es una condicional obtenida por el mejor postor en una oferta En Vivo con reserva, y por el 2do o 3er lugar en un proceso sin reserva. En caso de activarse la oportunidad de compra, el participante adquirirá las responsabilidades de ganador directo habilitado, siendo responsable de seguir con el proceso de compra, bajo pena de sanción en caso de incumplimiento.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quedé segundo en una oferta que cerró con precio reserva. ¿Aún tengo opciones de comprar?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El vendedor se reserva el derecho a brindarle la opción de compra a cualquier participante por debajo del 3er lugar en una oferta En Vivo sin precio reserva, y por debajo del 2do lugar en una oferta con precio reserva. En caso te den opción de compra, podrás rechazarla libre de sanciones; en caso aceptes la Opción de Compra, asumes todas las responsabilidades de un ganador habilitado.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La oferta “En Vivo”", url: "/categorias/oferta-en-vivo" },
+    {
+      name: "La oferta “En Vivo”: El proceso terminó. ¿Ahora, qué sigue?",
+      url: "/categorias/oferta-en-vivo/el-proceso-termino-que-sigue",
+    },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La oferta “En Vivo”"
+    categorySlug="oferta-en-vivo"
+    subtitle="Subastín te explica qué pasa con tu consignación, la oportunidad y la opción de compra."
+    updated={updated}
+  >
+    La oferta “En Vivo”: El proceso terminó. <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >¿Ahora, qué sigue?</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Al terminar un proceso “En Vivo”, la consignación se devuelve a tu Billetera salvo que
+      seas Ganador Directo, Mejor Postor o tengas oportunidad de compra. La oportunidad de
+      compra es una condicional del mejor postor en ofertas con reserva (o del 2do y 3er
+      lugar en procesos sin reserva): si el vendedor la activa, adquieres las
+      responsabilidades de ganador directo habilitado. El vendedor también puede ofrecerte
+      una opción de compra aunque hayas quedado más abajo: puedes rechazarla libre de
+      sanciones, pero si la aceptas asumes las responsabilidades de un ganador habilitado.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Cuándo devuelven la consignación? -->
+    <section aria-labelledby="cuando-devuelven" class="space-y-4">
+      <ChatQ id="cuando-devuelven">La consignación, ¿cuándo me la devuelven?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="bg-gradient-to-br from-vault-500 to-vault-700 bg-clip-text text-base font-bold text-transparent">
+          La consignación será devuelta a tu Billetera cuando haya concluido el proceso, a
+          menos que:
+        </p>
+        <ol class="mt-3 list-[lower-alpha] space-y-3 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+          <li>Resultes <strong>Ganador Directo</strong> de un proceso “En Vivo”.</li>
+          <li>Resultes <strong>Mejor Postor</strong> de un proceso “En Vivo”.</li>
+          <li>
+            Tienes oportunidad de compra <strong>al estar en el 2do o 3er lugar de una oferta
+            “En Vivo” sin Precio Reserva</strong>. En ese caso, lo consignado se liberará a tu
+            billetera cuando culmine el proceso de compra.
+          </li>
+        </ol>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>Si incumples tus responsabilidades</strong> como participante o tu <strong>categoría de Riesgo Usuario es Alto</strong>, tu consignación será
+          liberada a las <strong>23:59:59 horas</strong> del mismo día del proceso “En
+          vivo”.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Más detalle en el artículo <a
+            href="/categorias/consignacion/cuando-me-devuelven-la-consignacion"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >¿Cuándo me devuelven la consignación?</a
+          >
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Qué es oportunidad de compra? -->
+    <section aria-labelledby="oportunidad-compra" class="space-y-4">
+      <ChatQ id="oportunidad-compra">¿Qué es oportunidad de compra?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          La oportunidad de compra <strong>es una condicional obtenida por el mejor postor en
+          una oferta “En Vivo” con reserva y por el 2do o 3er lugar en un proceso sin
+          reserva</strong>.
+        </p>
+        <img
+          src="/images/articulos/envivo-ganado-la-oferta.png"
+          alt="Notificación de la Sala: Felicitaciones, has Ganado la Oferta con tu propuesta; revisa Tu Actividad para iniciar el proceso de compra"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          En caso de activarse la oportunidad de compra <strong>el participante adquirirá
+          las responsabilidades de ganador directo habilitado</strong> siendo responsable
+          de seguir con el proceso de compra, <strong>bajo pena de sanción en caso de incumplimiento</strong>.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q3: Opción de compra -->
+    <section aria-labelledby="opcion-compra" class="space-y-4">
+      <ChatQ id="opcion-compra">
+        Quedé segundo en una oferta que cerró con precio reserva. ¿Aún tengo opciones de
+        comprar?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>El vendedor se reserva el derecho a brindarle la opción de compra</strong> a cualquier participante por debajo del 3er lugar en una oferta en vivo sin precio
+          reserva y por debajo del 2do lugar en una oferta con precio reserva.
+        </p>
+        <img
+          src="/images/articulos/envivo-has-sido-habilitado.png"
+          alt="Notificación Felicidades, ¡has sido habilitado! con el monto y la fecha límite para concretar el proceso de compra"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>En caso te den opción de compra, podrás rechazarla libre de
+          sanciones.</strong> En caso aceptes la Opción de Compra asumes todas las
+          responsabilidades de un ganador habilitado.
+        </p>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

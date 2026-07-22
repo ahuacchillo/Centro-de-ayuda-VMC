@@ -1,0 +1,52 @@
+{
+  "features": [
+    {
+      "id": "feat-001",
+      "name": "Baseline verificable",
+      "description": "El proyecto instala dependencias y hace build estático limpio desde checkout (./init.sh)",
+      "dependencies": [],
+      "status": "done",
+      "evidence": "npm install + npm run build verificados 2026-07-06 via init.sh"
+    },
+    {
+      "id": "feat-002",
+      "name": "Fase C — Completar los 24 artículos (keystone)",
+      "description": "Maquetar los 22 artículos restantes de helpCenter.ts bajo la regla de formato con gate SEO/GEO por artículo (QuickAnswer + updated ISO + breadcrumb 3 niveles + FAQPage). El Arquitecto provee el contenido; ver docs/centro-ayuda-estrategia.md §2-3 y README",
+      "dependencies": [
+        "feat-001"
+      ],
+      "status": "done",
+      "evidence": "22/22 publicados (2026-07-08): registro 1/1, billetera 4/4, consignacion 2/2, visitas 1/1, negociable 1/1, en-vivo 4/4, financiamiento 1/1, habilitacion 1/1, compra-venta 2/2, responsabilidades-sanciones 3/3, riesgo-usuario 2/2. Eliminados del universo: SubasTour, VIDEOTUTORIALES de financiamiento (va a /videotutoriales) y transferencia a Subaswallet (el articulo ya no existe, decision 2026-07-08). Build 36 paginas + gate FAQPage/Breadcrumb/llms.txt verificado por articulo. Nota: tramo inicial del legacy de habilitacion sigue pendiente de capturas del Arquitecto."
+    },
+    {
+      "id": "feat-003",
+      "name": "Fase D — Migrar a subastop.com/ayuda y desplegar",
+      "description": "Configurar site + base '/ayuda' en astro.config.mjs, verificar canonical/sitemap/llms.txt coherentes, regla de proxy en la capa que enruta subastop.com. Bloqueado por pendiente #5 del doc de estrategia (qué hay delante del dominio)",
+      "dependencies": [
+        "feat-002"
+      ],
+      "status": "not-started",
+      "evidence": ""
+    },
+    {
+      "id": "feat-004",
+      "name": "Fase E — Medición desde cero",
+      "description": "Search Console del path /ayuda + analítica web (herramienta PENDIENTE DE DECIDIR) + monitoreo de citaciones IA (cadencia PENDIENTE DE DECIDIR). Validación absoluta contra fecha de deploy",
+      "dependencies": [
+        "feat-003"
+      ],
+      "status": "not-started",
+      "evidence": ""
+    },
+    {
+      "id": "feat-005",
+      "name": "Fase F — Videotutoriales en YouTube",
+      "description": "Publicar videos con título = pregunta del comprador, enlace bidireccional artículo⇄video, subtítulos correctos. Depende de producción de video del Arquitecto (pendiente #2)",
+      "dependencies": [
+        "feat-002"
+      ],
+      "status": "in-progress",
+      "evidence": "3 videos embebidos en /videotutoriales (2026-07-08): registro, consignacion, visitas — youtube-nocookie + VideoObject JSON-LD + enlace bidireccional articulo⇄video verificado en build. Pendiente: videos de los demas clusters y verificar subtitulos (lado Arquitecto)."
+    }
+  ]
+}

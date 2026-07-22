@@ -1,0 +1,204 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title = "La Comisión, ¿Por qué, cuánto y cómo se paga? · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué es la comisión de VMC Subastas, dónde ver el porcentaje en cada publicación, cómo se calcula sobre el bid del ganador habilitado (mínimo 50 SubasCoins), y cómo se debita automáticamente de tu Billetera.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Dónde puedo ver el porcentaje y cómo se calcula la comisión?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Puedes ver el porcentaje (%) de comisión que le corresponde a cada oferta en el detalle de su publicación. El monto se calcula así: Comisión = (bid del ganador) × (porcentaje de comisión). Si el resultado del cálculo está por debajo de los 50 SubasCoins, el ganador habilitado deberá pagar 50 SubasCoins como mínimo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Mi bid incluye la comisión?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. La comisión se calcula sobre el valor del bid de compra del ganador habilitado, es decir, se suma aparte de tu bid.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo se paga la comisión?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Al ser habilitado para comprar, la comisión será debitada de tu Billetera de manera automática. En caso de no contar con fondos suficientes para cubrir tu deuda, deberás adquirir SubasCoins o realizar una Recarga dentro del plazo indicado en el módulo Tu Actividad.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Por qué se paga comisión?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La comisión es un monto que todo ganador habilitado deberá pagar a VMC por concepto de uso del servicio.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "El proceso de compra venta", url: "/categorias/compra-venta" },
+    { name: "La Comisión, ¿Por qué, cuánto y cómo se paga?", url: "/categorias/compra-venta/la-comision-por-que-cuanto-y-como-se-paga" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="El proceso de compra venta"
+    categorySlug="compra-venta"
+    subtitle="Subastín te explica dónde ver el porcentaje, cómo se calcula y cómo se debita."
+    updated={updated}
+  >
+    La <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >Comisión</span
+    >, ¿Por qué, cuánto y cómo se paga?
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      La comisión es el monto que todo ganador habilitado paga a VMC por el uso del
+      servicio. El porcentaje se muestra en el detalle de cada publicación y se calcula
+      sobre el valor del bid del ganador habilitado: Comisión = bid × porcentaje, con un
+      mínimo de 50 SubasCoins. Se debita automáticamente de tu Billetera; si no tienes
+      fondos suficientes, adquiere SubasCoins o haz una Recarga dentro del plazo indicado
+      en el módulo “Tu Actividad”.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Dónde ver el % y cómo se calcula? -->
+    <section aria-labelledby="donde-ver-porcentaje" class="space-y-4">
+      <ChatQ id="donde-ver-porcentaje"
+        >¿Dónde puedo ver el porcentaje y cómo se calcula la comisión?</ChatQ
+      >
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Puedes ver el porcentaje <strong>“%”</strong> de comisión que le corresponde a
+          cada oferta <strong class="text-orange-vmc">en el detalle de su publicación</strong>.
+        </p>
+        <img
+          src="/images/articulos/comision-paso-1-detalle-oferta.png"
+          alt="Detalle de la oferta con el Precio Base y la comisión: 7.5% del valor de compra o mínimo 50 SubasCoins"
+          class="mx-auto mt-4 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong class="text-orange-vmc">Importante:</strong> el monto de la comisión a
+          pagar se calcula así:<br />
+          <strong>Comisión = (bid del ganador) × (porcentaje de comisión)</strong>
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Si después de realizar el cálculo el monto de comisión se encuentra por debajo de
+          los <strong>50 SubasCoins</strong>, el ganador habilitado deberá pagar <strong class="text-orange-vmc">50 SubasCoins como mínimo</strong>.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Mi bid incluye la comisión? -->
+    <section aria-labelledby="bid-incluye-comision" class="space-y-4">
+      <ChatQ id="bid-incluye-comision">¿Mi bid incluye la comisión?</ChatQ>
+      <ChatA>
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            <strong>No.</strong> La comisión se calcula <strong class="text-orange-vmc">sobre el valor del bid de compra del ganador
+            habilitado</strong>, es decir, se suma aparte de tu bid.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q3: ¿Cómo se paga? -->
+    <section aria-labelledby="como-se-paga" class="space-y-4">
+      <ChatQ id="como-se-paga">¿Cómo se paga la comisión?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Al ser habilitado para comprar, la comisión será <strong class="text-orange-vmc">debitada de tu Billetera de manera automática</strong>.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          En caso de contar con fondos insuficientes para cubrir tu deuda, deberás <a
+            href="/categorias/billetera/subascoins"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >adquirir SubasCoins</a
+          > o realizar una <a
+            href="/categorias/billetera/la-recarga"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >Recarga</a
+          > dentro del plazo indicado en el módulo <strong>“Tu Actividad”</strong>.
+        </p>
+        <ol class="mt-4 space-y-6 text-sm leading-relaxed text-vault-900/80">
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 1:</strong> Ingresa a tu Zona de Usuario y,
+              en el módulo <strong>“Tu Actividad”</strong>, entra a <strong>Proceso de Compra</strong>.
+            </p>
+            <img
+              src="/images/articulos/comision-paso-2-procesos-compra.png"
+              alt="Sección Procesos de Compra de Tu Actividad con el vehículo ganado y el botón Ver Detalle"
+              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 2:</strong> Verás el detalle con la
+              comisión, lo consignado y el monto pendiente. Dale clic o tap a <strong>“Paga la comisión aquí”</strong>.
+            </p>
+            {/* TODO DESACTUALIZADA: reemplazar captura del botón Paga la comisión aquí */}
+            <img
+              src="/images/articulos/comision-paso-3-paga-comision.png"
+              alt="Proceso de compra del ganador habilitado con la comisión, lo consignado, el pendiente y el botón Paga la comisión aquí"
+              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+        </ol>
+      </ChatA>
+    </section>
+
+    <!-- Q4: ¿Por qué se paga? -->
+    <section aria-labelledby="por-que-se-paga" class="space-y-4">
+      <ChatQ id="por-que-se-paga">¿Por qué se paga comisión?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          La comisión es un monto que todo ganador habilitado deberá pagar a VMC <strong class="text-orange-vmc">por concepto de uso del servicio</strong>.
+        </p>
+        {/* TODO DESACTUALIZADA: reemplazar captura del proceso de compra con Paga la comisión aquí */}
+        <img
+          src="/images/articulos/comision-paso-4-paga-comision-replay.png"
+          alt="Detalle del proceso de compra con el monto ganado, la fecha límite y el botón Paga la comisión aquí"
+          class="mx-auto mt-4 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

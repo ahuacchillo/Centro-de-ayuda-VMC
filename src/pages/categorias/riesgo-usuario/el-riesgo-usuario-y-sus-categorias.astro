@@ -1,0 +1,330 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import Button from "../../../components/Button.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title = "El Riesgo Usuario y sus categorías · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué es el Riesgo Usuario de VMC Subastas, sus 4 categorías (Muy Bajo, Bajo, Regular y Alto) con sus condiciones de participación y consignación, cómo se ganan y pierden Puntos VMC, y cómo mejorar tu categoría.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Cómo puedo saber cuál es mi categoría de Riesgo Usuario?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ingresando a tu Zona de Usuario, podrás ver tu Riesgo Usuario al lado de la cantidad de Puntos VMC. Todo usuario nuevo inicia con un Riesgo Usuario Regular y 0 Puntos VMC.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué es el Riesgo Usuario y cómo me asignan una categoría?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "VMC Subastas evalúa activamente la actividad de los usuarios en plataforma, asignándoles Puntos VMC según su actuar como participante y comprador, para generar un ambiente seguro donde puedas participar con confianza. Cuando cumples con tus responsabilidades como participante y ganador obtendrás Puntos VMC; caso contrario, los perderás.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuáles son las categorías de Riesgo Usuario?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Son 4 categorías: 1) Riesgo Muy Bajo: de 300 o más Puntos VMC; 2) Riesgo Bajo: de 150 a 299 Puntos VMC; 3) Riesgo Regular: de 0 a 149 Puntos VMC; 4) Riesgo Alto: todo puntaje negativo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuáles son las condiciones de cada categoría de Riesgo Usuario?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Riesgo Muy Bajo (300 a más Puntos VMC): se acumulan 15 Puntos VMC por oferta comprada y, por ser un usuario responsable, podrá participar sin necesidad de consignación. Riesgo Bajo (150 a 299): se asigna 1 Punto VMC por participación y 15 Puntos VMC por oferta comprada; puede consignar en Dólares y SubasCoins. Riesgo Regular (0 a 149): todo usuario inicia en esta categoría; se asignan 2 Puntos VMC por participación y 15 Puntos VMC por oferta comprada; puede participar consignando en Dólares y SubasCoins. Riesgo Alto (puntaje negativo): solo se acumulan 15 Puntos VMC por oferta comprada; participa consignando montos calculados sobre la cantidad de sanciones que el usuario tenga a la fecha, solo en SubasCoins, y toda consignación será devuelta a su Billetera a las 23:59:59 horas del mismo día de finalizado el proceso En Vivo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Por qué mi categoría de Riesgo Usuario es Alto?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cada vez que incumples con tus responsabilidades, ya sea como participante o ganador habilitado, pierdes Puntos VMC, y cuando tienes Puntos VMC negativos obtienes la categoría Alto. El incumplimiento como participante se sanciona con la pérdida de 15 Puntos VMC; el incumplimiento como vendedor y/o ganador habilitado, con la pérdida de 75 Puntos VMC. Cada incumplimiento es sancionado de manera independiente.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo puedo mejorar mi categoría de Riesgo Usuario?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Podrás hacerlo al usar el servicio adecuadamente, cumpliendo con las responsabilidades de participante y ganador habilitado respectivamente. También puedes mejorar tu Riesgo Usuario de forma inmediata canjeando tus Puntos VMC.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Puedo perder mis Puntos VMC? ¿Cuáles son los motivos?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí, por 4 razones principales: 1) incumplimiento de responsabilidad como participante: pérdida de 15 Puntos VMC; 2) incumplimiento de responsabilidades como ganador habilitado: pérdida de 75 Puntos VMC; 3) expiración: los Puntos VMC tienen una vigencia de 12 meses, transcurrido ese tiempo expirarán; 4) solicitud de congelamiento de cuenta: al solicitar la devolución de los Dólares disponibles en tu Billetera perderás todo puntaje positivo acumulado, y al solicitar el congelamiento de tu cuenta perderás tu nivel automáticamente.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "El Riesgo Usuario", url: "/categorias/riesgo-usuario" },
+    { name: "El Riesgo Usuario y sus categorías.", url: "/categorias/riesgo-usuario/el-riesgo-usuario-y-sus-categorias" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="El Riesgo Usuario"
+    categorySlug="riesgo-usuario"
+    subtitle="Subastín te explica las 4 categorías, sus condiciones y cómo mejorar la tuya."
+    updated={updated}
+  >
+    El <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >Riesgo Usuario</span
+    > y sus categorías
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      El Riesgo Usuario es la categoría que VMC Subastas asigna evaluando tu actividad en
+      la plataforma mediante Puntos VMC. Son 4 categorías: Muy Bajo (300 o más puntos,
+      participa sin consignación), Bajo (150 a 299), Regular (0 a 149, donde inicia todo
+      usuario nuevo) y Alto (puntaje negativo, consigna solo en SubasCoins montos según
+      sus sanciones). Cumplir tus responsabilidades suma puntos; incumplir como
+      participante resta 15 y como ganador habilitado resta 75. Puedes mejorar tu
+      categoría usando bien el servicio o canjeando Puntos VMC.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Cómo saber mi categoría? -->
+    <section aria-labelledby="como-saber-categoria" class="space-y-4">
+      <ChatQ id="como-saber-categoria"
+        >¿Cómo puedo saber cuál es mi categoría de Riesgo Usuario?</ChatQ
+      >
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Ingresando a tu <strong>Zona de Usuario</strong>, podrás ver tu <strong class="text-orange-vmc">Riesgo Usuario al lado de la cantidad de Puntos
+          VMC</strong>. Todo usuario nuevo inicia con un Riesgo Usuario <strong>“Regular”</strong> y <strong>0 Puntos VMC</strong>.
+        </p>
+        <img
+          src="/images/articulos/riesgo-perfil-puntos.png"
+          alt="Cabecera del perfil de usuario con el Riesgo del Perfil y los Puntos VMC"
+          class="mt-4 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Qué es el Riesgo Usuario? -->
+    <section aria-labelledby="que-es-riesgo" class="space-y-4">
+      <ChatQ id="que-es-riesgo"
+        >¿Qué es el Riesgo Usuario y cómo me asignan una categoría?</ChatQ
+      >
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          VMC Subastas <strong class="text-orange-vmc">evalúa activamente la actividad de
+          los usuarios en plataforma</strong>, asignándoles <strong>Puntos VMC según su actuar</strong> como participante y comprador.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          Queremos generar un <strong>ambiente seguro</strong> para vendedores y
+          compradores, en donde puedas participar con confianza.
+        </p>
+        <div class="mt-3 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Por lo tanto, <strong>cuando cumples con tus responsabilidades</strong> como
+            participante y ganador, <strong class="text-orange-vmc">obtendrás Puntos
+            VMC</strong>; caso contrario, los perderás.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q3: Las 4 categorías -->
+    <section aria-labelledby="categorias-riesgo" class="space-y-4">
+      <ChatQ id="categorias-riesgo">¿Cuáles son las categorías de Riesgo Usuario?</ChatQ>
+      <ChatA>
+        <p class="text-sm font-bold text-orange-vmc">Son 4 categorías:</p>
+        <ol class="mt-2 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+          <li><strong>Riesgo Muy Bajo:</strong> de 300 o más Puntos VMC.</li>
+          <li><strong>Riesgo Bajo:</strong> de 150 a 299 Puntos VMC.</li>
+          <li><strong>Riesgo Regular:</strong> de 0 a 149 Puntos VMC.</li>
+          <li><strong>Riesgo Alto:</strong> todo puntaje negativo.</li>
+        </ol>
+      </ChatA>
+    </section>
+
+    <!-- Q4: Condiciones por categoría -->
+    <section aria-labelledby="condiciones-categorias" class="space-y-4">
+      <ChatQ id="condiciones-categorias"
+        >¿Cuáles son las condiciones de cada categoría de Riesgo Usuario?</ChatQ
+      >
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Cada una de estas categorías comprende las <strong>siguientes condiciones</strong>:
+        </p>
+
+        <p class="mt-4 text-sm font-bold text-orange-vmc">
+          1. Riesgo Muy Bajo <span class="font-normal text-vault-900/80">(de 300 a más Puntos VMC)</span>
+        </p>
+        <ul class="mt-2 list-[square] space-y-1.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>En esta categoría se acumulan <strong>15 Puntos VMC por oferta comprada</strong>.</li>
+          <li>
+            Por ser un usuario responsable podrá <strong class="text-orange-vmc">participar sin necesidad de <a
+              href="/categorias/consignacion/consignar-es-necesario-para-participar"
+              class="font-bold underline decoration-2 underline-offset-2"
+              >consignación</a
+            ></strong>.
+          </li>
+        </ul>
+
+        <p class="mt-4 text-sm font-bold text-orange-vmc">
+          2. Riesgo Bajo <span class="font-normal text-vault-900/80">(de 150 a 299 Puntos VMC)</span>
+        </p>
+        <ul class="mt-2 list-[square] space-y-1.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>
+            En esta categoría se asigna <strong>1 Punto VMC por participación</strong> y <strong>15 Puntos VMC por oferta comprada</strong>.
+          </li>
+          <li>Puede consignar en <strong>Dólares y SubasCoins</strong>.</li>
+        </ul>
+
+        <p class="mt-4 text-sm font-bold text-orange-vmc">
+          3. Riesgo Regular <span class="font-normal text-vault-900/80">(de 0 a 149 Puntos VMC)</span>
+        </p>
+        <ul class="mt-2 list-[square] space-y-1.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>Todo usuario <strong>inicia en esta categoría</strong>.</li>
+          <li>
+            En esta categoría se asignan <strong>2 Puntos VMC por participación</strong> y <strong>15 Puntos VMC por oferta comprada</strong>.
+          </li>
+          <li>Puede participar consignando en <strong>Dólares y SubasCoins</strong>.</li>
+        </ul>
+
+        <p class="mt-4 text-sm font-bold text-orange-vmc">
+          4. Riesgo Alto <span class="font-normal text-vault-900/80">(todo puntaje negativo)</span>
+        </p>
+        <div class="mt-2 flex items-center gap-4">
+          <ul class="flex-1 list-[square] space-y-1.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+            <li>
+              En esta categoría solo se acumulan <strong>15 Puntos VMC por oferta
+              comprada</strong>.
+            </li>
+            <li>
+              Participa <strong>consignando montos calculados sobre la cantidad de
+              sanciones</strong> que el usuario tenga a la fecha.
+            </li>
+            <li>
+              Por ser un usuario de alto riesgo, solo podrá participar consignando montos
+              expresados en <strong>SubasCoins</strong>.
+            </li>
+            <li>
+              Toda consignación será <strong>devuelta a su Billetera a las 23:59:59
+              horas</strong> del mismo día de finalizado el proceso “En Vivo”.
+            </li>
+          </ul>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q5: ¿Por qué soy "Alto"? -->
+    <section aria-labelledby="por-que-alto" class="space-y-4">
+      <ChatQ id="por-que-alto">¿Por qué mi categoría de Riesgo Usuario es “Alto”?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Cada vez que incumples con tus <a
+            href="/categorias/responsabilidades-sanciones/responsabilidades-de-los-participantes"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >responsabilidades</a
+          >, ya sea como participante o ganador habilitado, perderás Puntos VMC, y <strong class="text-orange-vmc">cuando tienes Puntos VMC negativos, obtienes la
+          categoría “Alto”</strong>.
+        </p>
+        <ul class="mt-3 list-[square] space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>
+            En caso de incumplimiento de tus responsabilidades como <strong>participante</strong>, serás sancionado con la <strong>pérdida de 15 Puntos VMC</strong>.
+          </li>
+          <li>
+            En caso de incumplimiento de tus responsabilidades como <strong>vendedor y/o ganador habilitado</strong>, serás sancionado con la <strong>pérdida de 75 Puntos VMC</strong>.
+          </li>
+        </ul>
+        <div class="mt-4 rounded-xl border-2 border-orange-vmc p-4 text-center text-sm leading-relaxed">
+          <strong class="text-orange-vmc">Importante:</strong> <span class="text-vault-900/80">
+            Cada incumplimiento es sancionado de manera independiente.
+          </span>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q6: ¿Cómo mejorar mi categoría? -->
+    <section aria-labelledby="como-mejorar" class="space-y-4">
+      <ChatQ id="como-mejorar">¿Cómo puedo mejorar mi categoría de Riesgo Usuario?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Podrás hacerlo <strong>al usar nuestro servicio adecuadamente</strong>,
+          cumpliendo con las responsabilidades de participante y ganador habilitado
+          respectivamente.
+        </p>
+        <div class="mt-3 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Si quieres mejorar tu Riesgo Usuario de forma inmediata, <strong class="text-orange-vmc">puedes
+            canjear tus Puntos VMC</strong> ingresando:
+          </p>
+        </div>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="/categorias/riesgo-usuario/canjea-puntos-vmc-y-mejora-tu-riesgo-usuario">AQUÍ</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q7: ¿Puedo perder Puntos VMC? -->
+    <section aria-labelledby="perder-puntos" class="space-y-4">
+      <ChatQ id="perder-puntos">¿Puedo perder mis Puntos VMC? ¿Cuáles son los motivos?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Sí</strong>, por las siguientes <strong>4 razones principales</strong>:
+        </p>
+        <ul class="mt-3 list-[square] space-y-2.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>
+            <strong class="text-orange-vmc">Incumplimiento de responsabilidad como
+            participante:</strong> el usuario será sancionado con la pérdida de <strong>15 Puntos VMC</strong>.
+          </li>
+          <li>
+            <strong class="text-orange-vmc">Incumplimiento de responsabilidades como
+            ganador habilitado:</strong> el usuario será sancionado con la pérdida de <strong>75 Puntos VMC</strong>.
+          </li>
+          <li>
+            <strong class="text-orange-vmc">Expiración:</strong> los Puntos VMC tienen una <strong>vigencia de 12 meses</strong>; transcurrido ese tiempo, los Puntos VMC
+            expirarán.
+          </li>
+          <li>
+            <strong class="text-orange-vmc">Solicitud de congelamiento de cuenta:</strong> al solicitar la devolución de los Dólares disponibles en tu Billetera, perderás
+            todo puntaje positivo acumulado. <strong>Al solicitar el congelamiento de tu
+            cuenta perderás tu nivel automáticamente.</strong>
+          </li>
+        </ul>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,160 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import Button from "../../../components/Button.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-07";
+const title = "¿Cuándo me devuelven la consignación? · Centro de Ayuda VMC Subastas";
+const description =
+  "Cuándo se devuelve la consignación a tu Billetera en VMC Subastas, las excepciones (Ganador Directo, Mejor Postor, oportunidad de compra), la liberación a las 23:59:59 por Riesgo Usuario Alto o incumplimiento, y por qué pueden devolverte SubasCoins en vez de dólares.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-07",
+  dateModified: "2026-07-07",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "La consignación, ¿cuándo me la devuelven?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La consignación será devuelta a tu Billetera cuando haya concluido el proceso, a menos que: a) resultes Ganador Directo de un proceso En Vivo; b) resultes Mejor Postor de un proceso En Vivo; c) tengas oportunidad de compra al estar en el 2do o 3er lugar de una oferta En Vivo sin Precio Reserva; en ese caso, lo consignado se liberará a tu Billetera cuando culmine el proceso de compra. Si incumples tus responsabilidades como participante o tu categoría de Riesgo Usuario es Alto, tu consignación será liberada a las 23:59:59 horas del mismo día del proceso En Vivo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Por qué mi Riesgo Usuario es Alto, y por qué eso impacta en la liberación de mi consignación?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "VMC califica de manera constante a todo usuario desde la creación de su cuenta: el usuario puede ganar o perder Puntos al cumplir o incumplir con sus responsabilidades como participante o ganador. Al incumplir pierdes Puntos, y toda calificación negativa significa el nivel de Riesgo Usuario Alto. Cada vez que participes de un proceso En Vivo, la consignación se liberará a las 23:59:59 horas del mismo día del proceso.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Hice una consignación en dólares pero me han devuelto el equivalente en SubasCoins, ¿qué pasó?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Esto se debe a que has sido sancionado por incumplir tus responsabilidades como participante. Encuentras más información en el artículo de Responsabilidades y Sanciones.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La consignación", url: "/categorias/consignacion" },
+    {
+      name: "¿Cuándo me devuelven la consignación?",
+      url: "/categorias/consignacion/cuando-me-devuelven-la-consignacion",
+    },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La consignación"
+    categorySlug="consignacion"
+    subtitle="¡Participa responsablemente! Subastín te explica cuándo se libera tu consignación."
+    updated={updated}
+  >
+    ¿Cuándo me devuelven la <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >consignación?</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      La consignación se devuelve a tu Billetera cuando concluye el proceso, salvo que
+      resultes Ganador Directo, Mejor Postor, o tengas oportunidad de compra por estar en el
+      2do o 3er lugar de una oferta “En Vivo” sin Precio Reserva; ahí se libera al culminar
+      el proceso de compra. Si incumples tus responsabilidades como participante o tu Riesgo
+      Usuario es “Alto”, se libera a las 23:59:59 horas del mismo día del proceso “En Vivo”.
+      Si te devolvieron SubasCoins en vez de dólares, fue por una sanción.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Cuándo me la devuelven? -->
+    <section aria-labelledby="cuando-devuelven" class="space-y-4">
+      <ChatQ id="cuando-devuelven">La consignación, ¿cuándo me la devuelven?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="bg-gradient-to-br from-vault-500 to-vault-700 bg-clip-text text-base font-bold text-transparent">
+          La consignación será devuelta a tu Billetera cuando haya concluido el proceso, a
+          menos que:
+        </p>
+        <ol class="mt-3 list-[lower-alpha] space-y-3 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+          <li>Resultes <strong>Ganador Directo</strong> de un proceso “En Vivo”.</li>
+          <li>Resultes <strong>Mejor Postor</strong> de un proceso “En Vivo”.</li>
+          <li>
+            Tienes oportunidad de compra <strong>al estar en el 2do o 3er lugar de una oferta
+            “En Vivo” sin Precio Reserva</strong>. En ese caso, lo consignado se liberará a tu
+            billetera cuando culmine el proceso de compra.
+          </li>
+        </ol>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>Si incumples tus responsabilidades</strong> como participante o tu <strong>categoría de Riesgo Usuario es Alto</strong>, tu consignación será
+          liberada a las <strong>23:59:59 horas</strong> del mismo día del proceso “En
+          vivo”.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: Riesgo Usuario Alto -->
+    <section aria-labelledby="riesgo-alto" class="space-y-4">
+      <ChatQ id="riesgo-alto">
+        ¿Por qué mi Riesgo Usuario es Alto, y por qué eso impacta en la liberación de mi
+        consignación?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>VMC califica de manera constante a todo usuario desde la creación de su
+          cuenta.</strong> Por lo tanto el usuario puede ganar o perder Puntos, al cumplir o
+          incumplir con sus responsabilidades como participante o ganador.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Al incumplir pierdes Puntos y <strong>toda calificación negativa significa el
+          nivel de Riesgo Usuario <span class="text-orange-vmc">“Alto”</span></strong>.
+          Cada vez que participes de un proceso “En Vivo”, la consignación se liberará a
+          las <strong>23:59:59 horas</strong> del mismo día del proceso “En vivo”.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q3: Me devolvieron SubasCoins -->
+    <section aria-labelledby="devuelto-subascoins" class="space-y-4">
+      <ChatQ id="devuelto-subascoins">
+        Hice una consignación en dólares pero me han devuelto el equivalente en SubasCoins,
+        ¿qué pasó?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong class="text-orange-vmc">Esto se debe a que has sido sancionado</strong> por
+          incumplir tus responsabilidades como participante.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>Más info</strong> en el artículo <strong class="text-orange-vmc">Responsabilidades y Sanciones</strong>.
+        </p>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="/categorias/responsabilidades-sanciones/responsabilidades-de-los-participantes">AQUÍ</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

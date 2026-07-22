@@ -1,0 +1,233 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import Button from "../../../components/Button.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title = "¡Consignar es necesario para participar! · Centro de Ayuda VMC Subastas";
+const description =
+  "Cómo y cuánto consignar para participar en las ofertas de VMC Subastas: el débito automático desde tu Billetera, el compromiso de enviar al menos un bid válido, la restricción por Riesgo Usuario Alto en ofertas financiables y cómo consignar en ofertas Negociables.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Cómo y cuánto debo consignar para poder participar?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Para ver el monto a consignar, inicia sesión, ingresa al detalle de la oferta de tu interés y dale clic o tap a Participa. Podrás ver el monto a consignar: haz clic o tap sobre Acepto y automáticamente el sistema debitará de tu Billetera el monto indicado, y tendrás el acceso al proceso en la sala. Recuerda que al aceptar eres responsable, como participante, de enviar al menos un bid válido durante el proceso En Vivo o serás sancionado.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quiero participar en una oferta financiable, pero se me impide consignar. ¿Qué puedo hacer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Si tu Riesgo Usuario es Alto, se te restringirá la consignación en ofertas financiables. Puedes mejorar tu Riesgo Usuario canjeando Puntos VMC o, en su defecto, adquirir un Subaspass para participar en todas las subastas sin importar tu nivel de riesgo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo y cuánto debo consignar para poder participar en una oferta Negociable?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "En una oferta Negociable, al iniciar una negociación el sistema debitará automáticamente el monto indicado a consignar e iniciarás tu negociación con el vendedor.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo agrego valor a mi billetera para consignar?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Puedes hacerlo adquiriendo SubasCoins desde tu Billetera, o haciendo una Recarga en US$ a través de los medios digitales del BCP o en ventanilla de una agencia del BCP. Adquirir SubasCoins con tarjeta genera el Fee por uso de pasarela, equivalente al 3.9% del valor de los SubasCoins adquiridos; la Recarga es la opción sin este cobro.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La consignación", url: "/categorias/consignacion" },
+    {
+      name: "¡Consignar es necesario para participar!",
+      url: "/categorias/consignacion/consignar-es-necesario-para-participar",
+    },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La consignación"
+    categorySlug="consignacion"
+    subtitle="Subastín te explica cómo consignar, cuándo y cuánto."
+    updated={updated}
+  >
+    ¡Consignar es necesario para <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >participar!</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Para participar en una oferta de VMC Subastas debes consignar: entra al detalle de la
+      oferta, dale clic o tap a “Participa” (o inicia la negociación en una oferta
+      “Negociable”) y, al aceptar, el sistema debita automáticamente de tu Billetera el monto
+      indicado y te da acceso a la sala. Al consignar te comprometes a enviar al menos un bid
+      válido durante el proceso “En Vivo”, o serás sancionado. Si tu Riesgo Usuario es
+      “Alto”, no podrás consignar en ofertas financiables.
+    </QuickAnswer>
+
+    <p class="text-center text-sm text-vault-700/70">
+      🎬 ¿Prefieres verlo en video? Mira <a
+        href="https://youtu.be/BArqY0cM39I"
+        class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+        >“¡Consignar es necesario para participar!”</a
+      > en YouTube.
+    </p>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Cómo y cuánto consignar? -->
+    <section aria-labelledby="como-consignar" class="space-y-4">
+      <ChatQ id="como-consignar">¿Cómo y cuánto debo consignar para poder participar?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Para ver el monto a consignar</strong>, debes iniciar sesión, ingresar al
+          detalle de la oferta de tu interés y luego darle clic o tap a <strong>“Participa”</strong> 👇
+        </p>
+        <img
+          src="/images/articulos/consignacion-paso-1-participa.png"
+          alt="Detalle de una oferta en VMC Subastas con el botón Participa y el precio base"
+          class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Podrás <strong>ver el monto a consignar</strong>. Haz clic o tap sobre <strong>acepto</strong> y automáticamente el sistema <strong>debitará de tu Billetera</strong> el monto indicado y tendrás el acceso al
+          proceso en la sala.
+        </p>
+        <img
+          src="/images/articulos/consignacion-paso-2-acepto.png"
+          alt="Modal de consignación con el monto en SubasCoins o US$, el aviso de conexión a la sala En Vivo y el botón Acepto"
+          class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Recuerda que al aceptar <strong>eres responsable como participante, de enviar al
+          menos un bid válido</strong> durante el proceso “En Vivo” <strong>o serás sancionado</strong>.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: Riesgo Usuario Alto -->
+    <section aria-labelledby="riesgo-alto" class="space-y-4">
+      <ChatQ id="riesgo-alto">
+        Quiero participar en una oferta financiable, pero se me impide consignar. ¿Qué puedo
+        hacer?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Si tu <strong>Riesgo Usuario es “Alto”</strong>, se te restringirá la consignación
+          en ofertas financiables.
+        </p>
+        <img
+          src="/images/articulos/consignacion-riesgo-canjear-puntos.png"
+          alt="Tu Perfil en VMC Subastas mostrando el nivel de Riesgo y el botón Canjear Puntos VMC"
+          class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Puedes <strong>mejorar tu Riesgo Usuario canjeando Puntos VMC</strong> o, en su
+          defecto, <strong>adquirir un Subaspass</strong> para participar en todas las
+          subastas sin importar tu nivel de riesgo. Aprende cómo canjear tus puntos:
+        </p>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="/categorias/riesgo-usuario/canjea-puntos-vmc-y-mejora-tu-riesgo-usuario">AQUÍ</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q3: Consignar en Negociable -->
+    <section aria-labelledby="consignar-negociable" class="space-y-4">
+      <ChatQ id="consignar-negociable">
+        ¿Cómo y cuánto debo consignar para poder participar en una oferta “Negociable”?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          En una oferta “Negociable”, <strong>al iniciar una negociación, el sistema debitará
+          automáticamente el monto indicado a consignar</strong> e iniciarás tu negociación
+          con el vendedor.
+        </p>
+        <img
+          src="/images/articulos/consignacion-negociable-paso-1-negocia.png"
+          alt="Detalle de una oferta Negociable con el botón Negocia ahora"
+          class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <img
+          src="/images/articulos/consignacion-negociable-paso-2-proponer.png"
+          alt="Modal de negociación con el monto de consignación, el campo para digitar la propuesta y el botón Proponer"
+          class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q4: ¿Cómo agrego valor a mi billetera? -->
+    <section aria-labelledby="agregar-valor" class="space-y-4">
+      <ChatQ id="agregar-valor">¿Cómo agrego valor a mi billetera para consignar?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Puedes hacerlo adquiriendo <a
+            href="/categorias/billetera/subascoins"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >SubasCoins</a
+          >
+        </p>
+        <img
+          src="/images/articulos/consignacion-billetera-adquiere.png"
+          alt="Módulo Billetera con el botón Adquiere SubasCoins"
+          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          o haciendo una <a
+            href="/categorias/billetera/la-recarga"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >recarga</a
+          >, aprende cómo hacerlo:
+        </p>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="/categorias/billetera/la-recarga">AQUÍ</Button>
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>Recuerda:</strong> adquirir SubasCoins con tarjeta genera el <a
+            href="/categorias/billetera/fee-por-uso-de-pasarela"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >Fee por uso de pasarela</a
+          > (<strong class="text-orange-vmc">3.9% del valor de los SubasCoins
+          adquiridos</strong>); la <strong>Recarga es la opción sin este cobro</strong>.
+        </p>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

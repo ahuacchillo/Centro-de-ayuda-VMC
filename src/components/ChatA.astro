@@ -1,0 +1,18 @@
+---
+/* Burbuja de respuesta — Subastín responde, lado izquierdo */
+interface Props {
+  class?: string;
+  style?: string;
+}
+const { class: cls = "", style } = Astro.props;
+---
+
+<div
+  style={style}
+  class:list={[
+    "msg-card rounded-2xl rounded-tl-md px-5 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] sm:px-6 sm:py-5",
+    cls,
+  ]}
+>
+  <slot />
+</div>

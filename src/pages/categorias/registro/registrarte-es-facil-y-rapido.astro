@@ -1,0 +1,261 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import Button from "../../../components/Button.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-22";
+const title = "¡Registrarte es fácil y rápido! · Centro de Ayuda VMC Subastas";
+const description =
+  "Cómo registrarte en VMC Subastas paso a paso: persona natural o jurídica, recuperación de contraseña y solución a errores del formulario de registro.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-22",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Cómo me registro?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "¡Es muy fácil y rápido! Ingresa a vmcsubastas.com, haz clic en Ingresar y luego en Regístrate para completar los pasos.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Puedo registrarme como persona jurídica?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Claro que sí. Para registrarte como persona jurídica, debes ir hacia la zona 'Quiero Recibir' en el mismo formulario y seleccionar que deseas recibir FACTURA. Es importante que tomes en cuenta que de elegir esta opción, los comprobantes se emitirán a nombre de la razón social de la empresa registrada. Una vez que te registres como persona jurídica, todas tus compras se realizarán con factura; si te registras como persona natural solo recibirás boleta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "He olvidado mi contraseña, ¿cómo puedo recuperar el ingreso a mi cuenta?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Recuperar tu contraseña es demasiado fácil. Solo debes ir a la zona de ¿Olvidaste tu contraseña?",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Estoy intentando registrarme, pero el formulario me impide realizarlo, ¿qué puedo hacer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Si en caso te hayas registrado anteriormente, el sistema te impedirá un nuevo registro: solo debes iniciar sesión y, si no recuerdas tu clave, restablecer la contraseña. En caso que un familiar haya usado tu correo o número de celular para su registro, no podrás usar el mismo para crear tu cuenta. Solo debes crear la cuenta con tus datos: no se permiten registros de terceros.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "El registro", url: "/categorias/registro" },
+    { name: "¡Registrarte es fácil y rápido!", url: "/categorias/registro/registrarte-es-facil-y-rapido" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="El registro"
+    categorySlug="registro"
+    subtitle="Subastín responde las preguntas más frecuentes sobre el registro."
+    updated={updated}
+  >
+    ¡Registrarte es <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >fácil y rápido!</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Regístrate gratis en subastop.com completando los pasos del formulario con tus datos
+      tal como figuran en tu DNI. Puedes registrarte como persona jurídica haciendo clic en
+      “FACTURA”. Recuerda, si olvidaste tu contraseña, restablécela desde: ¿Olvidaste tu
+      contraseña?
+    </QuickAnswer>
+
+    <p class="text-center text-sm text-vault-700/70">
+      🎬 ¿Prefieres verlo en video? Mira <a
+        href="https://youtu.be/DGFzz3IY_hg"
+        class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+        >“¿Cómo me registro?”</a
+      > en YouTube.
+    </p>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <section aria-label="Presentación de Subastín" class="msg space-y-3" style="--d:.1s">
+      <div class="flex items-center gap-3">
+        <span
+          aria-hidden="true"
+          class="avatar-fill flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-extrabold text-white ring-2 ring-white"
+          >S</span
+        >
+        <span class="bg-gradient-to-br from-vault-500 to-vault-700 bg-clip-text text-base font-bold leading-none tracking-wide text-transparent">Subastín</span>
+      </div>
+      <div
+        class="msg-card rounded-2xl rounded-tl-md px-5 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] sm:px-6 sm:py-5"
+      >
+        <p class="bg-gradient-to-br from-vault-500 to-vault-700 bg-clip-text text-base font-extrabold text-transparent">
+          ¡Hola! Soy Subastín
+        </p>
+        <p class="mt-1 text-sm text-vault-900/75">
+          ¡Y estoy aquí para ayudarte a resolver tus dudas!
+        </p>
+      </div>
+    </section>
+
+    <!-- Q1: ¿Cómo me registro? -->
+    <section aria-labelledby="como-me-registro" class="space-y-4">
+      <ChatQ id="como-me-registro">¿Cómo me registro?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="bg-gradient-to-br from-vault-500 to-vault-700 bg-clip-text text-base font-extrabold text-transparent">
+          ¡Es muy fácil y rápido!
+        </p>
+        <ol class="mt-4 space-y-6 text-sm leading-relaxed text-vault-900/80">
+          <li>
+            <p><strong class="text-vault-700">Paso 1:</strong> Ingresa a <a href="https://www.vmcsubastas.com/" class="font-semibold text-orange-vmc underline hover:no-underline">vmcsubastas.com</a> y haz clic en el botón <strong>Ingresar</strong>.</p>
+            <img
+              src="/images/articulos/registro-home-ingresar.jpg"
+              alt="Página de inicio de VMC Subastas con el botón Ingresa en la esquina superior derecha"
+              class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+            <p class="mt-2"><strong class="text-vault-700">Paso 2:</strong> Podrás ver la pantalla de Bienvenida. Ahora haz clic en el botón <strong>Regístrate</strong>.</p>
+            <img
+              src="/images/articulos/registro-login.png"
+              alt="Pantalla de bienvenida de VMC Subastas con el botón Regístrate"
+              class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 3:</strong> Completa tus Datos Personales.
+            </p>
+            <img
+              src="/images/articulos/registro-datos-personales.png"
+              alt="Formulario de Datos Personales: nombres, apellidos, DNI, celular, correo y contraseña"
+              class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 4:</strong> Marca las casillas para aceptar las <strong>Condiciones y Términos</strong> y la Política de privacidad.
+            </p>
+            <img
+              src="/images/articulos/registro-condiciones-terminos.png"
+              alt="Sección de Condiciones y Términos con las casillas de aceptación marcadas"
+              class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+        </ol>
+        <p class="mt-5 text-center text-sm font-semibold text-vault-900/80">
+          ¿Estás listo para registrarte?
+        </p>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="https://www.vmcsubastas.com/registro">Ingresa al formulario</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: Persona jurídica -->
+    <section aria-labelledby="persona-juridica" class="space-y-4">
+      <ChatQ id="persona-juridica">
+        ¿Puedo registrarme como persona jurídica?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Claro que sí. Para registrarte como persona jurídica, debes ir hacia la zona
+          <strong>“Quiero Recibir”</strong> en el mismo formulario y seleccionar que deseas
+          recibir <strong>“FACTURA”</strong>. Es importante que tomes en cuenta que de elegir
+          esta opción, los comprobantes se emitirán a nombre de la razón social de la empresa
+          registrada.
+        </p>
+        <img
+          src="/images/articulos/registro-factura-ruc.png"
+          alt="Sección Quiero Recibir del registro con la opción Factura seleccionada y el campo RUC"
+          class="mt-4 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <div class="alert-card mt-4 rounded-2xl px-5 py-4 text-sm leading-relaxed text-white">
+          <strong>¡ATENCIÓN:</strong> Una vez que te registres como persona jurídica, todas tus
+          compras se realizarán con factura. Si te registras como persona natural solo
+          recibirás boleta.
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q3: Olvido de contraseña -->
+    <section aria-labelledby="olvido-contrasena" class="space-y-4">
+      <ChatQ id="olvido-contrasena">
+        He olvidado mi contraseña, ¿cómo puedo recuperar el ingreso a mi cuenta?
+      </ChatQ>
+      <ChatA class="flex items-center gap-5">
+        <div class="flex-1">
+          <p class="text-sm leading-relaxed text-vault-900/80">
+            Recuperar tu contraseña es demasiado fácil. Solo debes ir a la zona de
+            <strong>¿Olvidaste tu contraseña?</strong>
+          </p>
+          <p class="mt-3 text-center">
+            <Button variant="primary" href="https://www.vmcsubastas.com/login/recordar">Recupérala Aquí</Button>
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q4: Errores de registro -->
+    <section aria-labelledby="errores-registro" class="space-y-4">
+      <ChatQ id="errores-registro">
+        Estoy intentando registrarme, pero el formulario me impide realizarlo, ¿qué puedo hacer?
+      </ChatQ>
+      <ChatA>
+        <p class="bg-gradient-to-br from-vault-500 to-vault-700 bg-clip-text text-base font-bold text-transparent">
+          Esto suele suceder por los siguientes motivos:
+        </p>
+        <ul class="mt-3 list-[square] space-y-3 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>
+            Si en caso te hayas registrado anteriormente, el sistema te impedirá un nuevo
+            registro. Solo debes ir a <strong>INICIAR SESIÓN</strong>. En caso no recuerdes tu
+            clave, por favor <a href="https://www.vmcsubastas.com/login/recordar" class="font-semibold text-orange-vmc underline hover:no-underline">restablece la contraseña</a>.
+          </li>
+          <li>
+            En caso que un familiar haya usado tu correo o número de celular para su registro,
+            no podrás usar el mismo para crear tu cuenta.
+          </li>
+          <li>
+            En caso nunca te hayas registrado, contáctanos mediante nuestro chat en línea para
+            validar tus datos.
+          </li>
+        </ul>
+        <div
+          role="alert"
+          class="alert-card mt-4 rounded-2xl px-5 py-4 text-center text-sm font-bold text-white sm:px-6"
+        >
+          ¡ATENCIÓN! Solo debes crear la cuenta con tus datos, no permitimos registros de
+          terceros.
+        </div>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+
+    <ReactionPicker />
+  </main>
+</Base>

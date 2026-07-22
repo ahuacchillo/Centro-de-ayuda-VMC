@@ -1,0 +1,20 @@
+---
+/* Placeholder de imagen — reemplazar por <img> cuando existan los assets */
+interface Props {
+  class?: string;
+  dark?: boolean;
+}
+const { class: cls = "", dark = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex items-center justify-center rounded-xl border-2 border-dashed px-4 text-center text-sm",
+    dark
+      ? "border-vault-400/50 bg-white/5 text-vault-100/60"
+      : "border-vault-300 bg-vault-50 text-vault-700/50",
+    cls,
+  ]}
+>
+  <span>[<slot />]</span>
+</div>

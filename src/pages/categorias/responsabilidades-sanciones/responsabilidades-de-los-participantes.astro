@@ -1,0 +1,222 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title =
+  "Responsabilidades de los participantes y sanciones por incumplimiento · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué es una sanción en VMC Subastas, la responsabilidad del participante de enviar al menos un bid válido en el proceso En Vivo, y qué pasa si incumples: monto retenido hasta las 23:59:59 del mismo día, pérdida de 15 Puntos y devolución en SubasCoins.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es una sanción?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La sanción es una medida correctiva cualitativa, aplicable a todo usuario, participante y/o ganador, que incumpla alguna de las responsabilidades derivadas a su actividad en plataforma.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuál es mi responsabilidad como participante?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Al consignar eres responsable de enviar por lo menos un bid válido durante el proceso En Vivo. Al momento de aceptar la consignación se indica que, al consignar, aceptas conectarte a la sala En Vivo y enviar por lo menos un bid válido durante el proceso en vivo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué sucede si incumplo con mi responsabilidad como participante?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "En caso de incumplir con tus responsabilidades como participante: a) el monto consignado permanecerá retenido hasta las 23:59:59 horas del mismo día de registrado cada incumplimiento; b) perderás 15 Puntos; c) en caso hayas consignado en Dólares, serán devueltos en SubasCoins.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Me fue imposible acceder a la sala por problemas con mi conexión a internet, ¿me sancionarán igual?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Todo participante declara conocer y aceptar que es el único responsable de la calidad de su conexión a internet. Los participantes requieren un ancho de banda de 5 Mbps como mínimo para asegurar el correcto funcionamiento del servicio. VMC Subastas, bajo ningún motivo, asegura ni garantiza el acceso o la prestación continua e ininterrumpida de sus servicios a los participantes cuyos equipos y/o conexión a internet incumplan los requisitos técnicos establecidos en el Título V, Numeral 9 de las Condiciones y Términos.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Ingresé a la sala y el proceso En Vivo cerró sin que pueda bidear, ¿qué pasa con mi consignación en este caso?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Todo usuario conoce y acepta que, para participar en una oferta, debe consignar de manera libre y voluntaria el monto solicitado y reconoce que, al realizar la consignación, esta respalda su participación, siendo responsable de enviar por lo menos un bid válido durante el proceso En Vivo de toda oferta en la cual esté participando. De incumplir, serás sancionado con la pérdida de 15 Puntos y el monto permanecerá retenido hasta las 23:59:59 horas del mismo día de registrado el incumplimiento; tu consignación será devuelta a tu Billetera en SubasCoins. Si una oferta En Vivo no reúne el número mínimo de participantes requerido, la subasta será declarada desierta y tu consignación será devuelta automáticamente a tu Billetera.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "Responsabilidades y sanciones", url: "/categorias/responsabilidades-sanciones" },
+    { name: "Responsabilidades de los participantes y sanciones por incumplimiento.", url: "/categorias/responsabilidades-sanciones/responsabilidades-de-los-participantes" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="Responsabilidades y sanciones"
+    categorySlug="responsabilidades-sanciones"
+    subtitle="Subastín te explica tu responsabilidad como participante y qué pasa si la incumples."
+    updated={updated}
+  >
+    Responsabilidades de los <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >participantes</span
+    > y sanciones por incumplimiento
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      La sanción es una medida correctiva aplicable a quien incumpla las responsabilidades
+      derivadas de su actividad en la plataforma. Como participante, al consignar eres
+      responsable de enviar por lo menos un bid válido durante el proceso “En Vivo”. Si
+      incumples: el monto consignado queda retenido hasta las 23:59:59 del mismo día del
+      incumplimiento, pierdes 15 Puntos y, si consignaste en Dólares, se devuelven en
+      SubasCoins. La calidad de tu conexión a internet (mínimo 5 Mbps) es tu
+      responsabilidad.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué es una sanción? -->
+    <section aria-labelledby="que-es-sancion" class="space-y-4">
+      <ChatQ id="que-es-sancion">¿Qué es una sanción?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            La sanción es una <strong>medida correctiva cualitativa</strong>, aplicable a
+            todo usuario, participante y/o ganador, que <strong class="text-orange-vmc">incumpla alguna de las responsabilidades
+            derivadas a su actividad en plataforma</strong>.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q2: Responsabilidad como participante -->
+    <section aria-labelledby="responsabilidad-participante" class="space-y-4">
+      <ChatQ id="responsabilidad-participante">¿Cuál es mi responsabilidad como participante?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Al consignar eres <strong class="text-orange-vmc">responsable de enviar por lo
+          menos un bid válido durante el proceso “En Vivo”</strong>. Recuerda que en el
+          momento de aceptar la <a
+            href="/categorias/consignacion/consignar-es-necesario-para-participar"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >consignación</a
+          > se indica lo siguiente:
+        </p>
+        <img
+          src="/images/articulos/responsabilidades-consignacion-acepto.png"
+          alt="Modal de consignación: al consignar aceptas conectarte a la sala En Vivo y enviar por lo menos un bid válido, con el botón Acepto"
+          class="mx-auto mt-4 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q3: Si incumplo como participante -->
+    <section aria-labelledby="si-incumplo-participante" class="space-y-4">
+      <ChatQ id="si-incumplo-participante"
+        >¿Qué sucede si incumplo con mi responsabilidad como participante?</ChatQ
+      >
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          En caso de <strong>incumplir con tus responsabilidades como participante</strong>:
+        </p>
+        <div class="mt-3 flex items-center gap-4">
+          <ol class="flex-1 list-[lower-alpha] space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+            <li>
+              El <strong>monto consignado permanecerá retenido hasta las 23:59:59 horas del
+              mismo día</strong> de registrado cada incumplimiento.
+            </li>
+            <li><strong>Perderás 15 Puntos.</strong></li>
+            <li>
+              En caso hayas consignado en Dólares, <strong>serán devueltos en
+              SubasCoins</strong>.
+            </li>
+          </ol>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q4: Problemas de conexión -->
+    <section aria-labelledby="problemas-conexion" class="space-y-4">
+      <ChatQ id="problemas-conexion"
+        >Me fue imposible acceder a la sala por problemas con mi conexión a internet, ¿me
+        sancionarán igual?</ChatQ
+      >
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Todo participante <strong>declara conocer y aceptar que es el único responsable
+          de la calidad de su conexión a internet</strong>. Los participantes requieren un <strong class="text-orange-vmc">ancho de banda de 5 Mbps como mínimo</strong> para asegurar el correcto funcionamiento del servicio.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Recuerda que VMC Subastas, <strong>bajo ningún motivo, asegura ni garantiza el
+          acceso, o la prestación continua e ininterrumpida de sus servicios</strong> a
+          los participantes cuyos equipos y/o conexión a internet <strong>incumplan los requisitos técnicos</strong> establecidos en el Título V,
+          Numeral 9 de las <a
+            href="https://subastop.com/terminos-y-condiciones"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >Condiciones y Términos</a
+          >.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q5: Cerró sin poder bidear -->
+    <section aria-labelledby="cerro-sin-bidear" class="space-y-4">
+      <ChatQ id="cerro-sin-bidear"
+        >Ingresé a la sala y el proceso “En Vivo” cerró sin que pueda bidear, ¿qué pasa con
+        mi consignación en este caso?</ChatQ
+      >
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Todo usuario conoce y acepta que, para participar en una oferta, <strong>debe consignar, de manera libre y voluntaria, el monto solicitado</strong> y reconoce que, al realizar la consignación, esta respalda su
+          participación, <strong class="text-orange-vmc">siendo responsable de enviar por
+          lo menos un bid válido durante el proceso “En vivo”</strong> de toda oferta en la
+          cual esté participando.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          De incumplir con tus responsabilidades como participante, serás <strong>sancionado con la pérdida de 15 Puntos</strong> y el monto permanecerá
+          retenido <strong>hasta las 23:59:59 horas del mismo día</strong> de registrado
+          el incumplimiento. <strong class="text-orange-vmc">Tu consignación será devuelta a tu Billetera en
+          SubasCoins.</strong>
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Si una oferta “En Vivo” no reúne el número mínimo de participantes requerido,
+            la subasta será <strong>declarada desierta</strong> y <strong>tu consignación
+            será devuelta automáticamente a tu Billetera</strong>.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,516 @@
+---
+import "../styles/global.css";
+import { navigationPilars, totalArticles } from "../data/helpCenter";
+import { icons } from "../data/icons";
+
+/* Índice del buscador client-side: categorías + artículos + preguntas/respuestas
+   del FAQPage JSON-LD de cada artículo (capa SEO/GEO obligatoria — única fuente
+   de contenido real disponible fuera de helpCenter.ts, sin nuevas dependencias) */
+const hrefToTitle = new Map<string, string>();
+navigationPilars.forEach((pilar) =>
+  pilar.categories.forEach((cat) =>
+    cat.articles.forEach((a) => {
+      if (a.href) hrefToTitle.set(a.href, a.title);
+    })
+  )
+);
+
+const baseIndex = navigationPilars.flatMap((pilar) =>
+  pilar.categories.flatMap((cat) => [
+    { t: cat.title, c: pilar.pilarTitle, u: `/categorias/${cat.slug}`, body: "" },
+    ...cat.articles.map((a) => ({
+      t: a.title,
+      c: cat.title,
+      u: a.href ?? `/categorias/${cat.slug}`,
+      body: "",
+    })),
+  ])
+);
+
+const articleModules = import.meta.glob("./categorias/**/*.astro", {
+  eager: true,
+}) as Record<
+  string,
+  { faqJsonLd?: { mainEntity: { name: string; acceptedAnswer: { text: string } }[] } }
+>;
+
+const faqIndex = Object.entries(articleModules).flatMap(([path, mod]) => {
+  const faq = mod.faqJsonLd;
+  if (!faq?.mainEntity) return [];
+  const href = path.replace(/^\.\/categorias/, "/categorias").replace(/\.astro$/, "");
+  const articleTitle = hrefToTitle.get(href) ?? href;
+  return faq.mainEntity.map((qa) => ({
+    t: qa.name,
+    c: articleTitle,
+    u: href,
+    body: qa.acceptedAnswer.text,
+  }));
+});
+
+const searchIndex = [...baseIndex, ...faqIndex];
+
+
+/* ── SEO / GEO ──────────────────────────────────────────────────────────── */
+const siteUrl = Astro.site?.href ?? "https://ayuda.vmcsubastas.com/";
+const pageTitle = "Centro de Ayuda Comprador · VMC Subastas";
+const pageDescription = `${totalArticles} artículos y videotutoriales para compradores de VMC Subastas: registro, billetera SubasCoins, modalidades de oferta, habilitación y proceso de compra venta.`;
+
+/* JSON-LD generado desde navigationPilars — se actualiza solo al editar los datos */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}#org`,
+      name: "VMC Subastas",
+      url: siteUrl,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      url: siteUrl,
+      name: pageTitle,
+      inLanguage: "es",
+      publisher: { "@id": `${siteUrl}#org` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: { "@type": "EntryPoint", urlTemplate: `${siteUrl}?q={search_term_string}` },
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": siteUrl,
+      url: siteUrl,
+      name: pageTitle,
+      description: pageDescription,
+      inLanguage: "es",
+      isPartOf: { "@id": `${siteUrl}#website` },
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: navigationPilars.flatMap((p) => p.categories).length,
+        itemListElement: navigationPilars
+          .flatMap((p) => p.categories)
+          .map((cat, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: cat.title,
+            url: `${siteUrl}categorias/${cat.slug}`,
+          })),
+      },
+    },
+  ],
+};
+
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={siteUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#200068" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VMC Subastas" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={siteUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+
+    <!-- Schema.org para buscadores y motores generativos (GEO) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen bg-vault-50 font-display text-vault-900 antialiased">
+    <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+    <header class="relative bg-gradient-to-br from-vault-900 via-vault-700 to-vault-600">
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(156,150,248,0.35),transparent_60%)]"
+      >
+      </div>
+      <div class="relative mx-auto max-w-6xl px-4 pt-8 pb-14 text-center sm:px-6 sm:pt-10 lg:px-8">
+        <a href="/">
+          <img src="/images/logo-vmc.svg" alt="VMC Subastas" class="mx-auto h-12 w-auto sm:h-14" />
+        </a>
+        <h1 class="mt-2 text-2xl font-extrabold text-white sm:text-3xl">
+          Centro de Ayuda Comprador
+        </h1>
+        <p class="mt-1.5 text-sm text-vault-100/80 sm:text-base">
+          Toda la información que necesitas en un solo lugar · {totalArticles} artículos
+        </p>
+
+        <!-- Buscador -->
+        <form action="/" method="get" role="search" class="mx-auto mt-5 max-w-xl">
+          <label for="help-search" class="sr-only">Buscar en el centro de ayuda</label>
+          <div class="relative">
+            <span class="pointer-events-none absolute inset-y-0 left-5 flex items-center text-vault-500">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                set:html={icons.search}
+              />
+            </span>
+            <input
+              id="help-search"
+              name="q"
+              type="search"
+              placeholder="¿Qué estás buscando hoy?"
+              class="w-full rounded-full border border-white/20 bg-white py-3 pr-6 pl-14 text-base text-vault-900 shadow-lg shadow-vault-900/30 outline-none placeholder:text-vault-700/40 focus:ring-4 focus:ring-vault-400/40"
+              autocomplete="off"
+            />
+            <ul
+              id="search-results"
+              hidden
+              class="absolute top-full right-0 left-0 z-30 mt-2 max-h-80 overflow-y-auto rounded-2xl border border-vault-100 bg-white text-left shadow-xl shadow-vault-900/25"
+            >
+            </ul>
+          </div>
+        </form>
+        <script id="search-data" type="application/json" set:html={JSON.stringify(searchIndex)} />
+        <script>
+          const data: { t: string; c: string; u: string; body?: string }[] = JSON.parse(
+            document.getElementById("search-data")!.textContent!
+          );
+          const input = document.getElementById("help-search") as HTMLInputElement;
+          const list = document.getElementById("search-results")!;
+          const norm = (s: string) =>
+            s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+          /* Stopwords ES \u2014 se ignoran como tokens de b\u00fasqueda para no diluir el
+             match en palabras vac\u00edas ("no me acuerdo la contrase\u00f1a" \u2192 ["acuerdo","contrasena"]) */
+          const STOPWORDS = new Set([
+            "el", "la", "los", "las", "de", "del", "al", "un", "una", "unos", "unas",
+            "y", "o", "que", "mi", "mis", "tu", "tus", "su", "sus", "me", "te", "se",
+            "no", "si", "es", "en", "a", "con", "por", "para", "como", "lo", "le",
+            /* interrogativos/copulativos genéricos de las preguntas FAQ — aparecen en
+               casi cualquier pregunta ("¿Cuáles son...?") sin aportar tema de búsqueda */
+            "cual", "cuales", "quien", "quienes", "son", "sera", "seran", "hay",
+            "debo", "puedo", "puede", "puedes", "hacer", "hago", "ahora",
+          ]);
+          const tokenize = (s: string) =>
+            norm(s)
+              .split(/[^a-z0-9\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1]+/i)
+              .filter((w) => w.length >= 2 && !STOPWORDS.has(w));
+
+          /* Grupos de sin\u00f3nimos del dominio VMC Subastas \u2014 conectan t\u00e9rminos sin
+             substring en com\u00fan ("ofrecer"/"pujar" no comparten letras con "oferta"/
+             "negociable" pero son el mismo concepto para el usuario). Ampliable: agregar
+             un array m\u00e1s no rompe nada. */
+          const SYN_GROUPS: string[][] = [
+            ["oferta", "ofertar", "ofertas", "ofrecer", "ofrezco", "pujar", "puja", "pujas", "negociable", "participar", "postor"],
+            ["contrasena", "clave", "password", "olvide", "olvido", "recuperar"],
+            ["registro", "registrarse", "registrarte", "inscribirse", "cuenta", "crear"],
+            ["billetera", "saldo", "dinero", "fondos", "recarga", "recargar"],
+            ["consignacion", "consignar", "deposito", "garantia"],
+            ["habilitacion", "habilitado", "aprobado", "aprobacion"],
+            ["sancion", "sancionado", "sanciones", "penalidad", "incumplimiento", "deuda"],
+            ["riesgo", "categoria", "categorias", "calificacion", "puntos"],
+            ["visita", "visitas", "inspeccion", "inspecciones"],
+          ].map((group) => group.map(norm));
+
+          const synLookup = new Map<string, Set<string>>();
+          for (const group of SYN_GROUPS) {
+            for (const term of group) {
+              const set = synLookup.get(term) ?? new Set<string>();
+              group.forEach((t) => set.add(t));
+              synLookup.set(term, set);
+            }
+          }
+
+          function expandSynonyms(tokens: string[]) {
+            const extra = new Set<string>();
+            for (const tok of tokens) {
+              const syns = synLookup.get(tok);
+              if (syns) syns.forEach((s) => extra.add(s));
+            }
+            tokens.forEach((t) => extra.delete(t));
+            return Array.from(extra);
+          }
+
+          /* IDF (frecuencia inversa de documento): palabras que aparecen en muchos
+             artículos ("pasos", "funciona") pesan poco; palabras que aparecen en pocos
+             ("negociable", "consignacion") pesan mucho. Sin esto, un match genérico
+             como "pasos" tapaba el término realmente específico de la búsqueda. */
+          const docFreq = new Map<string, number>();
+          for (const d of data) {
+            const uniq = new Set(tokenize(`${d.t} ${d.c} ${d.body ?? ""}`));
+            uniq.forEach((tok) => docFreq.set(tok, (docFreq.get(tok) ?? 0) + 1));
+          }
+          const N = data.length;
+          const idf = (tok: string) => Math.log((N + 1) / ((docFreq.get(tok) ?? 0) + 1)) + 1;
+
+          function scoreEntry(
+            d: { t: string; c: string; body?: string },
+            qNorm: string,
+            baseTokens: string[],
+            synTokens: string[]
+          ) {
+            const t = norm(d.t);
+            const c = norm(d.c);
+            const b = norm(d.body ?? "");
+            let score = 0;
+            if (t.includes(qNorm)) score += 100;
+            else if (c.includes(qNorm)) score += 60;
+            else if (b.includes(qNorm)) score += 30;
+            for (const tok of baseTokens) {
+              const w = idf(tok);
+              if (t.includes(tok)) score += 15 * w;
+              if (c.includes(tok)) score += 8 * w;
+              if (b.includes(tok)) score += 4 * w;
+            }
+            for (const tok of synTokens) {
+              const w = idf(tok);
+              if (t.includes(tok)) score += 7 * w;
+              if (c.includes(tok)) score += 4 * w;
+              if (b.includes(tok)) score += 2 * w;
+            }
+            return score;
+          }
+
+          function render() {
+            const raw = input.value.trim();
+            const qNorm = norm(raw);
+            if (qNorm.length < 2) {
+              list.hidden = true;
+              list.innerHTML = "";
+              return;
+            }
+            const qTokens = tokenize(raw);
+            const synTokens = expandSynonyms(qTokens);
+            const ranked = data
+              .map((d) => ({ d, score: scoreEntry(d, qNorm, qTokens, synTokens) }))
+              .filter((x) => x.score > 0)
+              .sort((a, b) => b.score - a.score);
+
+            /* Máximo 2 resultados por URL para no dejar que un solo artículo con
+               muchas preguntas FAQ acapare las 8 posiciones y tape otros artículos relevantes */
+            const perUrlCount = new Map<string, number>();
+            const hits: typeof data = [];
+            for (const { d } of ranked) {
+              const n = perUrlCount.get(d.u) ?? 0;
+              if (n >= 2) continue;
+              perUrlCount.set(d.u, n + 1);
+              hits.push(d);
+              if (hits.length >= 8) break;
+            }
+            list.innerHTML = hits
+              .map(
+                (h) => `<li><a href="${h.u}" class="block px-5 py-3 hover:bg-vault-50">
+                  <span class="block text-sm font-bold text-vault-900">${h.t}</span> <span class="text-xs text-vault-700/50">${h.c}</span>
+                </a></li>`
+              )
+              .join("");
+            if (!hits.length)
+              list.innerHTML = `<li class="px-5 py-3 text-sm text-vault-700/50">Sin resultados. Intenta con otra palabra o revisa las categorías.</li>`;
+            list.hidden = false;
+          }
+
+          input.addEventListener("input", render);
+          input.form!.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const first = list.querySelector("a");
+            if (first) location.href = first.href;
+          });
+          document.addEventListener("click", (e) => {
+            if (!list.contains(e.target as Node) && e.target !== input) list.hidden = true;
+          });
+
+          // Soporte del SearchAction (?q=) del JSON-LD
+          const q = new URLSearchParams(location.search).get("q");
+          if (q) {
+            input.value = q;
+            render();
+          }
+        </script>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 pt-6 pb-16 sm:px-6 lg:px-8">
+      <!-- ── Acceso rápido: Videotutoriales ─────────────────────────────── -->
+      <a
+        href="/videotutoriales"
+        class="group relative -mt-12 flex items-center gap-4 overflow-hidden rounded-xl bg-gradient-to-r from-teal-vmc to-vault-500 px-4 py-3.5 shadow-lg shadow-vault-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-vault-900/30 active:scale-[0.98] sm:px-6"
+      >
+        <span
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/20 text-white ring-2 ring-white/40 transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            set:html={icons.play}
+          />
+        </span> <span class="flex min-w-0 flex-col sm:flex-row sm:items-baseline sm:gap-2">
+          <span class="block text-base font-extrabold tracking-wide text-white sm:text-lg">
+            ¡VIDEOTUTORIALES!
+          </span> <span class="block truncate text-xs text-white/85 sm:text-sm">
+            Aprende viendo: guías en video paso a paso.
+          </span>
+        </span> <span
+          class="ml-auto hidden shrink-0 text-white/80 transition-transform duration-300 group-hover:translate-x-1 sm:block"
+          aria-hidden="true"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+          >
+        </span>
+      </a>
+
+      <!-- ── Pilares del ciclo de vida ──────────────────────────────────── -->
+      {
+        navigationPilars.map((pilar, i) => (
+          <section aria-labelledby={`pilar-${i}`} class="mt-10">
+            <div class="flex items-baseline gap-3">
+              <span class="text-sm font-bold text-vault-500">0{i + 1}</span>
+              <h2 id={`pilar-${i}`} class="text-xl font-extrabold text-vault-900 sm:text-2xl">
+                {pilar.pilarTitle}
+              </h2>
+            </div>
+            <p class="mt-1.5 max-w-2xl text-sm text-vault-700/60 sm:text-base">{pilar.description}</p>
+
+            <div class="mt-5 grid grid-cols-1 items-start gap-3 md:grid-cols-2 lg:grid-cols-3">
+              {pilar.categories.map((cat) => (
+                <details class="category-card group accordion rounded-xl shadow-[0_2px_10px_rgba(32,0,104,0.06)] transition-all duration-200 active:scale-[0.99] open:shadow-[0_8px_16px_rgba(32,0,104,0.12)]">
+                  <summary class="flex cursor-pointer list-none items-center gap-3.5 px-4 py-3.5 [&::-webkit-details-marker]:hidden">
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-vault-50 text-vault-700 transition-colors duration-200 group-hover:bg-vault-100 group-hover:text-vault-500 group-open:bg-vault-100 group-open:text-vault-500">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        set:html={icons[cat.icon]}
+                      />
+                    </span> <span class="min-w-0">
+                      <h3 class="truncate text-[15px] leading-snug font-bold text-vault-900 group-hover:text-vault-700">
+                        {cat.title}
+                      </h3>
+                      <p class="mt-0.5 text-xs text-vault-700/50">
+                        {cat.articles.length} {cat.articles.length === 1 ? "artículo" : "artículos"}
+                      </p>
+                    </span> <span
+                      class="ml-auto shrink-0 text-vault-300 transition-transform duration-200 group-open:rotate-90"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg
+                      >
+                    </span>
+                  </summary>
+                  <ul class="border-t border-vault-100/70 px-2 py-2">
+                    {cat.articles.map((article) => (
+                      <li>
+                        {article.href ? (
+                          <a
+                            href={article.href}
+                            class="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-vault-900 transition-colors duration-150 hover:bg-vault-50 hover:text-vault-700"
+                          >
+                            <span class="flex-1">{article.title}</span> <span aria-hidden="true" class="shrink-0 text-vault-300">
+                              <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg
+                              >
+                            </span>
+                          </a>
+                        ) : (
+                          <span class="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm text-vault-700/45">
+                            <span class="flex-1">{article.title}</span> <span class="shrink-0 rounded-full bg-vault-50 px-2 py-0.5 text-[9px] font-bold tracking-wide text-vault-700/50 uppercase">
+                              Próximamente
+                            </span>
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+    </main>
+
+    <!-- Scroll reveal de secciones/tarjetas — cosmético, no oculta contenido sin JS -->
+    <script>
+      import { gsap } from "gsap";
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const sections = document.querySelectorAll<HTMLElement>("main > section");
+
+        const io = new IntersectionObserver(
+          (entries, observer) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              const section = entry.target as HTMLElement;
+              gsap.to(section, { opacity: 1, y: 0, duration: 0.35, ease: "power1.out" });
+              gsap.to(section.querySelectorAll(".accordion"), {
+                opacity: 1,
+                y: 0,
+                duration: 0.3,
+                stagger: 0.03,
+                ease: "power1.out",
+              });
+              observer.unobserve(section);
+            }
+          },
+          { rootMargin: "0px 0px -10% 0px" }
+        );
+
+        sections.forEach((section) => {
+          gsap.set(section, { opacity: 0, y: 16 });
+          gsap.set(section.querySelectorAll(".accordion"), { opacity: 0, y: 8 });
+          io.observe(section);
+        });
+      }
+    </script>
+  </body>
+</html>

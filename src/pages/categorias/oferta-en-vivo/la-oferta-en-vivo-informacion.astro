@@ -1,0 +1,361 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import Button from "../../../components/Button.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title =
+  "La oferta “En Vivo”: Aquí está la información que buscabas · Centro de Ayuda VMC Subastas";
+const description =
+  "Cómo funciona la oferta En Vivo de VMC Subastas: qué es el Precio Base y el Precio Reserva, cómo participar y consignar, cuándo inicia el proceso, cómo ingresar a la Sala (mínimo 2 participantes), la responsabilidad de enviar un bid válido y la opción Gana Ya.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es el Precio Base?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Al publicar una oferta En Vivo, esta iniciará desde el Precio Base, que es el monto mostrado en plataforma. La Sala En Vivo dará inicio al proceso de bids el día y hora indicados en la publicación de la oferta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Si quiero participar en una oferta hoy, ¿qué tengo que hacer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Si quieres participar en un proceso En Vivo hoy y careces de fondos en tu Billetera, deberás adquirir el monto de SubasCoins que se te muestra al hacer clic o tap sobre Participa en el detalle de la oferta. Al consignar, aceptas conectarte a la sala En Vivo y a enviar por lo menos un bid válido durante el proceso en vivo. Con SubasCoins la consignación será menor.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué es una oferta En Vivo y cómo funciona?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es la evolución tecnológica del proceso de subasta tradicional: los procesos En Vivo rescatan los principios fundamentales del proceso de subasta presencial, replicándose en un ambiente digital, seguro y transparente, para participar de manera segura desde cualquier dispositivo con conexión a internet. Todos los participantes que consignen el monto solicitado tendrán acceso a la Sala, para participar del proceso En Vivo y así competir enviando sus bids en tiempo real.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué es el Precio Reserva?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es la expectativa de venta del vendedor. Es importante recalcar que el Precio Reserva es una variable confidencial determinada por el mismo vendedor.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Todas las ofertas En Vivo cuentan con Precio Reserva?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Todas las ofertas En Vivo cuentan con Precio Reserva, a menos que se indique lo contrario en el detalle de su publicación.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuándo inicia el proceso En Vivo?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cada oferta En Vivo tiene una hora de inicio programada en orden secuencial, razón por la cual es imposible que un proceso empiece sin que el otro haya terminado. Ten clara la hora de inicio de las ofertas en las que quieres participar antes de consignar. Encontrarás el día y la hora de inicio del proceso En Vivo en el detalle de cada oferta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Por qué es tan importante estar conectado a la hora de inicio?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es importante porque es el momento en que el proceso En Vivo da inicio: solo los participantes conectados en Sala podrán proponer activamente para ganar la oferta. Además, al realizar la consignación deberás enviar por lo menos un bid válido durante el proceso En Vivo. Si incumples tus responsabilidades como participante, la consignación será liberada a las 23:59:59 horas del mismo día de ser registrado el incumplimiento, será devuelta en SubasCoins y perderás 15 Puntos.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo ingreso a la Sala?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Podrás ingresar haciendo clic o tap en el botón Ingresa a sala en vivo, el cual se activará 5 minutos antes de la hora de inicio de la oferta En Vivo. La cuota mínima es de 2 participantes. En caso hayan transcurrido 30 segundos y existan menos participantes que la cuota mínima, el proceso En Vivo se declara desierto.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Puedo comprar una oferta sin necesidad de participar en el proceso En Vivo?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Cuando la oferta En Vivo cuente con la opción Gana Ya, podrás iniciar el proceso de compra directamente sin necesidad de competir con otros interesados durante el proceso En Vivo: solo debes aceptar el monto que ves en la publicación. Para ejecutar la opción, el usuario necesita contar con fondos para pagar la comisión por uso del servicio.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La oferta “En Vivo”", url: "/categorias/oferta-en-vivo" },
+    {
+      name: "La oferta “En Vivo”: Aquí está la información que buscabas",
+      url: "/categorias/oferta-en-vivo/la-oferta-en-vivo-informacion",
+    },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La oferta “En Vivo”"
+    categorySlug="oferta-en-vivo"
+    subtitle="Subastín responde todo sobre el Precio Base, el Precio Reserva, la Sala y cómo participar."
+    updated={updated}
+  >
+    La oferta “En Vivo”: Aquí está la <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >información que buscabas</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      La oferta “En Vivo” es la evolución digital de la subasta presencial: los participantes
+      que consignan acceden a la “Sala” y compiten enviando bids en tiempo real desde el
+      Precio Base, el día y hora indicados en la oferta. Todas cuentan con Precio Reserva (la
+      expectativa de venta confidencial del vendedor), salvo que se indique lo contrario.
+      El botón de ingreso se activa 5 minutos antes, se requiere un mínimo de 2 participantes
+      y debes enviar al menos un bid válido o serás sancionado con la pérdida de 15 Puntos.
+      Con la opción “Gana Ya” puedes comprar directamente sin competir.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: Precio Base -->
+    <section aria-labelledby="precio-base" class="space-y-4">
+      <ChatQ id="precio-base">¿Qué es el Precio Base?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Al publicar una oferta “En Vivo”, esta iniciará desde el <strong>Precio Base, que
+          es el monto mostrado en plataforma</strong>. La “Sala” En Vivo dará inicio al
+          proceso de bids el día y hora indicados en la publicación de la oferta.
+        </p>
+        <img
+          src="/images/articulos/envivo-precio-base-participa.png"
+          alt="Detalle de la oferta En Vivo con el botón Participa, el Precio Base y la comisión"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q2: Participar hoy -->
+    <section aria-labelledby="participar-hoy" class="space-y-4">
+      <ChatQ id="participar-hoy">
+        Si quiero participar en una oferta hoy, ¿qué tengo que hacer?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Si quieres participar en un proceso “En Vivo” hoy y careces de fondos en tu
+          Billetera, <strong>deberás adquirir el monto de SubasCoins que se te muestra, al
+          hacer clic o tap sobre “Participa”</strong> en el detalle de la oferta.
+        </p>
+        <img
+          src="/images/articulos/envivo-consignacion-acepto.png"
+          alt="Modal de consignación en SubasCoins con el aviso de conexión a la sala En Vivo y el botón Acepto"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q3: Qué es y cómo funciona -->
+    <section aria-labelledby="que-es-en-vivo" class="space-y-4">
+      <ChatQ id="que-es-en-vivo">¿Qué es una oferta “En Vivo” y cómo funciona?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Es la <strong>evolución tecnológica del proceso de subasta tradicional</strong>.
+          Nuestros procesos “En Vivo” <strong>rescatan los principios fundamentales del
+          proceso de subasta presencial, replicándose en un ambiente digital, seguro y
+          transparente</strong>.
+        </p>
+        <img
+          src="/images/articulos/envivo-tipo-de-oferta.png"
+          alt="Selector de tipo de oferta (En Vivo y Negociable) junto a las categorías Vehicular, Equipos Diversos, Materiales y Artículos Diversos"
+          class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>Esto nos permite ofrecer un servicio confiable</strong>, para que
+          nuestros usuarios puedan <strong>participar de manera segura desde cualquier
+          dispositivo</strong> con conexión a internet.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>Todos los participantes que consignen el monto solicitado tendrán acceso a
+          la “Sala”</strong>, para participar del proceso “En Vivo” y así competir enviando
+          sus bids en tiempo real.
+        </p>
+        <img
+          src="/images/articulos/envivo-sala-bids.png"
+          alt="Sala En Vivo con el bid actual y las propuestas de los participantes en tiempo real"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Si deseas ver cómo es una oferta “En Vivo”, puedes ver una <strong>repetición</strong>:
+          </p>
+        </div>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="/videotutoriales">AQUÍ</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q4: Precio Reserva -->
+    <section aria-labelledby="precio-reserva" class="space-y-4">
+      <ChatQ id="precio-reserva">¿Qué es el Precio Reserva?</ChatQ>
+      <ChatA>
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Es la <strong>expectativa de venta del vendedor</strong>. Es importante recalcar
+            que el Precio Reserva es una <strong>variable confidencial determinada por el
+            mismo vendedor</strong>.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q5: ¿Todas con Precio Reserva? -->
+    <section aria-labelledby="todas-reserva" class="space-y-4">
+      <ChatQ id="todas-reserva">
+        ¿Todas las ofertas “En Vivo” cuentan con Precio Reserva?
+      </ChatQ>
+      <ChatA>
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Todas las ofertas “En Vivo” <strong>cuentan con Precio Reserva, a menos que se
+            indique lo contrario</strong> en el detalle de su publicación.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q6: ¿Cuándo inicia? -->
+    <section aria-labelledby="cuando-inicia" class="space-y-4">
+      <ChatQ id="cuando-inicia">¿Cuándo inicia el proceso “En Vivo”?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Cada oferta “En Vivo” tiene una <strong>hora de inicio programada en orden
+          secuencial</strong>, razón por la cual es imposible que un proceso empiece sin que
+          el otro haya terminado.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Por lo tanto, <strong>te recomiendo tener clara la hora de inicio de las
+          ofertas</strong> en las que quieras participar <strong>antes de consignar</strong> el monto indicado en la oferta.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Encontrarás <strong>el día y la hora</strong> de inicio del proceso <strong>“En Vivo” en el detalle de cada oferta</strong>.
+        </p>
+        <img
+          src="/images/articulos/envivo-fecha-hora.png"
+          alt="Cabecera del detalle de la oferta con el día y la hora de inicio del proceso En Vivo"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q7: Conectado a la hora de inicio -->
+    <section aria-labelledby="hora-inicio" class="space-y-4">
+      <ChatQ id="hora-inicio">
+        ¿Por qué es tan importante estar conectado a la hora de inicio?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Es importante <strong>porque es el momento en que el proceso “En Vivo” da
+          inicio</strong>. Solo los participantes conectados en “Sala” podrán proponer
+          activamente para ganar la oferta.
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Adicionalmente, al realizar la consignación, <strong>deberás enviar por lo menos
+            un bid válido</strong> durante el proceso “En Vivo”.
+          </p>
+        </div>
+        <div class="alert-card mt-4 rounded-xl p-4 text-sm leading-relaxed">
+          <span class="text-white/90">
+            <strong class="text-white">Si incumples tus responsabilidades</strong> como
+            participante, la consignación será liberada a las <strong>23:59:59 horas del
+            mismo día</strong> de ser registrado el incumplimiento, <strong>será devuelta en SubasCoins y perderás 15 Puntos</strong>.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q8: ¿Cómo ingreso a la Sala? -->
+    <section aria-labelledby="como-ingreso-sala" class="space-y-4">
+      <ChatQ id="como-ingreso-sala">¿Cómo ingreso a la “Sala”?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Podrás ingresar <strong>haciendo clic o tap en el botón “Ingresa a sala en
+          vivo”</strong> el cual se activará <strong class="text-orange-vmc">5 minutos
+          antes</strong> de la hora de inicio de la oferta “En Vivo”. La cuota mínima es de <strong>2 participantes</strong>.
+        </p>
+        <img
+          src="/images/articulos/envivo-ingresa-sala.png"
+          alt="Detalle de la oferta con la cuenta regresiva de inicio y el botón Ingresa a la Sala activo"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
+            En caso hayan transcurrido 30 segundos, y existan menos participantes que la
+            cuota mínima, el proceso “En Vivo” <strong>se declara desierto</strong>.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q9: Gana Ya -->
+    <section aria-labelledby="gana-ya" class="space-y-4">
+      <ChatQ id="gana-ya">
+        ¿Puedo comprar una oferta sin necesidad de participar en el proceso “En Vivo”?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Sí.</strong> Cuando la oferta “En Vivo” cuente con la opción <strong class="text-orange-vmc">“Gana Ya”</strong>, podrás iniciar el proceso de
+          compra directamente <strong>sin necesidad de competir con otros interesados</strong> durante el proceso “En Vivo”, solo debes aceptar el monto que ves en la
+          publicación.
+        </p>
+        {/* TODO DESACTUALIZADA: reemplazar esta captura (Gana Ya en oferta En Vivo) cuando exista la versión con el diseño actual */}
+        <img
+          src="/images/articulos/envivo-gana-ya.png"
+          alt="Detalle de la oferta En Vivo con la opción Gana Ya y su precio sobre el botón Participa"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
+            Para ejecutar la opción el usuario necesita contar con <strong>fondos para pagar
+            la <a
+              href="/categorias/compra-venta/la-comision-por-que-cuanto-y-como-se-paga"
+              class="font-bold underline decoration-2 underline-offset-2"
+              >comisión</a
+            > por uso del servicio</strong>.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

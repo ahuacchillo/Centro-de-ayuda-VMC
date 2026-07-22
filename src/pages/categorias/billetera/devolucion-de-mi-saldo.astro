@@ -1,0 +1,196 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import ImgPh from "../../../components/ImgPh.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title = "Devolución de mi saldo · Centro de Ayuda VMC Subastas";
+const description =
+  "Cuándo puedes solicitar la devolución de tu saldo en US$ en VMC Subastas, cómo hacerlo desde tu Billetera, el fee administrativo de US$ 30, los plazos (7 a 21 días hábiles) y por qué tu recarga puede convertirse en SubasCoins.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Si realicé una Recarga, ¿puedo solicitar la devolución de mi saldo en US$ dólares americanos?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Puedes solicitarla, excepto si: tienes consignaciones; eres ganador o mejor postor de una o más ofertas; tienes un proceso de compra activo; tienes potencial oportunidad de compra; tienes una deuda pendiente; tu categoría de Riesgo Usuario es Alto; careces de participaciones en el Marketplace; o tu saldo en US$ dólares americanos es menor a US$ 30. Al solicitar la devolución se te descontará US$ 30 por concepto de fee administrativo. El abono a una cuenta del BCP puede tomar hasta 7 días hábiles; a una cuenta interbancaria, hasta 21 días hábiles.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo solicito la devolución de mi saldo en US$ dólares americanos?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Hazlo desde tu Zona de Usuario, en el módulo Billetera, haciendo clic o tap en Transacciones. Luego, en la parte inferior de la pantalla, en el banner devolución de saldo, dale clic o tap a Solicitar. Puedes solicitar la devolución únicamente desde una computadora, y se descontará US$ 30 por concepto de fee administrativo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Realicé una recarga y ahora tengo SubasCoins, ¿qué pasó?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Esto puede pasar por: a) Inactividad: es necesario iniciar sesión en el Marketplace como mínimo 1 vez cada 6 meses; caso contrario, los US$ dólares americanos de tu Billetera digital serán convertidos en SubasCoins irreversiblemente. b) Sanción: si consignaste con US$ dólares americanos e incumples con tus responsabilidades, serán convertidos en SubasCoins antes de ser devueltos a tu Billetera digital.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La billetera", url: "/categorias/billetera" },
+    { name: "Devolución de mi saldo", url: "/categorias/billetera/devolucion-de-mi-saldo" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La billetera"
+    categorySlug="billetera"
+    subtitle="Subastín te explica cuándo puedes solicitar la devolución de tu saldo y cómo se hace."
+    updated={updated}
+  >
+    Devolución de <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >mi saldo</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Puedes solicitar la devolución de tu saldo en US$ desde tu Zona de Usuario › Billetera
+      › Transacciones (únicamente desde una computadora), siempre que no tengas
+      consignaciones, ofertas ganadas, procesos de compra activos ni deudas, y tu saldo sea
+      mayor a US$ 30. Se descuenta US$ 30 por fee administrativo y el abono toma hasta 7 días
+      hábiles en una cuenta del BCP o hasta 21 días hábiles en una cuenta interbancaria.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Puedo solicitar la devolución? -->
+    <section aria-labelledby="puedo-solicitar" class="space-y-4">
+      <ChatQ id="puedo-solicitar">
+        Si realicé una Recarga, ¿puedo solicitar la devolución de mi saldo en US$ dólares
+        americanos?
+      </ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Puedes solicitarla, excepto si:</strong>
+        </p>
+        <ul class="mt-3 list-[square] space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>Tienes <strong>consignaciones</strong>.</li>
+          <li>Eres <strong>ganador o mejor postor</strong> de una o más ofertas.</li>
+          <li>Tienes un <strong>proceso de compra activo</strong>.</li>
+          <li>Tienes <strong>potencial oportunidad de compra</strong>.</li>
+          <li>Tienes una <strong>deuda pendiente</strong>.</li>
+          <li>Tu categoría de Riesgo Usuario es <strong>“Alto”</strong>.</li>
+          <li><strong>Careces de participaciones</strong> en nuestro Marketplace.</li>
+          <li>
+            Tu saldo en US$ dólares americanos es <strong>menor a US$ 30</strong>.
+          </li>
+        </ul>
+
+        <div class="alert-card mt-5 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Recuerda!</strong> <span class="text-white/90">
+            Al solicitar la devolución de tu saldo, se te descontará <strong>US$ 30</strong> dólares americanos por el concepto de fee administrativo.</span
+          >
+        </div>
+
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Si solicitas la <strong>devolución de tu saldo en US$ dólares americanos en una
+          cuenta del BCP</strong>, el plazo puede tomar <strong>hasta 7 días hábiles</strong>.
+          En caso la solicites a una <strong>cuenta interbancaria</strong>, puede tomar <strong>hasta 21 días hábiles</strong>.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Cómo solicito la devolución? -->
+    <section aria-labelledby="como-solicito" class="space-y-4">
+      <ChatQ id="como-solicito">
+        ¿Cómo solicito la devolución de mi saldo en US$ dólares americanos?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Hazlo desde tu <strong>Zona de Usuario</strong>, en el módulo <strong>“Billetera”</strong>, haciendo clic o tap en <strong>“Transacciones”</strong>.
+        </p>
+
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Recuerda!</strong> <span class="text-white/90">
+            Puedes solicitar la devolución de tu saldo en US$ dólares americanos <strong>únicamente desde una computadora</strong>.</span
+          >
+        </div>
+
+        <ImgPh class="mt-4 h-72">
+          Paso 1: Captura de la Zona de Usuario: módulo Billetera con el botón
+          Transacciones resaltado, mostrando SubasCoins y saldo en US$
+        </ImgPh>
+
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Luego, en la parte inferior de la pantalla, en el banner <strong>“devolución de
+          saldo”</strong> dale clic o tap a <strong>“Solicitar”</strong>.
+        </p>
+
+        <ImgPh class="mt-4 h-40">
+          Paso 2: Captura del banner de devolución de saldo con el botón Solicitar resaltado
+        </ImgPh>
+
+        <div class="alert-card mt-5 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Recuerda!</strong> <span class="text-white/90">
+            Al solicitar la devolución de tu saldo, se te descontará <strong>US$ 30</strong> dólares americanos por el concepto de fee administrativo.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q3: Recarga convertida en SubasCoins -->
+    <section aria-labelledby="tengo-subascoins" class="space-y-4">
+      <ChatQ id="tengo-subascoins">
+        Realicé una recarga y ahora tengo SubasCoins, ¿qué pasó?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Esto puede pasar por:</strong>
+        </p>
+
+        <p class="mt-4 text-sm font-bold text-orange-vmc">a. Inactividad:</p>
+        <p class="mt-2 text-sm leading-relaxed text-vault-900/80">
+          Es necesario que <strong>inicies sesión en nuestro Marketplace, como mínimo, 1 vez
+          cada 6 meses</strong>. Caso contrario, los US$ dólares americanos en tu Billetera
+          digital serán convertidos en &gt;S&lt; SubasCoins <strong>irreversiblemente</strong>.
+        </p>
+
+        <div class="mt-4 flex items-start gap-4">
+          <div class="flex-1">
+            <p class="text-sm font-bold text-orange-vmc">b. Sanción:</p>
+            <p class="mt-2 text-sm leading-relaxed text-vault-900/80">
+              Si consignaste con US$ dólares americanos e <strong>incumples con tus
+              responsabilidades</strong>, estos serán convertidos en <strong>&gt;S&lt;
+              SubasCoins</strong> antes de ser devueltos a tu Billetera digital.
+            </p>
+          </div>
+        </div>
+
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

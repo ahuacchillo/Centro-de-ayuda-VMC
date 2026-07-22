@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  /** Migas para BreadcrumbList JSON-LD (SEO/GEO) — rutas relativas */
+  breadcrumb?: { name: string; url: string }[];
+}
+
+const { title, description, breadcrumb } = Astro.props;
+
+const breadcrumbJsonLd = breadcrumb && {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumb.map((b, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: b.name,
+    item: new URL(b.url, Astro.site).href,
+  })),
+};
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#200068" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="VMC Subastas" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    {breadcrumbJsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+    )}
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen bg-vault-50 font-display text-vault-900 antialiased">
+    <slot />
+
+    <!-- Scroll reveal de burbujas de chat (.msg) — cosmético, no oculta contenido sin JS -->
+    <script>
+      import { gsap } from "gsap";
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const msgs = document.querySelectorAll<HTMLElement>(".msg");
+
+        if (msgs.length) {
+          gsap.set(msgs, { opacity: 0, y: 10 });
+
+          // Agrupa cada .msg bajo su section más cercana — si el propio .msg
+          // ES la section (caso ChatIntro), el grupo es él mismo.
+          const groups = new Map<Element, HTMLElement[]>();
+          msgs.forEach((m) => {
+            const scope = m.closest("section") ?? m;
+            (groups.get(scope) ?? groups.set(scope, []).get(scope)!).push(m);
+          });
+
+          const io = new IntersectionObserver(
+            (entries, observer) => {
+              for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                (groups.get(entry.target) ?? []).forEach((el) => {
+                  const delay = parseFloat(getComputedStyle(el).getPropertyValue("--d")) || 0;
+                  gsap.to(el, { opacity: 1, y: 0, duration: 0.45, delay, ease: "power1.out" });
+                });
+                observer.unobserve(entry.target);
+              }
+            },
+            { rootMargin: "0px 0px -10% 0px" }
+          );
+
+          groups.forEach((_els, scope) => io.observe(scope));
+        }
+      }
+    </script>
+  </body>
+</html>

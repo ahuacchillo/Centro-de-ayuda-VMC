@@ -1,0 +1,221 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import Button from "../../../components/Button.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title = "La oferta “En Vivo”: ¡Es hora de participar! · Centro de Ayuda VMC Subastas";
+const description =
+  "Cómo participar en el proceso En Vivo de VMC Subastas: qué es un bid, cómo enviarlos desde la Sala, cuántos puedes hacer, si puedes entrar con el proceso ya iniciado, la conexión mínima de 5 Mbps y cuándo termina el proceso (12 segundos tras el último bid válido).";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Puedo participar desde mi teléfono móvil?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí, nuestra plataforma te permite participar desde cualquier tipo de dispositivo móvil que tenga una conexión a internet de por lo menos 5 Mbps.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué es un bid?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Bid se refiere a la acción de incrementar el Precio Base a través del envío de intenciones de compra durante el proceso En Vivo. Esto significa que los participantes compiten enviando sus bids, lo cual promueve un aumento escalonado del Precio Base; por ende, quien envía el último bid válido gana el proceso.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo envío mis bids durante el proceso En Vivo?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Solo debes hacer clic o tap sobre el botón inferior de la Sala, donde se muestra el monto a bidear.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuántos bids puedo hacer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Podrás enviar la cantidad de bids que consideres necesarias para tratar de ganar la oferta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "La oferta En Vivo ya inició, ¿todavía puedo participar en ella?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Podrás ingresar a la Sala siempre y cuando el proceso siga activo y consignes el monto indicado por adelantado. Siempre recomendamos presenciar el inicio del proceso En Vivo, ingresando a la sala con anticipación.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuándo termina el proceso En Vivo?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Se da por concluido el proceso cuando transcurren 12 segundos desde que se registra el último bid válido. Como referencia, el sistema muestra una barra de progreso y hace una cuenta a tres durante estos 12 segundos.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La oferta “En Vivo”", url: "/categorias/oferta-en-vivo" },
+    {
+      name: "La oferta “En Vivo”: ¡Es hora de participar!",
+      url: "/categorias/oferta-en-vivo/es-hora-de-participar",
+    },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La oferta “En Vivo”"
+    categorySlug="oferta-en-vivo"
+    subtitle="Vamos con todo. ¡A participar! Subastín te explica los bids y la Sala."
+    updated={updated}
+  >
+    La oferta “En Vivo”: ¡Es hora de <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >participar!</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Para participar en un proceso “En Vivo” solo necesitas un dispositivo con conexión a
+      internet de por lo menos 5 Mbps. Un bid es la acción de incrementar el Precio Base
+      enviando intenciones de compra: envías todos los que necesites tocando el botón
+      inferior de la “Sala”, y gana quien envía el último bid válido. Puedes entrar aunque el
+      proceso ya haya iniciado (si sigue activo y consignaste por adelantado), y el proceso
+      termina cuando transcurren 12 segundos desde el último bid válido.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Desde el móvil? -->
+    <section aria-labelledby="desde-movil" class="space-y-4">
+      <ChatQ id="desde-movil">¿Puedo participar desde mi teléfono móvil?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Sí, <strong>nuestra plataforma te permite participar desde cualquier tipo de
+            dispositivo móvil</strong> que tenga una conexión a internet de por lo menos <strong class="text-orange-vmc">5mbps</strong>.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Qué es un bid? -->
+    <section aria-labelledby="que-es-bid" class="space-y-4">
+      <ChatQ id="que-es-bid">¿Qué es un bid?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          “Bid” se refiere a la <strong>acción de incrementar el Precio Base a través del
+          envío de intenciones de compra</strong> durante el proceso “En Vivo”.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Esto significa que <strong>los participantes compiten enviando sus bids</strong>,
+          lo cual promueve un aumento escalonado del Precio Base, por ende, <strong>quien envía el último bid válido gana el proceso</strong>.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q3: ¿Cómo envío mis bids? -->
+    <section aria-labelledby="como-envio-bids" class="space-y-4">
+      <ChatQ id="como-envio-bids">¿Cómo envío mis bids durante el proceso “En Vivo”?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Solo debes hacer clic o tap sobre el <strong>botón inferior de la “Sala”</strong>,
+          donde se muestra el monto a bidear.
+        </p>
+        <img
+          src="/images/articulos/envivo-sala-bidear.png"
+          alt="Sala En Vivo con las propuestas de los participantes y el botón inferior para bidear con el monto"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q4: ¿Cuántos bids? -->
+    <section aria-labelledby="cuantos-bids" class="space-y-4">
+      <ChatQ id="cuantos-bids">¿Cuántos bids puedo hacer?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Podrás enviar <strong>la cantidad de bids que consideres necesarias</strong> para
+          tratar de ganar la oferta.
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Puedes ver la <strong class="text-orange-vmc">repetición</strong> de un proceso
+            haciendo clic:
+          </p>
+        </div>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="/videotutoriales">AQUÍ</Button>
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q5: ¿Puedo entrar si ya inició? -->
+    <section aria-labelledby="ya-inicio" class="space-y-4">
+      <ChatQ id="ya-inicio">
+        La oferta “En Vivo” ya inició, ¿todavía puedo participar en ella?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Podrás ingresar a la “Sala” <strong>siempre y cuando el proceso siga activo y
+          consignes el monto indicado</strong> por adelantado.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Siempre <strong>recomendamos presenciar el inicio del proceso en “En
+          Vivo”</strong>, ingresando a la sala con anticipación.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q6: ¿Cuándo termina? -->
+    <section aria-labelledby="cuando-termina" class="space-y-4">
+      <ChatQ id="cuando-termina">¿Cuándo termina el proceso “En Vivo”?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Se da por concluido el proceso <strong>cuando transcurren <span class="text-orange-vmc">12 segundos</span> desde que se registra el último
+          bid válido</strong>.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          Como referencia, el sistema muestra una <strong>barra de progreso y hace una cuenta
+          a tres</strong>, durante estos 12 segundos.
+        </p>
+        <img
+          src="/images/articulos/envivo-sala-cuenta-regresiva.png"
+          alt="Sala En Vivo mostrando la cuenta a tres con la barra de progreso y el botón para bidear"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

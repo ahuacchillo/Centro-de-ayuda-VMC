@@ -1,0 +1,306 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title =
+  "Gané una oferta “En Vivo”: ¿Cuáles son los siguientes pasos? · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué sigue después de ganar una oferta En Vivo en VMC Subastas: qué significa Ganador Directo y Mejor Postor, la habilitación del vendedor, los pasos en Tu Actividad, el pago de la comisión para seguir participando y cómo mejorar tu bid.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué significa Ganador directo?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Se declara Ganador Directo al participante que envía el último bid válido en un proceso sin Precio Reserva. De todas formas pasarás evaluación con el vendedor si así lo requiere, y esta evaluación también puede tomar hasta 10 días hábiles.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "He resultado Ganador Directo, ¿qué pasos debo seguir?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Una vez habilitado, podrás visualizar los pasos a seguir para completar la compra en el módulo Tu Actividad, desde tu Zona de Usuario.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué es la habilitación?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es la aprobación que todo ganador debe recibir por parte del vendedor para iniciar el proceso de compra. El vendedor se reserva el derecho de habilitación, por lo que puede denegar la venta del bien a cualquier ganador según sus políticas de evaluación internas, sin necesidad o deber de dar algún tipo de justificación detallada al respecto. El flujo es: Ganador directo › Habilitación (en algunos casos, el ganador directo debe ser habilitado por el vendedor) › Ganador habilitado, responsable de seguir con el proceso de compra bajo pena de sanción en caso de incumplimiento.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Soy Ganador Directo, quiero seguir participando, ¿qué puedo hacer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Para poder seguir participando en otros procesos, deberás pagar la comisión de la oferta que has ganado, ya que automáticamente has generado una deuda en plataforma. La consignación se toma como adelanto de la comisión por uso del servicio; para pagar lo restante, agrega fondos mediante una Recarga o adquiriendo SubasCoins. En caso hayas consignado por adelantado para acceder a otros procesos, la plataforma te impedirá ingresar y serás sancionado: por ello deberás pagar la comisión de la oferta ganada.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué significa Mejor Postor?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Obtuviste el 1er lugar en un proceso con Precio Reserva. Tu propuesta pasa a consulta para ser evaluada por el vendedor. Esta evaluación puede tomar hasta 10 días hábiles.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "He resultado Mejor Postor, ¿ahora qué debo hacer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "En este caso, tu consignación permanecerá retenida hasta recibir una respuesta por parte del vendedor. El vendedor tiene hasta 10 días para: a) aceptar tu bid; b) rechazar tu bid; c) contraproponerte. En caso el vendedor acepte el bid final del Mejor Postor, o el Mejor Postor acepte la contrapropuesta del vendedor, el participante adquirirá las responsabilidades de Ganador Habilitado, siendo responsable de seguir con el proceso de compra bajo pena de sanción en caso de incumplimiento.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo puedo mejorar mis probabilidades para que el vendedor acepte mi bid?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Al terminar el proceso En Vivo, podrás mejorar tu bid y esto aumentará tus probabilidades de que el vendedor la acepte.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La oferta “En Vivo”", url: "/categorias/oferta-en-vivo" },
+    {
+      name: "Gané una oferta “En Vivo”: ¿Cuáles son los siguientes pasos?",
+      url: "/categorias/oferta-en-vivo/gane-una-oferta-en-vivo-siguientes-pasos",
+    },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La oferta “En Vivo”"
+    categorySlug="oferta-en-vivo"
+    subtitle="Subastín te explica qué significa ser Ganador Directo o Mejor Postor, y qué viene después."
+    updated={updated}
+  >
+    Gané una oferta “En Vivo”: ¿Cuáles son los <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >siguientes pasos?</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Ganador Directo es quien envía el último bid válido en un proceso sin Precio Reserva;
+      Mejor Postor es el 1er lugar en un proceso con Precio Reserva, cuya propuesta el
+      vendedor evalúa en hasta 10 días (puede aceptar, rechazar o contraproponer). Todo
+      ganador necesita la habilitación del vendedor para iniciar el proceso de compra, cuyos
+      pasos ves en “Tu Actividad”. Para seguir participando en otros procesos debes pagar
+      primero la comisión de la oferta ganada, y al terminar el proceso puedes mejorar tu bid
+      para aumentar la probabilidad de que el vendedor lo acepte.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué es Ganador directo? -->
+    <section aria-labelledby="ganador-directo" class="space-y-4">
+      <ChatQ id="ganador-directo">¿Qué significa Ganador directo?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Se declara Ganador Directo al <strong>participante que envía el último bid válido
+          en un proceso sin Precio Reserva</strong>.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          De todas formas, <strong>pasarás evaluación con el vendedor si así lo
+          requiere</strong>, y esta evaluación también puede tomar hasta <strong class="text-orange-vmc">10 días hábiles</strong>.
+        </p>
+        <img
+          src="/images/articulos/gane-paso-1-ganador-directo.png"
+          alt="Notificación ¡Felicidades! ¡Eres Ganador Directo! con el monto de la propuesta y la comisión"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q2: Pasos del Ganador Directo -->
+    <section aria-labelledby="pasos-ganador" class="space-y-4">
+      <ChatQ id="pasos-ganador">He resultado Ganador Directo, ¿qué pasos debo seguir?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Una vez habilitado, podrás <strong>visualizar los pasos a seguir para completar la
+          compra</strong> en el módulo <strong>“Tu Actividad”</strong>, desde tu Zona de
+          Usuario.
+        </p>
+        <img
+          src="/images/articulos/gane-paso-2-procesos-compra.png"
+          alt="Sección Procesos de Compra de Tu Actividad con el vehículo ganado y el botón Ver Detalle"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q3: ¿Qué es la habilitación? -->
+    <section aria-labelledby="habilitacion" class="space-y-4">
+      <ChatQ id="habilitacion">¿Qué es la habilitación?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Es la aprobación que todo ganador debe recibir por parte del
+          vendedor</strong> para iniciar el proceso de compra.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>El vendedor se reserva el derecho de habilitación</strong>, por lo que <strong>puede denegar la venta del bien a cualquier ganador</strong> según sus
+          políticas de evaluación internas, sin necesidad o deber de dar algún tipo de
+          justificación detallada al respecto.
+        </p>
+        <ol class="mt-4 space-y-3 text-sm leading-relaxed">
+          <li class="rounded-xl bg-orange-vmc/10 p-3">
+            <strong class="text-orange-vmc">1. Ganador directo</strong><span class="text-vault-900/80">: sin precio reserva.</span>
+          </li>
+          <li class="rounded-xl bg-vault-500/10 p-3">
+            <strong class="text-vault-700">2. Habilitación</strong> <span class="text-vault-900/80">
+              : en algunos casos, el ganador directo debe ser habilitado por el
+              vendedor.</span
+            >
+          </li>
+          <li class="rounded-xl bg-vault-900/5 p-3">
+            <strong class="text-vault-900">3. Ganador habilitado</strong> <span class="text-vault-900/80">
+              : ganador responsable de seguir con el proceso de compra, bajo pena de sanción
+              en caso de incumplimiento.</span
+            >
+          </li>
+        </ol>
+      </ChatA>
+    </section>
+
+    <!-- Q4: Seguir participando -->
+    <section aria-labelledby="seguir-participando" class="space-y-4">
+      <ChatQ id="seguir-participando">
+        Soy Ganador Directo, quiero seguir participando, ¿qué puedo hacer?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Para poder seguir participando en otros procesos, <strong>deberás pagar la
+          comisión de la oferta que has ganado</strong>, ya que automáticamente <strong>has generado una deuda en plataforma</strong>.
+        </p>
+        <img
+          src="/images/articulos/gane-paso-3-habilitado-fecha-limite.png"
+          alt="Notificación Felicidades, ¡has sido habilitado! con la fecha y hora límite para concretar el proceso de compra"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          La consignación se toma como adelanto de la comisión por uso de nuestro servicio;
+          para pagar lo restante, <strong>agrega fondos mediante una <a
+            href="/categorias/billetera/la-recarga"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >Recarga</a
+          > o adquiriendo <a
+            href="/categorias/billetera/subascoins"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >SubasCoins</a
+          ></strong>.
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <div class="alert-card flex-1 rounded-xl p-4 text-sm leading-relaxed">
+            <span class="text-white/90">
+              En caso hayas consignado por adelantado para acceder a otros procesos, <strong class="text-white">la plataforma te impedirá ingresar y serás
+              sancionado</strong>. Es por ello que <strong>deberás pagar la comisión de la
+              oferta ganada</strong>.</span
+            >
+          </div>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q5: ¿Qué es Mejor Postor? -->
+    <section aria-labelledby="mejor-postor" class="space-y-4">
+      <ChatQ id="mejor-postor">¿Qué significa Mejor Postor?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Obtuviste el <strong>1er Lugar en un proceso con Precio Reserva</strong>. Tu
+          propuesta <strong>pasa a consulta para ser evaluada por el vendedor</strong>.
+        </p>
+        <img
+          src="/images/articulos/gane-paso-4-mejor-postor.png"
+          alt="Notificación ¡Felicidades! ¡Eres el mejor postor! con la propuesta en consulta por cerrar debajo de reserva"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
+            Esta evaluación puede tomar hasta <strong>10 días hábiles</strong>.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q6: Mejor Postor, ¿qué hago? -->
+    <section aria-labelledby="postor-que-hago" class="space-y-4">
+      <ChatQ id="postor-que-hago">He resultado Mejor Postor, ¿ahora qué debo hacer?</ChatQ>
+      <ChatA>
+        <div class="flex items-start gap-4">
+          <div class="flex-1">
+            <p class="text-sm leading-relaxed text-vault-900/80">
+              En este caso, tu <strong>consignación permanecerá retenida hasta recibir una
+              respuesta</strong> por parte del vendedor. <strong>El vendedor tiene hasta 10 días para:</strong>
+            </p>
+            <ol class="mt-3 list-[lower-alpha] space-y-2 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+              <li>Aceptar tu bid.</li>
+              <li>Rechazar tu bid.</li>
+              <li>Contra proponerte.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          En caso el vendedor acepte el bid final del Mejor Postor o el Mejor Postor acepte
+          la contrapropuesta del vendedor, <strong>el participante adquirirá las
+          responsabilidades de Ganador Habilitado siendo responsable de seguir con el proceso
+          de compra</strong>, bajo pena de sanción en caso de incumplimiento.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q7: Mejorar el bid -->
+    <section aria-labelledby="mejorar-bid" class="space-y-4">
+      <ChatQ id="mejorar-bid">
+        ¿Cómo puedo mejorar mis probabilidades para que el vendedor acepte mi bid?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Al terminar el proceso “En Vivo”, <strong>podrás mejorar tu bid</strong> y esto
+          aumentará tus probabilidades de que el vendedor la acepte.
+        </p>
+        <img
+          src="/images/articulos/gane-paso-5-mejorar-monto.png"
+          alt="Pantalla de mejor postor en oferta con Precio Reserva, con el botón Sí, quiero mejorar el monto y la cuenta regresiva"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

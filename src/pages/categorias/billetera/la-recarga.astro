@@ -1,0 +1,186 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title = "La Recarga: ¿Cómo funciona? · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué es la Recarga en VMC Subastas, cómo agregar fondos en US$ a tu Billetera por los medios digitales del BCP o en ventanilla, el monto mínimo de US$ 30 y dónde encontrar tu Código Único de Usuario (C.U.U.).";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es una Recarga?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Le decimos Recarga a la acción de agregar fondos en US$ a tu Billetera en VMC a través de un depósito en ventanilla en una agencia del BCP o por transferencia electrónica por los medios digitales del BCP, a la cuenta recaudadora de VMC Subastas. La validación de la Recarga puede tomar hasta 24 horas hábiles en verse reflejada en tu Billetera. Podrás utilizar tus fondos para consignar y/o pagar comisiones por uso del servicio, en caso de ser ganador habilitado. La Recarga es un medio sin el pago del Fee por uso de pasarela.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo realizo una Recarga?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Puedes realizarla de dos maneras. Por los medios digitales del BCP (Banca Electrónica y/o Banca Móvil): haz clic en Pagos de Servicios en el menú lateral, busca VMC Subastas, selecciona Recarga y te solicitará tu Código Único de Usuario y el monto que deseas recargar. O en ventanilla, acercándote a cualquier agencia del BCP: indícale al cajero que deseas hacer un depósito a la cuenta recaudadora en dólares de VMC Subastas, elige el servicio de Recarga y te pedirá tu Código Único de Usuario y el monto. El monto mínimo de Recarga es de US$ 30 (treinta dólares americanos).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Dónde encuentro mi Código Único de Usuario (C.U.U.)?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Encuentra tu C.U.U. en la parte superior de la plataforma de VMC Subastas; también lo puedes encontrar en tu zona de usuario.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La billetera", url: "/categorias/billetera" },
+    { name: "La Recarga: ¿Cómo funciona?", url: "/categorias/billetera/la-recarga" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La billetera"
+    categorySlug="billetera"
+    subtitle="Subastín te explica cómo agregar fondos en US$ a tu Billetera de VMC a través del BCP."
+    updated={updated}
+  >
+    La Recarga: ¿Cómo <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >funciona?</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      La Recarga es agregar fondos en US$ a tu Billetera de VMC, ya sea por los medios
+      digitales del BCP (Banca Electrónica o Banca Móvil) o con un depósito en ventanilla en
+      cualquier agencia del BCP, a la cuenta recaudadora de VMC Subastas. El monto mínimo es
+      de US$ 30, necesitarás tu Código Único de Usuario (C.U.U.) y la validación puede tomar
+      hasta 24 horas hábiles en reflejarse en tu Billetera. Es un medio sin el pago del Fee
+      por uso de pasarela.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué es una Recarga? -->
+    <section aria-labelledby="que-es" class="space-y-4">
+      <ChatQ id="que-es">¿Qué es una Recarga?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Le decimos Recarga a la acción de <strong>agregar fondos en US$ a tu Billetera en
+          VMC</strong> a través de <strong>un depósito en ventanilla</strong> en una agencia
+          del BCP <strong>o por transferencia electrónica</strong> por los medios digitales
+          del BCP, a la cuenta recaudadora de VMC Subastas.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Recuerda que la <strong>validación de la Recarga puede tomar hasta 24 horas
+          hábiles</strong> en verse reflejada en tu Billetera.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Podrás <strong>utilizar tus fondos para consignar y/o pagar comisiones por uso de
+          nuestro servicio</strong>, en caso de ser ganador habilitado.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          La Recarga es un medio <strong>sin el pago del <a
+            href="/categorias/billetera/fee-por-uso-de-pasarela"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >Fee por uso de pasarela</a
+          ></strong>.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Cómo realizo una Recarga? -->
+    <section aria-labelledby="como-realizo" class="space-y-4">
+      <ChatQ id="como-realizo">¿Cómo realizo una Recarga?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Puedes realizarla de <strong>dos maneras</strong>: por los medios digitales del BCP
+          o en ventanilla de cualquier agencia del BCP.
+        </p>
+
+        <div class="mt-4 flex items-start gap-4">
+          <div class="flex-1">
+            <p class="text-sm leading-relaxed text-vault-900/80">
+              <strong>a.</strong> Mediante los <strong>medios digitales del BCP</strong> (Banca Electrónica y/o Banca Móvil):
+            </p>
+            <ol class="mt-3 list-decimal space-y-2 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-500">
+              <li>Haz clic en <strong>“Pagos de Servicios”</strong> en el menú lateral.</li>
+              <li>Busca <strong>“VMC Subastas”</strong>.</li>
+              <li>Selecciona <strong>“Recarga”</strong>.</li>
+              <li>
+                Te solicitará tu <strong>Código Único de Usuario y el monto</strong> que
+                deseas recargar.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <p class="mt-5 text-sm leading-relaxed text-vault-900/80">
+          <strong>b.</strong> En ventanilla, <strong>acercándote a cualquier agencia del
+          BCP</strong>:
+        </p>
+        <ol class="mt-3 list-decimal space-y-2 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-500">
+          <li>
+            Indícale al cajero que deseas hacer un <strong>depósito a la cuenta recaudadora
+            en dólares de VMC Subastas</strong>.
+          </li>
+          <li>Elige el <strong>servicio de Recarga</strong>.</li>
+          <li>
+            Luego, te pedirá tu <strong>Código Único de Usuario y el monto</strong> que
+            deseas recargar.
+          </li>
+        </ol>
+
+        <div class="alert-card mt-5 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">Importante:</strong> <span class="text-white/90">
+            el monto mínimo de Recarga es de <strong>US$ 30</strong> (treinta dólares
+            americanos).</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q3: ¿Dónde encuentro mi C.U.U.? -->
+    <section aria-labelledby="donde-cuu" class="space-y-4">
+      <ChatQ id="donde-cuu">¿Dónde encuentro mi Código Único de Usuario (C.U.U.)?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Encuentra tu <strong>C.U.U. en la parte superior de la plataforma</strong>; también
+          lo puedes encontrar en tu zona de usuario.
+        </p>
+        <img
+          src="/images/articulos/recarga-cuu-plataforma.png"
+          alt="Plataforma de VMC Subastas con el Código Único de Usuario en la parte superior derecha, junto al saludo de bienvenida (ej. SAFU6E)"
+          class="mt-4 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,155 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-08";
+const title = "¿Cómo uso el código de pago de Pacífico? · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué es el código de pago de Pacífico de VMC Subastas y cómo pagar tu oferta ganada con él: por Banca Web o Móvil del BCP (personas naturales y jurídicas) o en ventanilla, usando el servicio 23 Deducibles Autos Dólares y la placa del activo.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-08",
+  dateModified: "2026-07-08",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es el código de pago Pacífico?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El código de pago de Pacífico es un valor alfanumérico de 6 caracteres que se encuentra activo en el BCP y que sirve para pagar el valor de la oferta que acabas de ganar.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo puedo pagar la oferta usando el código de pago?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Puedes pagar por dos canales. 1) Banca Web o Móvil del BCP: las personas naturales van a Pago de Servicios, buscan Pacífico Seguros, eligen la opción 23 Deducibles Autos Dólares e ingresan la placa del activo como código de pago; las personas jurídicas usan el TeleCrédito: Operaciones Monetarias, Pagos Varios, Pago de Servicios, clasificación Seguros y Clínicas, empresa Pacífico Seguros, opción 23 Deducibles Autos Dólares e ingresan la placa del activo como código de pago. 2) En ventanilla: indica que deseas realizar un pago a la cuenta recaudadora de Pacífico Seguros, indica la cuenta o servicio 23 Deducibles Autos Dólares e ingresa la placa del activo como código de pago. En todos los casos, después del pago debes adjuntar el comprobante en el módulo Tu Actividad.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "El proceso de compra venta", url: "/categorias/compra-venta" },
+    { name: "¿Cómo uso el código de pago de Pacífico?", url: "/categorias/compra-venta/como-uso-el-codigo-de-pago-de-pacifico" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="El proceso de compra venta"
+    categorySlug="compra-venta"
+    subtitle="¡Aprende a pagar tu oferta usando el código de pago de Pacífico!"
+    updated={updated}
+  >
+    ¿Cómo uso el código de pago de <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >Pacífico</span
+    >?
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      El código de pago de Pacífico es un valor alfanumérico de 6 caracteres activo en el
+      BCP que sirve para pagar el valor de la oferta que acabas de ganar. Puedes pagar por
+      Banca Web o Móvil del BCP (o TeleCrédito si eres persona jurídica) buscando el
+      servicio “23 Deducibles Autos Dólares” de Pacífico Seguros e ingresando la placa del
+      activo como código de pago, o en ventanilla indicando un pago a la cuenta recaudadora
+      de Pacífico Seguros. Después del pago, adjunta el comprobante en el módulo “Tu
+      Actividad”.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué es el código de pago Pacífico? -->
+    <section aria-labelledby="que-es-codigo-pacifico" class="space-y-4">
+      <ChatQ id="que-es-codigo-pacifico">¿Qué es el código de pago Pacífico?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            El código de pago de Pacífico es un <strong>valor alfanumérico de 6
+            caracteres que se encuentra activo en el BCP</strong> y que <strong class="text-orange-vmc">sirve para pagar el valor de la oferta</strong> que acabas de ganar.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Cómo pagar con el código? -->
+    <section aria-labelledby="como-pagar-con-codigo" class="space-y-4">
+      <ChatQ id="como-pagar-con-codigo"
+        >¿Cómo puedo pagar la oferta usando el código de pago?</ChatQ
+      >
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Podrás realizar el pago usando los <strong>siguientes canales</strong>:
+        </p>
+
+        <h3 class="mt-4 text-sm font-bold text-vault-900">
+          1. Banca Web o Móvil
+        </h3>
+
+        <p class="mt-3 text-sm font-bold text-orange-vmc">
+          a. Personas Naturales
+        </p>
+        <p class="mt-1 text-sm leading-relaxed text-vault-900/80">
+          Podrás realizar el pago usando la Banca Web o Móvil siguiendo estos pasos:
+        </p>
+        <ul class="mt-2 list-[square] space-y-1.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>Dirigirse a <strong>Pago de Servicios</strong>.</li>
+          <li>Buscar la opción: <strong>Pacífico Seguros</strong>.</li>
+          <li>Elegir la opción <strong>“23 Deducibles Autos Dólares”</strong>.</li>
+          <li>Ingresar <strong class="text-orange-vmc">la placa del activo</strong> como código de pago.</li>
+          <li>Después del pago <strong>adjuntar el comprobante</strong> en el módulo <strong>“Tu Actividad”</strong>.</li>
+        </ul>
+
+        <p class="mt-4 text-sm font-bold text-orange-vmc">
+          b. Personas Jurídicas
+        </p>
+        <p class="mt-1 text-sm leading-relaxed text-vault-900/80">
+          Podrás realizar el pago usando el TeleCrédito siguiendo estos pasos:
+        </p>
+        <ul class="mt-2 list-[square] space-y-1.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li>Dirigirse a la opción <strong>Operaciones Monetarias</strong>.</li>
+          <li><strong>Pagos Varios</strong>.</li>
+          <li><strong>Pago de Servicios</strong>.</li>
+          <li>En clasificación de pagos: <strong>Seguros y Clínicas</strong>.</li>
+          <li>Empresa: <strong>“Pacífico Seguros”</strong>.</li>
+          <li>Elegir la opción <strong>“23 Deducibles Autos Dólares”</strong>.</li>
+          <li>Ingresar <strong class="text-orange-vmc">la placa del activo</strong> como código de pago.</li>
+          <li>Después del pago <strong>adjuntar el comprobante</strong> en el módulo <strong>“Tu Actividad”</strong>.</li>
+        </ul>
+
+        <h3 class="mt-5 text-sm font-bold text-vault-900">
+          2. En ventanilla
+        </h3>
+        <div class="mt-2 flex items-center gap-4">
+          <ul class="flex-1 list-[square] space-y-1.5 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+            <li>Indicar que desea realizar un <strong>pago a la cuenta recaudadora de Pacífico Seguros</strong>.</li>
+            <li>Indicar la cuenta o servicio <strong>“23 Deducibles Autos Dólares”</strong>.</li>
+            <li>Ingresar <strong class="text-orange-vmc">la placa del activo</strong> como código de pago.</li>
+            <li>Después del pago <strong>adjuntar el comprobante</strong> en <strong>“Tu Actividad”</strong>.</li>
+          </ul>
+        </div>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,33 @@
+---
+/* Bloque de cierre: contacto directo con Subastín — cierra todos los artículos */
+import Button from "./Button.astro";
+---
+
+<section
+  aria-labelledby="contacto"
+  class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-vault-900 to-vault-700 px-6 py-10 text-center shadow-lg shadow-vault-900/20 sm:px-10"
+>
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(156,150,248,0.3),transparent_60%)]"
+  >
+  </div>
+  <div class="relative">
+    <h2 id="contacto" class="text-base font-extrabold text-white">
+      ¿Tienes otras consultas? Habla con nosotros directamente.
+    </h2>
+    <Button variant="primary" href="/contacto" class="mt-5">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg
+      >
+      ¡Resuélvelas Aquí!
+    </Button>
+  </div>
+</section>

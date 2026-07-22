@@ -1,0 +1,14 @@
+---
+/* Burbuja de pregunta — el usuario pregunta, lado derecho */
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<h2
+  id={id}
+  class="chat-q-pill ml-auto w-fit max-w-[88%] rounded-2xl rounded-br-md px-5 py-3.5 text-sm leading-snug font-bold text-white shadow-[0_4px_14px_rgba(190,61,0,0.25)] sm:max-w-[75%]"
+>
+  <slot />
+</h2>

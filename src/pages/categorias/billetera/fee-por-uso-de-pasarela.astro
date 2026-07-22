@@ -1,0 +1,145 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-07";
+const title = "Fee por el uso de pasarela · Centro de Ayuda VMC Subastas";
+const description =
+  "Qué es el Fee por uso de pasarela de VMC Subastas (3.9% del valor de los SubasCoins adquiridos), cuándo se muestra, cómo obtener tu boleta o factura y cómo agregar fondos sin pagar este cargo recargando dólares por el BCP.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-07",
+  dateModified: "2026-07-07",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es el Fee por el uso de pasarela?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es un cargo asociado al procesamiento de pagos realizados mediante medios de pago electrónicos, como tarjetas de crédito o débito. Equivale al 3.9% del valor de los SubasCoins adquiridos y se mostrará de manera clara, visible y en cada adquisición que realices. El detalle siempre aparecerá antes de confirmar la compra, para que puedas revisar el importe total a pagar antes de finalizar la operación.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Recibiré comprobante por este cargo?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Obtendrás boleta o factura por el pago de este fee. Podrás descargarla desde el segmento Transacciones, dentro del módulo Billetera en tu Zona de Usuario.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Existe alguna forma de agregar fondos sin pagar este Fee?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Puedes agregar saldo a tu billetera mediante recarga de dólares utilizando tu Código Único de Usuario (C.U.U.), a través de la App del BCP o en ventanilla del BCP. Esta modalidad no genera este cobro.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La billetera", url: "/categorias/billetera" },
+    { name: "Fee por el uso de pasarela", url: "/categorias/billetera/fee-por-uso-de-pasarela" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La billetera"
+    categorySlug="billetera"
+    subtitle="Subastín te explica qué es este cargo, cuánto es y cómo evitarlo."
+    updated={updated}
+  >
+    Fee por el uso de <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >pasarela</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      El Fee por uso de pasarela es un cargo por el procesamiento de pagos con medios
+      electrónicos (tarjetas de crédito o débito) y equivale al 3.9% del valor de los
+      SubasCoins adquiridos. Se muestra siempre antes de confirmar la compra y genera boleta
+      o factura descargable desde Transacciones. Puedes evitarlo agregando fondos mediante
+      recarga de dólares con tu C.U.U. por la App o ventanilla del BCP.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué es el Fee? -->
+    <section aria-labelledby="que-es-fee" class="space-y-4">
+      <ChatQ id="que-es-fee">¿Qué es el Fee por el uso de pasarela?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Es un cargo asociado al <strong>procesamiento de pagos realizados mediante medios
+          de pago electrónicos</strong>, como tarjetas de crédito o débito.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          Este Fee se mostrará de manera <strong class="text-orange-vmc">clara, visible y en
+          cada adquisición que realices</strong>.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          El Fee por uso de pasarela equivale al <strong class="text-orange-vmc">3.9% del
+          valor de los SubasCoins adquiridos</strong>.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Siempre aparecerá el detalle <strong>antes de confirmar la compra</strong>. Así
+          siempre podrás revisar el importe total a pagar antes de finalizar la operación.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Comprobante? -->
+    <section aria-labelledby="comprobante" class="space-y-4">
+      <ChatQ id="comprobante">¿Recibiré comprobante por este cargo?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Sí. Obtendrás <strong class="text-orange-vmc">boleta o factura</strong> por el pago
+          de este fee. Podrás descargarla desde el segmento <strong>“Transacciones”</strong>,
+          dentro del módulo <strong>Billetera</strong> en tu Zona de Usuario.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q3: ¿Cómo evitar el Fee? -->
+    <section aria-labelledby="evitar-fee" class="space-y-4">
+      <ChatQ id="evitar-fee">¿Existe alguna forma de agregar fondos sin pagar este Fee?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>Sí.</strong> Puedes agregar saldo a tu billetera mediante <a
+            href="/categorias/billetera/la-recarga"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >recarga de Dólares</a
+          > utilizando tu C.U.U. Lo puedes hacer a través de:
+        </p>
+        <ul class="mt-3 list-[square] space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+          <li><strong>App del BCP</strong></li>
+          <li><strong>Ventanilla del BCP</strong></li>
+        </ul>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Esta modalidad <strong>no genera este cobro</strong>.
+        </p>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ayuda.vmcsubastas.com/sitemap-index.xml

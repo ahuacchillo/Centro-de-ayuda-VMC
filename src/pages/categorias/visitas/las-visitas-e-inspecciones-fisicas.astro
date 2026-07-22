@@ -1,0 +1,259 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import ImgPh from "../../../components/ImgPh.astro";
+import Button from "../../../components/Button.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-17";
+const title = "Las visitas e inspecciones físicas · Centro de Ayuda VMC Subastas";
+const description =
+  "Cómo agendar una visita para ver un vehículo en VMC Subastas: requisitos, anticipación mínima de 48 horas, número de visitantes permitidos, qué llevar (DNI vigente), por qué las inspecciones son solo visuales y dónde encontrar la ubicación del bien.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué debo hacer para agendar visitas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Solo debes estar registrado como usuario del servicio. Luego selecciona la oferta de tu interés en el Marketplace, entra al detalle, haz clic o tap en Visitas (si la oferta cuenta con la opción de visitas disponibles), selecciona la fecha y hora, y presiona Agendar Visita.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Puedo realizar la visita con acompañantes?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Lamentablemente, por temas de aforo del almacén del vendedor, solo puede ingresar 1 persona. En caso de cuentas personales deberá ir el usuario dueño de la cuenta, y en caso de cuentas de empresas, el representante legal o el usuario encargado de la cuenta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Durante las visitas, ¿se pueden realizar inspecciones mecánicas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Por temas de seguridad las inspecciones son solo visuales.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Se puede agendar una visita el mismo día del proceso?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Las visitas se deberán agendar con más de 48 horas de anticipación, a menos que se indique lo contrario en el detalle de la oferta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Ya agendé mi visita, ¿qué necesito llevar?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Es necesario que lleves tu DNI vigente y revisar las condiciones adicionales estipuladas por el vendedor en el detalle de la oferta. En caso existan requisitos solicitados por el vendedor, se debe enviar la documentación al correo indicado por lo menos un día antes del día de la visita.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Dónde se encuentra la oferta de mi interés?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Puedes encontrar la ubicación de la oferta en la sección Visitas. Cada uno de los vendedores tiene lugares específicos, ya sea un almacén o depósito, donde mantiene ubicado el bien. Una vez agendada la visita, tendrás el detalle de la ubicación en el mail de confirmación que llegará a tu bandeja de correo electrónico. Para visitar el bien debes haber agendado previamente y seguir las indicaciones del vendedor y/o los requisitos.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "Las visitas", url: "/categorias/visitas" },
+    {
+      name: "Las visitas e inspecciones físicas",
+      url: "/categorias/visitas/las-visitas-e-inspecciones-fisicas",
+    },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="Las visitas"
+    categorySlug="visitas"
+    subtitle="Subastín te explica cómo agendar una visita y qué esperar de la inspección."
+    updated={updated}
+  >
+    Las visitas e <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >inspecciones físicas</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Para visitar un vehículo en VMC Subastas solo necesitas estar registrado y agendar
+      desde la sección “Visitas” del detalle de la oferta, con más de 48 horas de
+      anticipación. Se permite 1 solo visitante (el dueño de la cuenta o, en cuentas de
+      empresa, el representante legal o encargado), debes llevar tu DNI vigente y las
+      inspecciones son solo visuales, no mecánicas. Una vez agendada, el detalle de la
+      ubicación llega en el mail de confirmación.
+    </QuickAnswer>
+
+    <p class="text-center text-sm text-vault-700/70">
+      🎬 ¿Prefieres verlo en video? Mira <a
+        href="https://youtu.be/3wqedeVF4d8"
+        class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+        >“¿Cómo agendo una visita?”</a
+      > en YouTube.
+    </p>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Cómo agendar? -->
+    <section aria-labelledby="como-agendar" class="space-y-4">
+      <ChatQ id="como-agendar">¿Qué debo hacer para agendar visitas?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Solo debes estar <strong>registrado como usuario de nuestro servicio</strong>. Si
+          quieres registrarte ingresa:
+        </p>
+        <p class="mt-3 text-center">
+          <Button variant="primary" href="https://subastop.com/registro">AQUÍ</Button>
+        </p>
+
+        <p class="mt-5 text-sm font-bold text-vault-900">
+          Luego, selecciona la mejor oferta para ti:
+        </p>
+        <img
+          src="/images/articulos/visitas-paso-1-marketplace.png"
+          alt="Marketplace de VMC Subastas con las ofertas de autos disponibles"
+          class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Clic o tap a <strong>“Visitas”</strong> si es que la oferta cuenta con la opción a
+          visitas disponibles.
+        </p>
+        <img
+          src="/images/articulos/visitas-paso-2-agenda-visita.png"
+          alt="Sección Visitas de la oferta con el botón Agenda tu visita"
+          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong>Selecciona la fecha y hora de visita ¡y listo!</strong> Dale clic o tap a <strong>“Agendar visita”</strong>.
+        </p>
+        <img
+          src="/images/articulos/visitas-paso-3-fecha-hora.png"
+          alt="Formulario de la sección Visitas para seleccionar fecha y hora con el botón Agenda tu visita"
+          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q2: ¿Acompañantes? -->
+    <section aria-labelledby="acompanantes" class="space-y-4">
+      <ChatQ id="acompanantes">¿Puedo realizar la visita con acompañantes?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Lamentablemente, <strong>por temas de aforo del almacén del vendedor, solo puede
+          ingresar 1 persona</strong>.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          En caso de <strong class="text-orange-vmc">cuentas personales</strong>, deberá ir
+          el <strong>usuario dueño de la cuenta</strong> y en caso de las <strong class="text-orange-vmc">cuentas de empresas</strong>, el <strong>representante legal</strong> o el usuario encargado de la cuenta.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q3: ¿Inspecciones mecánicas? -->
+    <section aria-labelledby="inspecciones-mecanicas" class="space-y-4">
+      <ChatQ id="inspecciones-mecanicas">
+        Durante las visitas, ¿se pueden realizar inspecciones mecánicas?
+      </ChatQ>
+      <ChatA>
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Por temas de seguridad <strong>las inspecciones son sólo <span class="text-orange-vmc">visuales</span></strong>.
+          </p>
+          <ImgPh class="h-24 w-32 shrink-0 text-sm">Ilustración de un auto</ImgPh>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q4: ¿Mismo día? -->
+    <section aria-labelledby="mismo-dia" class="space-y-4">
+      <ChatQ id="mismo-dia">¿Se puede agendar una visita el mismo día del proceso?</ChatQ>
+      <ChatA>
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            Las visitas se deberán <strong>agendar con más de 48 hrs. de
+            anticipación</strong>, a menos que se indique lo contrario en el detalle de la
+            oferta.
+          </p>
+          <ImgPh class="hidden h-24 w-24 shrink-0 text-sm sm:flex">
+            Ilustración de un reloj
+          </ImgPh>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q5: ¿Qué llevar? -->
+    <section aria-labelledby="que-llevar" class="space-y-4">
+      <ChatQ id="que-llevar">Ya agendé mi visita ¿qué necesito llevar?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Es necesario que lleves tu <strong>DNI vigente</strong> y revisar las condiciones
+          adicionales estipuladas por el vendedor <strong>en el detalle de la oferta</strong>.
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            En caso existan <strong>requisitos solicitados por el vendedor</strong>, se debe
+            enviar la documentación al correo indicado, por lo menos <strong>un día anterior del día de la visita</strong>.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q6: ¿Dónde está el bien? -->
+    <section aria-labelledby="donde-oferta" class="space-y-4">
+      <ChatQ id="donde-oferta">¿Dónde se encuentra la oferta de mi interés?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Puedes encontrar la <strong>ubicación de la oferta en la sección
+          “Visitas”</strong>. Cada uno de los vendedores tiene lugares específicos ya sea un
+          almacén o depósito, donde mantiene ubicado el bien.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Una vez agendada la visita, podrás tener el <strong>detalle de la ubicación en el
+          mail de confirmación</strong> que llegará a tu bandeja de correo electrónico.
+        </p>
+        <ImgPh class="mt-4 h-56">
+          Captura del detalle de la oferta mostrando el campo Ubicación (ej. CALLAO | CALLAO)
+        </ImgPh>
+        <div class="alert-card mt-5 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
+            Para visitar el bien, debes de haber agendado previamente y seguir las
+            indicaciones del vendedor y/o los requisitos.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>

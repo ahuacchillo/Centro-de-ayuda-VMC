@@ -1,0 +1,99 @@
+---
+import Base from "../../layouts/Base.astro";
+import { navigationPilars } from "../../data/helpCenter";
+import { icons } from "../../data/icons";
+
+export function getStaticPaths() {
+  return navigationPilars.flatMap((pilar) =>
+    pilar.categories.map((cat) => ({
+      params: { slug: cat.slug },
+      props: { cat, pilarTitle: pilar.pilarTitle },
+    }))
+  );
+}
+
+const { cat, pilarTitle } = Astro.props;
+const title = `${cat.title} · Centro de Ayuda VMC Subastas`;
+const description = `Artículos de ayuda sobre ${cat.title} para compradores de VMC Subastas: ${cat.articles.map((a) => a.title).join(" · ")}`;
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: cat.title, url: `/categorias/${cat.slug}` },
+  ]}
+>
+  <header class="mx-auto max-w-2xl px-4 pt-8 sm:px-6 sm:pt-12">
+    <nav aria-label="Ruta de navegación" class="text-xs font-semibold tracking-wide text-vault-700/50">
+      <a href="/" class="hover:text-vault-500">Centro de Ayuda</a> <span aria-hidden="true" class="mx-1.5">/</span> <span>{pilarTitle}</span>
+    </nav>
+    <div class="mt-4 flex items-center gap-4">
+      <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-vault-700 shadow-[0_2px_10px_rgba(32,0,104,0.08)]">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          set:html={icons[cat.icon]}
+        />
+      </span>
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-tight text-vault-900 sm:text-3xl">
+          {cat.title}
+        </h1>
+        <p class="mt-0.5 text-sm text-vault-700/60">
+          {cat.articles.length} {cat.articles.length === 1 ? "artículo" : "artículos"}
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-2xl px-4 pt-8 pb-16 sm:px-6">
+    <ul class="space-y-3">
+      {
+        cat.articles.map((article) =>
+          article.href ? (
+            <li>
+              <a
+                href={article.href}
+                class="group flex items-center gap-4 rounded-xl border border-vault-100 bg-white px-5 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-vault-400 hover:shadow-[0_8px_16px_rgba(32,0,104,0.12)]"
+              >
+                <span class="flex-1 text-sm font-bold text-vault-900 group-hover:text-vault-700 sm:text-base">
+                  {article.title}
+                </span> <span
+                  class="shrink-0 text-vault-300 transition-transform duration-200 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg
+                  >
+                </span>
+              </a>
+            </li>
+          ) : (
+            <li class="flex items-center gap-4 rounded-xl border border-dashed border-vault-100 bg-white/60 px-5 py-4">
+              <span class="flex-1 text-sm font-semibold text-vault-700/50 sm:text-base">
+                {article.title}
+              </span> <span class="shrink-0 rounded-full bg-vault-100 px-2.5 py-1 text-[10px] font-bold tracking-wide text-vault-700/60 uppercase">
+                Próximamente
+              </span>
+            </li>
+          )
+        )
+      }
+    </ul>
+  </main>
+</Base>

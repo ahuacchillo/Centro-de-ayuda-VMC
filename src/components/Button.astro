@@ -1,0 +1,81 @@
+---
+/* Botón nativo Concorde (8 variantes) — CSS en src/styles/global.css.
+   Portado del scaffold `npx github:AaronCoorahua/ConcordeV2#cli add button` (React) a Astro. */
+export type ButtonVariant =
+  | "primary"
+  | "negotiable"
+  | "secondary"
+  | "secondary-sm"
+  | "ghost"
+  | "outline"
+  | "sm-guest"
+  | "sm-logged-in";
+
+interface Props {
+  variant?: ButtonVariant;
+  type?: "button" | "submit" | "reset";
+  username?: string;
+  class?: string;
+  href?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  variant = "primary",
+  type = "button",
+  username,
+  class: cls = "",
+  href,
+  target,
+  rel,
+} = Astro.props;
+
+const VARIANT_CLASS: Record<ButtonVariant, string> = {
+  primary: "pvbtn",
+  negotiable: "pneg",
+  secondary: "psec",
+  "secondary-sm": "psec-sm",
+  ghost: "pghost",
+  outline: "poutline",
+  "sm-guest": "pvbtn-sm",
+  "sm-logged-in": "pvbtn-auth-d",
+};
+
+const ICON_WRAP_CLASS: Partial<Record<ButtonVariant, string>> = {
+  "sm-guest": "pvbtn-icon",
+  "secondary-sm": "psec-sm-icon",
+  "sm-logged-in": "pvbtn-auth-d-icon",
+};
+
+const hasIcon = Astro.slots.has("icon");
+const iconWrapClass = ICON_WRAP_CLASS[variant];
+---
+
+{href ? (
+  <a href={href} target={target} rel={rel} class:list={[VARIANT_CLASS[variant], cls]}>
+    {hasIcon && iconWrapClass && (
+      <span class={iconWrapClass}>
+        <slot name="icon" />
+      </span>
+    )}
+    {variant === "sm-logged-in" ? (
+      <>Bienvenido, <span class="pvbtn-auth-d-username"><slot>{username}</slot></span></>
+    ) : (
+      <slot />
+    )}
+  </a>
+) : (
+  <button type={type} class:list={[VARIANT_CLASS[variant], cls]}>
+    {hasIcon && iconWrapClass && (
+      <span class={iconWrapClass}>
+        <slot name="icon" />
+      </span>
+    )}
+    {variant === "sm-logged-in" ? (
+      <>Bienvenido, <span class="pvbtn-auth-d-username"><slot>{username}</slot></span></>
+    ) : (
+      <slot />
+    )}
+  </button>
+)}

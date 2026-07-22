@@ -1,0 +1,241 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-07-08";
+const title =
+  "Responsabilidades de los ganadores habilitados y sanciones por incumplimiento · Centro de Ayuda VMC Subastas";
+const description =
+  "Responsabilidades del ganador habilitado en VMC Subastas (concretar la compra y pagar la comisión) y sanciones por incumplir: pérdida de 75 Puntos, cuenta inhabilitada 7 días, cobro de la comisión y deuda. Incluye cómo presentar un reclamo.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-07-08",
+  dateModified: "2026-07-08",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es una sanción?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La sanción es una medida correctiva cualitativa, aplicable a todo usuario, participante y/o ganador, que incumpla alguna de las responsabilidades derivadas a su actividad en plataforma.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuáles son mis responsabilidades como ganador directo habilitado?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Todo ganador habilitado es responsable de concretar el proceso de compra de la oferta que ganó según las instrucciones proporcionadas por el vendedor y de acuerdo con las instrucciones y los plazos que se indiquen en el módulo Tu Actividad. Además, declara y reconoce que deberá realizar el pago de la comisión, por uso del servicio respectivo, y seguir las Condiciones de Compra según se indica en el detalle de cada ofrecimiento, incluso si incurre en incumplimiento.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué sucede si incumplo con mis responsabilidades como ganador directo habilitado?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "a) Perderás 75 Puntos y aumentarás tu Riesgo Usuario; b) se inhabilitará tu Cuenta durante siete (7) días calendario; c) se procederá a cobrar la comisión por uso del servicio y, en caso de carecer de fondos para pagar el total de la comisión, mantendrás deuda. Además, el acceso a tu cuenta será restringido hasta cancelar esta deuda en su totalidad. Si el participante incurre en un tercer incumplimiento en procesos de un mismo vendedor, se le suspenderá de manera permanente para participar en cualquier oferta de dicho vendedor.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Si abandoné el proceso de compra de la oferta que gané, ¿por qué debo pagar la comisión de VMC?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El pago de la comisión por el uso del servicio es un deber intrínseco de todo ganador habilitado, inclusive si está en falta por incumplimiento en alguna de sus responsabilidades durante el proceso de compra, de acuerdo con las instrucciones y los plazos que se indiquen en el módulo Tu Actividad. En caso de ser una oferta sin comisión, el ganador habilitado deberá pagar a VMC por uso del servicio el 7.5% de la propuesta de compra.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quiero presentar un reclamo, ¿qué debo hacer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Todo reclamo deberá ser enviado por correo a contigo@vmcsubastas.com desde la dirección de correo vinculada a la cuenta del usuario. Se podrán adjuntar sustentos probatorios, como imágenes y/o videos con información completa y legible donde se pueda apreciar a cabalidad la información que permita identificar la identidad del usuario, la oferta a través de su código de oferta o número de placa, la fecha y la hora del dispositivo del usuario al momento de realizar la captura, y que se pueda apreciar con claridad la dirección web de la plataforma. Todo material probatorio que presente edición (recortes o filtros), esté incompleto, sea ilegible por la calidad de la imagen o sea una captura de otra imagen, será desestimado inmediatamente y considerado de mala fe por su carácter inapelable.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "Responsabilidades y sanciones", url: "/categorias/responsabilidades-sanciones" },
+    { name: "Responsabilidades de los ganadores habilitados y sanciones por incumplimiento.", url: "/categorias/responsabilidades-sanciones/responsabilidades-de-los-ganadores-habilitados" },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="Responsabilidades y sanciones"
+    categorySlug="responsabilidades-sanciones"
+    subtitle="Subastín te explica tus deberes como ganador habilitado y las sanciones por incumplirlos."
+    updated={updated}
+  >
+    Responsabilidades de los <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >ganadores habilitados</span
+    > y sanciones por incumplimiento
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      Todo ganador habilitado debe concretar el proceso de compra de la oferta que ganó
+      según las instrucciones del vendedor y los plazos del módulo “Tu Actividad”, y pagar
+      la comisión por uso del servicio incluso si incumple. Si incumples: pierdes 75
+      Puntos y aumenta tu Riesgo Usuario, tu cuenta se inhabilita por 7 días calendario y
+      se cobra la comisión (si no hay fondos, queda como deuda y tu cuenta se restringe
+      hasta pagarla). En ofertas sin comisión, el incumplimiento obliga a pagar el 7.5% de
+      la propuesta de compra. Los reclamos se envían a contigo@vmcsubastas.com.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué es una sanción? -->
+    <section aria-labelledby="que-es-sancion" class="space-y-4">
+      <ChatQ id="que-es-sancion">¿Qué es una sanción?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <div class="flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            La sanción es una <strong>medida correctiva cualitativa</strong>, aplicable a
+            todo usuario, participante y/o ganador, que <strong class="text-orange-vmc">incumpla alguna de las responsabilidades
+            derivadas a su actividad en plataforma</strong>.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q2: Responsabilidades del ganador habilitado -->
+    <section aria-labelledby="responsabilidades-ganador" class="space-y-4">
+      <ChatQ id="responsabilidades-ganador"
+        >¿Cuáles son mis responsabilidades como ganador directo habilitado?</ChatQ
+      >
+      <ChatA>
+        <div class="flex items-center gap-4">
+          <ul class="flex-1 list-[square] space-y-3 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
+            <li>
+              Todo ganador habilitado es responsable de <strong>concretar el proceso de
+              compra de la oferta que ganó</strong> según las instrucciones <strong>proporcionadas por el vendedor</strong> y de acuerdo con las
+              instrucciones y <strong>los plazos que se indiquen en el módulo “Tu
+              Actividad”</strong>.
+            </li>
+            <li>
+              Todo ganador habilitado declara y reconoce que <strong class="text-orange-vmc">deberá realizar el pago de la <a
+                href="/categorias/compra-venta/la-comision-por-que-cuanto-y-como-se-paga"
+                class="font-bold underline decoration-2 underline-offset-2"
+                >comisión</a
+              >, por uso del servicio respectivo</strong> y seguir las Condiciones de
+              Compra según se indica en el detalle de cada ofrecimiento, <strong>incluso si incurre en incumplimiento</strong>.
+            </li>
+          </ul>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q3: Si incumplo como ganador -->
+    <section aria-labelledby="si-incumplo-ganador" class="space-y-4">
+      <ChatQ id="si-incumplo-ganador"
+        >¿Qué sucede si incumplo con mis responsabilidades como ganador directo
+        habilitado?</ChatQ
+      >
+      <ChatA>
+        <ol class="list-[lower-alpha] space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+          <li>
+            <strong>Perderás 75 Puntos</strong> y aumentarás tu <a
+              href="/categorias/riesgo-usuario/el-riesgo-usuario-y-sus-categorias"
+              class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+              >Riesgo Usuario</a
+            >.
+          </li>
+          <li>
+            Se <strong>inhabilitará tu Cuenta durante siete (7) días</strong> calendario.
+          </li>
+          <li>
+            Se procederá a <strong>cobrar la comisión por uso de nuestro servicio</strong>;
+            en caso de carecer de fondos para pagar el total de la comisión, mantendrás
+            deuda.
+          </li>
+        </ol>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          Además, el <strong>acceso a tu cuenta será restringido hasta cancelar esta
+          deuda</strong> en su totalidad.
+        </p>
+        <div class="mt-4 rounded-xl border-2 border-orange-vmc p-4 text-center text-sm leading-relaxed">
+          <strong class="text-orange-vmc">Importante:</strong> <span class="text-vault-900/80">
+            Si el participante incurre en un <strong>tercer incumplimiento en procesos de
+            un mismo vendedor</strong>, se le suspenderá de manera permanente para
+            participar en cualquier oferta de dicho vendedor.
+          </span>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q4: ¿Por qué pagar la comisión si abandoné? -->
+    <section aria-labelledby="abandone-compra" class="space-y-4">
+      <ChatQ id="abandone-compra"
+        >Si abandoné el proceso de compra de la oferta que gané, ¿por qué debo pagar la
+        comisión de VMC?</ChatQ
+      >
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          El pago de la <a
+            href="/categorias/compra-venta/la-comision-por-que-cuanto-y-como-se-paga"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >comisión</a
+          > por el uso del servicio es un <strong>deber intrínseco de todo ganador
+          habilitado</strong>, inclusive si está en falta por incumplimiento en alguna de
+          sus responsabilidades durante el proceso de compra, de acuerdo con las
+          instrucciones y los plazos que se indiquen en el módulo <strong>“Tu
+          Actividad”</strong>.
+        </p>
+        <div class="mt-4 flex items-center gap-4">
+          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
+            En caso de ser una oferta sin comisión, <strong class="text-orange-vmc">el ganador habilitado deberá pagar a VMC por
+            uso del servicio el 7.5% de la propuesta de compra</strong>.
+          </p>
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q5: Reclamos -->
+    <section aria-labelledby="presentar-reclamo" class="space-y-4">
+      <ChatQ id="presentar-reclamo">Quiero presentar un reclamo, ¿qué debo hacer?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Todo reclamo <strong>deberá ser enviado por correo a</strong> <a
+            href="mailto:contigo@vmcsubastas.com"
+            class="font-bold text-orange-vmc underline decoration-2 underline-offset-2"
+            >contigo@vmcsubastas.com</a
+          > desde la dirección de correo vinculada a la cuenta del usuario.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
+          Se podrán <strong class="text-orange-vmc">adjuntar sustentos probatorios</strong>,
+          como imágenes y/o videos con información completa y legible <strong>donde se pueda apreciar a cabalidad la información</strong> que permita
+          identificar la <strong>identidad del usuario</strong>, la oferta a través de su <strong>código de oferta o número de placa</strong>, la <strong>fecha y la hora del dispositivo del usuario</strong> al momento de
+          realizar la captura de la imagen o video, y que se pueda apreciar con claridad la
+          dirección web de nuestra plataforma.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Todo material probatorio que <strong>presente edición</strong>, sean recortes o
+          filtros, o se encuentre incompleto, sea ilegible por la calidad de la imagen o
+          se tratase de una captura de otra imagen, <strong>será desestimado inmediatamente y considerado de mala fe</strong> por
+          su carácter inapelable.
+        </p>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+  </main>
+</Base>
