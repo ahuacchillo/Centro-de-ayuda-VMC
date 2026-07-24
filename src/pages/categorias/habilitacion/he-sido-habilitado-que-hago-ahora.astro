@@ -7,7 +7,7 @@ import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-07-24";
 const title = "¡He sido habilitado para comprar! ¿Qué hago ahora? · Centro de Ayuda VMC Subastas";
 const description =
   "Qué sigue después de ser habilitado en VMC Subastas: las instrucciones de pago del vendedor, el Fee de Habilitación, el pago directo al vendedor en dólares, los gastos adicionales, las sanciones por incumplir la compra y dónde encontrar tus comprobantes.";
@@ -18,8 +18,40 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-07-24",
   mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué hacer después de la habilitación?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cada oferta cuenta con diferentes condiciones de ofrecimiento y compra, por lo que cada proceso de compra puede tener diferentes requisitos y plazos de pago; esta información también se encuentra en el documento Resumen de oferta que se encuentra disponible para su descarga en la publicación de la oferta. La primera fase del proceso de venta requiere que pagues la comisión por uso de nuestro servicio y así cargues la documentación que solicita el vendedor, para ello debes ingresar a tu Zona de Usuario, y luego al proceso de compra dentro del módulo Tu Actividad.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Dónde se encuentra mi Zona de Usuario y el módulo Tu Actividad?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Para ingresar a tu Zona de Usuario, debes hacer clic o tap en tu CUU. Se encuentra ubicado en la esquina superior, derecha de la plataforma. Luego, en tu Zona de Usuario, haz clic o tap en Proceso de compra dentro del módulo Tu Actividad.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Dónde puedo ver el plazo de pago para cumplir mis responsabilidades como ganador habilitado?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Antes del inicio del proceso puedes ver el plazo de pago en las condiciones de la oferta y en el documento Resumen de oferta que se encuentra en la publicación de la oferta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué documentos debo adjuntar después de ser habilitado?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Antes del inicio del proceso puedes ver los documentos que solicita el vendedor en las condiciones de la oferta y en el documento Resumen de oferta que se encuentra en la publicación de la oferta. Cuando tengas los documentos, puedes adjuntarlos en la sección de documentación requerida. Ahí también puedes descargar los documentos que solicita el vendedor.",
+      },
+    },
     {
       "@type": "Question",
       name: "Ya pagué la comisión y subí los documentos solicitados, ¿ahora qué tengo que hacer?",
@@ -76,6 +108,14 @@ export const faqJsonLd = {
         text: "Puedes encontrar tus comprobantes de pago por las comisiones pagadas ingresando a tu Zona de Usuario, en Transacciones dentro del módulo Billetera, y descargar los comprobantes.",
       },
     },
+    {
+      "@type": "Question",
+      name: "¿Por qué me dan opción de compra?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El vendedor se reserva el derecho a brindarle la opción de compra a cualquier participante por debajo del 3er lugar en una oferta en vivo sin precio reserva y por debajo del 2do lugar en una oferta con precio reserva. En caso te den opción de compra, podrás rechazarla libre de sanciones. En caso aceptes la Opción de compra asumes todas las responsabilidades de un ganador habilitado.",
+      },
+    },
   ],
 };
 ---
@@ -122,7 +162,141 @@ export const faqJsonLd = {
     <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
     <ChatIntro />
 
-    <!-- Q1: Ya pagué la comisión -->
+    <!-- Q1 (NUEVA): ¿Qué hacer después de la habilitación? -->
+    <section aria-labelledby="que-hacer-habilitacion" class="space-y-4">
+      <ChatQ id="que-hacer-habilitacion">
+        ¿Qué hacer después de la habilitación?
+      </ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong class="text-vault-700">Cada oferta cuenta con diferentes condiciones de ofrecimiento y compra</strong>, por lo que cada proceso de compra puede tener diferentes requisitos y plazos de pago, esta información también se encuentra en el documento <strong>"Resumen de oferta"</strong> que se encuentra disponible para su descarga en la publicación de la oferta.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          La primera fase del proceso de venta <strong>requiere que pagues la comisión</strong> por uso de nuestro servicio <strong>y así cargues la documentación que solicita el vendedor</strong>, para ello debes ingresar a tu Zona de Usuario, y luego al proceso de compra dentro del módulo "Tu Actividad".
+        </p>
+        <ol class="mt-4 space-y-6 text-sm leading-relaxed text-vault-900/80">
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 1:</strong> Al ser habilitado, verás la <strong>fecha y hora límite para concretar el proceso de compra</strong>, la comisión y el botón <strong>"Paga la comisión aquí"</strong>.
+            </p>
+            <img
+              src="/images/articulos/habilitado-paso-1-has-sido-habilitado.png"
+              alt="Notificación Ganador habilitado con la fecha y hora límite, comisión pendiente y botón Paga la comisión aquí"
+              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+            <div class="alert-card mt-3 rounded-xl p-4 text-center text-sm leading-relaxed">
+              <strong class="text-white">Importante:</strong> <span class="text-white/90">
+                Debes cumplir el <strong>plazo de pago</strong> que se encuentra en el módulo "Tu Actividad".</span
+              >
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 2:</strong> Adjunta la <strong>documentación que solicita el vendedor</strong> y dale a <strong>"Enviar Documentos"</strong>.
+            </p>
+            <img
+              src="/images/articulos/habilitado-paso-2-adjunta-dni.png"
+              alt="Sección Documentación Requerida para adjuntar el DNI y enviar los documentos"
+              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+        </ol>
+      </ChatA>
+    </section>
+
+    <!-- Q2 (NUEVA): ¿Dónde se encuentra mi Zona de Usuario y el módulo Tu Actividad? -->
+    <section aria-labelledby="zona-usuario-actividad" class="space-y-4">
+      <ChatQ id="zona-usuario-actividad">
+        ¿Dónde se encuentra mi Zona de Usuario y el módulo "Tu Actividad"?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Para ingresar a tu Zona de Usuario, <strong>debes hacer clic o tap en tu CUU</strong>. Se encuentra ubicado en la esquina superior, derecha de la plataforma.
+        </p>
+        <img
+          src="/images/articulos/habilitado-paso-3-pregunta-max.png"
+          alt="Plataforma de VMC Subastas con el CUU en la esquina superior derecha señalado"
+          class="mt-3 max-w-full rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Luego, en tu Zona de Usuario, haz clic o tap en <strong>Proceso de compra</strong> dentro del módulo <strong>"Tu Actividad"</strong>:
+        </p>
+        <img
+          src="/images/articulos/habilitado-paso-4-procesos-compra.png"
+          alt="Zona de Usuario con Billetera y Tu Actividad, señalando Proceso de Compra"
+          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q3 (NUEVA): ¿Dónde puedo ver el plazo de pago? -->
+    <section aria-labelledby="plazo-pago" class="space-y-4">
+      <ChatQ id="plazo-pago">
+        ¿Dónde puedo ver el plazo de pago para cumplir mis responsabilidades como ganador habilitado?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Antes del inicio del proceso puedes ver el plazo de pago en las <strong>condiciones de la oferta</strong> y en el documento <strong>"Resumen de oferta"</strong> que se encuentra en la publicación de la oferta.
+        </p>
+        <img
+          src="/images/articulos/habilitado-paso-5-fecha-limite.png"
+          alt="Detalle de la oferta en la app mostrando Ganador habilitado, Replay, monto y el plazo de pago para concretar el proceso de compra"
+          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+      </ChatA>
+    </section>
+
+    <!-- Q4 (NUEVA): ¿Qué documentos debo adjuntar después de ser habilitado? -->
+    <section aria-labelledby="documentos-adjuntar" class="space-y-4">
+      <ChatQ id="documentos-adjuntar">
+        ¿Qué documentos debo adjuntar después de ser habilitado?
+      </ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Antes del inicio del proceso <strong>puedes ver los documentos que solicita el vendedor en las condiciones de la oferta y en el documento "Resumen de oferta"</strong> que se encuentra en la publicación de la oferta.
+        </p>
+        <img
+          src="/images/articulos/habilitado-paso-6-documentos-requeridos.png"
+          alt="Documentos requeridos para descarga: Carta de origen de fondos, Declaración Jurada PPNN y Declaración Jurada PPJJ"
+          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Cuando tengas los documentos, <strong>puedes adjuntarlos en la sección de documentación requerida.</strong>
+        </p>
+        <ol class="mt-4 space-y-6 text-sm leading-relaxed text-vault-900/80">
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 1:</strong> Adjunta cada documento solicitado haciendo clic o tap en <strong>"Adjunta"</strong>.
+            </p>
+            <img
+              src="/images/articulos/habilitado-documentacion-adjuntar.png"
+              alt="Sección Documentación requerida con DNI y Carta de origen de fondos para adjuntar, con nota: aquí también puedes descargar los documentos que solicita el vendedor"
+              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+          <li>
+            <p>
+              <strong class="text-vault-700">Paso 2:</strong> Una vez adjuntados todos los documentos, dale clic o tap a <strong>"Enviar Documentos"</strong>.
+            </p>
+            <img
+              src="/images/articulos/habilitado-documentacion-enviar.png"
+              alt="Sección Documentación requerida con los documentos ya adjuntados y el botón Enviar Documentos"
+              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+              loading="lazy"
+            />
+          </li>
+        </ol>
+      </ChatA>
+    </section>
+
+    <!-- Q5: Ya pagué la comisión (REESTRUCTURADA - simplificada) -->
     <section aria-labelledby="pague-comision" class="space-y-4">
       <ChatQ id="pague-comision">
         Ya pagué la comisión y subí los documentos solicitados, ¿ahora qué tengo que hacer?
@@ -132,87 +306,19 @@ export const faqJsonLd = {
           Solo debes esperar a que <strong>te proporcionemos las instrucciones de pago del
           vendedor</strong>, para que puedas continuar con el proceso de compra.
         </p>
-        <ol class="mt-4 space-y-6 text-sm leading-relaxed text-vault-900/80">
-          <li>
-            <p>
-              <strong class="text-vault-700">Paso 1:</strong> Al ser habilitado, verás la <strong>fecha y hora límite para concretar el proceso de compra</strong>.
-              Recuerda cumplir el plazo de pago desde el módulo “Tu Actividad”.
-            </p>
-            <img
-              src="/images/articulos/habilitado-paso-1-has-sido-habilitado.png"
-              alt="Notificación Felicidades, has sido habilitado, con la fecha y hora límite para concretar el proceso de compra"
-              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
-              loading="lazy"
-            />
-          </li>
-          <li>
-            <p>
-              <strong class="text-vault-700">Paso 2:</strong> Adjunta la <strong>documentación que solicita el vendedor</strong> y dale a <strong>“Enviar Documentos”</strong>.
-            </p>
-            <img
-              src="/images/articulos/habilitado-paso-2-adjunta-dni.png"
-              alt="Sección Documentación Requerida para adjuntar el DNI y enviar los documentos"
-              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
-              loading="lazy"
-            />
-          </li>
-          <li>
-            <p>
-              <strong class="text-vault-700">Paso 3:</strong> Para ingresar a tu Zona de
-              Usuario, haz clic o tap en tu <strong>C.U.U.</strong>, ubicado en la esquina
-              superior derecha de la plataforma.
-            </p>
-            <img
-              src="/images/articulos/habilitado-paso-3-pregunta-max.png"
-              alt="Plataforma de VMC Subastas con el C.U.U. en la esquina superior derecha"
-              class="mt-3 max-w-full rounded-xl border border-vault-300/60"
-              loading="lazy"
-            />
-          </li>
-          <li>
-            <p>
-              <strong class="text-vault-700">Paso 4:</strong> En el módulo <strong>“Tu Actividad”</strong>, entra a <strong>Procesos de Compra</strong> y
-              abre el detalle de tu oferta ganada con <strong>“Ver Detalle”</strong>.
-            </p>
-            <img
-              src="/images/articulos/habilitado-paso-4-procesos-compra.png"
-              alt="Sección Procesos de Compra de Tu Actividad con el vehículo ganado y el botón Ver Detalle"
-              class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
-              loading="lazy"
-            />
-          </li>
-          <li>
-            <p>
-              <strong class="text-vault-700">Paso 5:</strong> Ahí podrás ver el <strong>plazo de pago</strong> para cumplir tus responsabilidades como ganador
-              habilitado.
-            </p>
-            <img
-              src="/images/articulos/habilitado-paso-5-fecha-limite.png"
-              alt="Detalle del proceso de compra habilitado con la fecha límite para concretarlo"
-              class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
-              loading="lazy"
-            />
-          </li>
-          <li>
-            <p>
-              <strong class="text-vault-700">Paso 6:</strong> Descarga los <strong>documentos requeridos</strong>: Carta de origen de fondos y las
-              Declaraciones Juradas (PPNN o PPJJ).
-            </p>
-            <img
-              src="/images/articulos/habilitado-paso-6-documentos-requeridos.png"
-              alt="Documentos requeridos para descarga: Carta de origen de fondos y Declaraciones Juradas PPNN y PPJJ"
-              class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
-              loading="lazy"
-            />
-          </li>
-        </ol>
+        <img
+          src="/images/articulos/habilitado-comision-pagada-listo.png"
+          alt="Estado del proceso: Ganador habilitado y Comisión pagada con checks verdes, plazo de compra, personaje celebrando y mensaje ¡Listo! Estamos validando tus documentos"
+          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
           En caso se indique en las condiciones de oferta, deberás pagar el <strong class="text-orange-vmc">Fee de Habilitación</strong> en esta etapa.
         </p>
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          El <strong>Fee de Habilitación</strong> es un monto que el ganador habilitado
-          deberá pagar a VMC SUBASTAS por concepto de <strong>gastos administrativos, gestión
-          interna y evaluaciones requeridas para ser habilitado</strong>, cuando se indique
+          El <strong>Fee de Habilitación</strong> es un <strong>monto que el ganador habilitado
+          deberá pagar a VMC SUBASTAS</strong> por concepto de gastos administrativos, gestión
+          interna y evaluaciones requeridas para ser habilitado, cuando se indique
           en las Condiciones del Ofrecimiento.
         </p>
         <p class="mt-3 text-sm leading-relaxed text-vault-900/80">
@@ -229,7 +335,7 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <!-- Q2: Ya hice el pago -->
+    <!-- Q6: Ya hice el pago -->
     <section aria-labelledby="hice-pago" class="space-y-4">
       <ChatQ id="hice-pago">Ya hice el pago de la oferta, ¿ahora qué sigue?</ChatQ>
       <ChatA>
@@ -242,7 +348,7 @@ export const faqJsonLd = {
             Sigue las <strong>instrucciones de pago</strong> de la oferta (banco y cuenta de
             destino indicados) y <strong>adjunta tu comprobante de pago</strong>.
           </li>
-          <li>Dale clic o tap a <strong>“Enviar”</strong>.</li>
+          <li>Dale clic o tap a <strong>"Enviar"</strong>.</li>
         </ol>
         <img
           src="/images/articulos/habilitado-paso-7-instrucciones-pago.png"
@@ -264,7 +370,7 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <!-- Q3: ¿Puedo pagar con la billetera? -->
+    <!-- Q7: ¿Puedo pagar con la billetera? -->
     <section aria-labelledby="fondos-billetera" class="space-y-4">
       <ChatQ id="fondos-billetera">
         Tengo fondos en mi billetera, ¿puedo usarlos para pagar la oferta?
@@ -288,7 +394,7 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <!-- Q4: ¿Pagos adicionales? -->
+    <!-- Q8: ¿Pagos adicionales? -->
     <section aria-labelledby="pagos-adicionales" class="space-y-4">
       <ChatQ id="pagos-adicionales">¿Hay pagos adicionales que hacer?</ChatQ>
       <ChatA>
@@ -302,7 +408,7 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <!-- Q5: Incumplimiento -->
+    <!-- Q9: Incumplimiento -->
     <section aria-labelledby="incumplo-compra" class="space-y-4">
       <ChatQ id="incumplo-compra">Si incumplo con la compra de una oferta, ¿qué pasa?</ChatQ>
       <ChatA>
@@ -321,7 +427,6 @@ export const faqJsonLd = {
             <li>Perdiste <strong>75 Puntos</strong>.</li>
           </ul>
         </div>
-        {/* TODO DESACTUALIZADA: reemplazar captura de la notificación de sanción */}
         <img
           src="/images/articulos/habilitado-sancion.png"
           alt="Notificación Has sido sancionado: cuenta inhabilitada 7 días, cobro de la comisión y pérdida de 75 Puntos"
@@ -338,7 +443,7 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <!-- Q6: Boleta/factura -->
+    <!-- Q10: Boleta/factura -->
     <section aria-labelledby="comprobante-compra" class="space-y-4">
       <ChatQ id="comprobante-compra">
         Terminé el proceso de compra de la oferta y necesito mi comprobante de pago
@@ -353,13 +458,13 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <!-- Q7: Comprobante de comisión -->
+    <!-- Q11: Comprobante de comisión -->
     <section aria-labelledby="comprobante-comision" class="space-y-4">
       <ChatQ id="comprobante-comision">¿Dónde encuentro el comprobante de pago de comisión?</ChatQ>
       <ChatA>
         <p class="text-sm leading-relaxed text-vault-900/80">
           Puedes encontrar tus comprobantes de pago por las comisiones pagadas ingresando a
-          tu <strong>Zona de Usuario</strong>, en <strong>“transacciones”</strong> dentro del
+          tu <strong>Zona de Usuario</strong>, en <strong>"transacciones"</strong> dentro del
           módulo <strong>Billetera</strong> y descargar los comprobantes.
         </p>
         <img
@@ -368,6 +473,27 @@ export const faqJsonLd = {
           class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
+      </ChatA>
+    </section>
+
+    <!-- Q12: ¿Por qué me dan opción de compra? -->
+    <section aria-labelledby="opcion-de-compra" class="space-y-4">
+      <ChatQ id="opcion-de-compra">¿Por qué me dan opción de compra?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          <strong>El vendedor se reserva el derecho a brindarle la opción de compra</strong> a cualquier participante por debajo del <strong>3er lugar</strong> en una oferta en vivo <strong>sin precio reserva</strong> y por debajo del <strong>2do lugar</strong> en una oferta <strong>con precio reserva</strong>.
+        </p>
+        <img
+          src="/images/articulos/habilitado-opcion-de-compra.png"
+          alt="Notificación ¡Tienes opción de compra! El vendedor te dio opción de comprar con tu Bid US$ 11,100 con los botones Aceptar y Rechazar"
+          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">Importante:</strong> <span class="text-white/90">
+            En caso te den opción de compra, <strong>podrás rechazarla libre de sanciones</strong>. En caso aceptes la Opción de compra <strong>asumes todas las responsabilidades de un ganador habilitado</strong>.</span
+          >
+        </div>
       </ChatA>
     </section>
 
