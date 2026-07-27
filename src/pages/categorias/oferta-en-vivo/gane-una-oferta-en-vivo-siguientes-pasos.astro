@@ -7,7 +7,7 @@ import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-07-27";
 const title =
   "Gané una oferta “En Vivo”: ¿Cuáles son los siguientes pasos? · Centro de Ayuda VMC Subastas";
 const description =
@@ -19,7 +19,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-07-27",
   mainEntity: [
     {
       "@type": "Question",
@@ -50,7 +50,7 @@ export const faqJsonLd = {
       name: "Soy Ganador Directo, quiero seguir participando, ¿qué puedo hacer?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Para poder seguir participando en otros procesos, deberás pagar la comisión de la oferta que has ganado, ya que automáticamente has generado una deuda en plataforma. La consignación se toma como adelanto de la comisión por uso del servicio; para pagar lo restante, agrega fondos mediante una Recarga o adquiriendo SubasCoins. En caso hayas consignado por adelantado para acceder a otros procesos, la plataforma te impedirá ingresar y serás sancionado: por ello deberás pagar la comisión de la oferta ganada.",
+        text: "Para poder seguir participando en otros procesos, deberás pagar la comisión de la oferta que has ganado, ya que automáticamente has generado una deuda en plataforma. Encontrarás el detalle en el proceso de compra (comisión, monto consignado y pendiente) junto al botón Paga la comisión aquí. La consignación se toma como adelanto de la comisión por uso del servicio; para pagar lo restante, agrega fondos mediante una Recarga o adquiriendo SubasCoins. En caso hayas consignado por adelantado para acceder a otros procesos, la plataforma te impedirá ingresar y serás sancionado: por ello deberás pagar la comisión de la oferta ganada.",
       },
     },
     {
@@ -210,6 +210,10 @@ export const faqJsonLd = {
           loading="lazy"
         />
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Encontrarás el detalle en el proceso de compra (<strong>comisión, monto consignado y
+          pendiente</strong>) junto al botón <strong>“Paga la comisión aquí”</strong>.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
           La consignación se toma como adelanto de la comisión por uso de nuestro servicio;
           para pagar lo restante, <strong>agrega fondos mediante una <a
             href="/categorias/billetera/la-recarga"
@@ -221,14 +225,12 @@ export const faqJsonLd = {
             >SubasCoins</a
           ></strong>.
         </p>
-        <div class="mt-4 flex items-center gap-4">
-          <div class="alert-card flex-1 rounded-xl p-4 text-sm leading-relaxed">
-            <span class="text-white/90">
-              En caso hayas consignado por adelantado para acceder a otros procesos, <strong class="text-white">la plataforma te impedirá ingresar y serás
-              sancionado</strong>. Es por ello que <strong>deberás pagar la comisión de la
-              oferta ganada</strong>.</span
-            >
-          </div>
+        <div class="alert-card mt-4 rounded-xl p-4 text-sm leading-relaxed">
+          <span class="text-white/90">
+            En caso hayas consignado por adelantado para acceder a otros procesos, <strong class="text-white">la plataforma te impedirá ingresar y serás
+            sancionado</strong>. Es por ello que <strong>deberás pagar la comisión de la
+            oferta ganada</strong>.</span
+          >
         </div>
       </ChatA>
     </section>
@@ -259,19 +261,15 @@ export const faqJsonLd = {
     <section aria-labelledby="postor-que-hago" class="space-y-4">
       <ChatQ id="postor-que-hago">He resultado Mejor Postor, ¿ahora qué debo hacer?</ChatQ>
       <ChatA>
-        <div class="flex items-start gap-4">
-          <div class="flex-1">
-            <p class="text-sm leading-relaxed text-vault-900/80">
-              En este caso, tu <strong>consignación permanecerá retenida hasta recibir una
-              respuesta</strong> por parte del vendedor. <strong>El vendedor tiene hasta 10 días para:</strong>
-            </p>
-            <ol class="mt-3 list-[lower-alpha] space-y-2 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
-              <li>Aceptar tu bid.</li>
-              <li>Rechazar tu bid.</li>
-              <li>Contra proponerte.</li>
-            </ol>
-          </div>
-        </div>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          En este caso, tu <strong>consignación permanecerá retenida hasta recibir una
+          respuesta</strong> por parte del vendedor. <strong>El vendedor tiene hasta 10 días para:</strong>
+        </p>
+        <ol class="mt-3 list-[lower-alpha] space-y-2 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+          <li>Aceptar tu bid.</li>
+          <li>Rechazar tu bid.</li>
+          <li>Contra proponerte.</li>
+        </ol>
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
           En caso el vendedor acepte el bid final del Mejor Postor o el Mejor Postor acepte
           la contrapropuesta del vendedor, <strong>el participante adquirirá las

@@ -16,7 +16,7 @@
         "feat-001"
       ],
       "status": "done",
-      "evidence": "22/22 publicados (2026-07-08): registro 1/1, billetera 4/4, consignacion 2/2, visitas 1/1, negociable 1/1, en-vivo 4/4, financiamiento 1/1, habilitacion 1/1, compra-venta 2/2, responsabilidades-sanciones 3/3, riesgo-usuario 2/2. Eliminados del universo: SubasTour, VIDEOTUTORIALES de financiamiento (va a /videotutoriales) y transferencia a Subaswallet (el articulo ya no existe, decision 2026-07-08). Build 36 paginas + gate FAQPage/Breadcrumb/llms.txt verificado por articulo. Nota: tramo inicial del legacy de habilitacion sigue pendiente de capturas del Arquitecto."
+      "evidence": "22/22 publicados (2026-07-08): registro 1/1, billetera 4/4, consignacion 2/2, visitas 1/1, negociable 1/1, en-vivo 4/4, financiamiento 1/1, habilitacion 1/1, compra-venta 2/2, responsabilidades-sanciones 3/3, riesgo-usuario 2/2. Eliminados del universo: SubasTour, VIDEOTUTORIALES de financiamiento (va a /videotutoriales) y transferencia a Subaswallet (el articulo ya no existe, decision 2026-07-08). Build 36 paginas + gate FAQPage/Breadcrumb/llms.txt verificado por articulo. Nota: tramo inicial del legacy de habilitacion sigue pendiente de capturas del Arquitecto. Corrección 2026-07-27: el universo real es 21 artículos / 34 páginas (el de financiamiento ya no existe en helpCenter.ts ni en disco); el '22/22 + 36 paginas' de arriba quedó obsoleto."
     },
     {
       "id": "feat-003",
@@ -47,6 +47,16 @@
       ],
       "status": "in-progress",
       "evidence": "3 videos embebidos en /videotutoriales (2026-07-08): registro, consignacion, visitas — youtube-nocookie + VideoObject JSON-LD + enlace bidireccional articulo⇄video verificado en build. Pendiente: videos de los demas clusters y verificar subtitulos (lado Arquitecto)."
+    },
+    {
+      "id": "feat-006",
+      "name": "Auditoría de contenido contra infografías fuente",
+      "description": "Verificar artículo por artículo que el contenido publicado coincida con las infografías del Arquitecto: cobertura de preguntas, datos duros, emparejamiento captura↔pregunta y sincronía cuerpo↔faqJsonLd",
+      "dependencies": [
+        "feat-002"
+      ],
+      "status": "in-progress",
+      "evidence": "6/21 auditados 2026-07-27: visitas, negociable, en-vivo-informacion, es-hora-de-participar, el-proceso-termino, gane-una-oferta. Hallazgo mayor: en-vivo-informacion Q6 afirmaba 'imposible' donde la fuente dice 'posible'. Gana Ya eliminado del sitio completo (decisión de producto). build 34 páginas OK. Pendiente: 3 capturas mal emparejadas requieren assets del Arquitecto; plazo de 10 días hábiles del Ganador Directo sin respaldo. Faltan 15 artículos por auditar."
     }
   ]
 }
