@@ -8,10 +8,10 @@ import ChatA from "../../../components/ChatA.astro";
 import Button from "../../../components/Button.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-07-27";
 const title = "La oferta “Negociable”: ¿Cómo funciona? · Centro de Ayuda VMC Subastas";
 const description =
-  "Cómo funciona la oferta Negociable de VMC Subastas: negociación directa con el vendedor sin Precio Base ni Precio Reserva, cómo proponer un monto, contrapropuestas (hasta 5 por negociación), qué pasa al rechazar y la opción Gana Ya.";
+  "Cómo funciona la oferta Negociable de VMC Subastas: negociación directa con el vendedor sin Precio Base ni Precio Reserva, cómo proponer un monto, plazos de respuesta, contrapropuestas (hasta 5 por negociación) y qué pasa al rechazar.";
 
 /* FAQ del artículo → JSON-LD (SEO/GEO) */
 export const faqJsonLd = {
@@ -19,7 +19,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-07-27",
   mainEntity: [
     {
       "@type": "Question",
@@ -42,7 +42,7 @@ export const faqJsonLd = {
       name: "¿En dónde puedo ver la respuesta del vendedor y el estado de la negociación?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "En el módulo Tu Actividad podrás verificar el estado de la negociación y, en caso el vendedor acepte tu propuesta, los pasos a seguir. Se pueden dar 3 casos: aceptación, contrapropuesta o rechazo, según el vendedor considere conveniente.",
+        text: "Mientras el vendedor no responda verás Esperando respuesta; tu propuesta expira en 24 horas. En el módulo Tu Actividad podrás verificar el estado de la negociación y, en caso el vendedor acepte tu propuesta, los pasos a seguir.",
       },
     },
     {
@@ -58,7 +58,7 @@ export const faqJsonLd = {
       name: "El vendedor me ha enviado una contrapropuesta, ¿qué hago?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Si estás de acuerdo con la contrapropuesta del vendedor, acéptala para iniciar el proceso de compra. Si todavía quieres seguir negociando, puedes enviarle una contrapropuesta al vendedor: podrás hacer esto hasta en 5 oportunidades por negociación.",
+        text: "Si estás de acuerdo con la contrapropuesta del vendedor, acéptala para iniciar el proceso de compra. La contrapropuesta del vendedor expira en 72 horas y desde ahí puedes Aceptar, Contraproponer o Rechazar. Si todavía quieres seguir negociando, puedes enviarle una contrapropuesta al vendedor: podrás hacer esto hasta en 5 oportunidades por negociación.",
       },
     },
     {
@@ -67,14 +67,6 @@ export const faqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Al ser rechazada una propuesta, el proceso de negociación se da por concluido y tu consignación es liberada. Si aún te interesa el bien, podrás iniciar una nueva negociación con el vendedor, con un máximo de 5 negociaciones por oferta.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "¿Puedo ganar la oferta sin necesidad de iniciar una negociación con el vendedor?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sí. Cuando la oferta cuente con la opción Gana Ya, podrás ganar sin necesidad de negociar: solo debes proponer el monto indicado en el Gana Ya.",
       },
     },
   ],
@@ -114,8 +106,7 @@ export const faqJsonLd = {
       botón “Negocia Ahora” (necesitas fondos en tu billetera para la consignación). El
       vendedor puede aceptar, contraproponer (hasta 5 contrapropuestas por negociación) o
       rechazar; si una propuesta se rechaza, la negociación concluye y tu consignación se
-      libera, con un máximo de 5 negociaciones por oferta. Si la oferta tiene la opción “Gana
-      Ya”, puedes ganarla sin negociar.
+      libera, con un máximo de 5 negociaciones por oferta.
     </QuickAnswer>
 
     <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
@@ -130,13 +121,11 @@ export const faqJsonLd = {
           una negociación directamente con el vendedor</strong>, para tratar de llegar a un
           acuerdo de venta.
         </p>
-        <div class="mt-4 flex items-center gap-4">
-          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
-            Por su misma naturaleza, este tipo de oferta <strong>carece de Precio Base y
-            Precio Reserva</strong>, razón por la cual podrás iniciar una negociación
-            enviando libremente el monto que tú desees.
-          </p>
-        </div>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Por su misma naturaleza, este tipo de oferta <strong>carece de Precio Base y Precio
+          Reserva</strong>, razón por la cual podrás iniciar una negociación enviando
+          libremente el monto que tú desees.
+        </p>
       </ChatA>
     </section>
 
@@ -192,12 +181,12 @@ export const faqJsonLd = {
           loading="lazy"
         />
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          En el módulo <strong>“Tu Actividad”</strong> podrás verificar el <strong>estado de la negociación</strong> y en caso acepte tu propuesta, los pasos
-          a seguir.
+          Mientras el vendedor no responda verás <strong>“Esperando respuesta”</strong>. Tu
+          propuesta <strong class="text-orange-vmc">expira en 24 horas</strong>.
         </p>
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Se pueden dar <strong>3 casos</strong>: <strong class="text-orange-vmc">aceptación</strong>, <strong class="text-orange-vmc">contrapropuesta</strong> o <strong class="text-orange-vmc">rechazo</strong>, según el vendedor considere
-          conveniente.
+          En el módulo <strong>“Tu Actividad”</strong> podrás verificar el <strong>estado de la negociación</strong> y en caso acepte tu propuesta, los pasos
+          a seguir.
         </p>
         <img
           src="/images/articulos/negociable-paso-4-tu-actividad.png"
@@ -226,13 +215,12 @@ export const faqJsonLd = {
           class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
-        <div class="mt-4 flex items-center gap-4">
-          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
-            Para <strong>más información</strong> sobre el <strong>proceso de compra</strong>, ingresa:
-          </p>
-        </div>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Para <strong>más información</strong> sobre el <strong>proceso de compra</strong>,
+          ingresa:
+        </p>
         <p class="mt-3 text-center">
-          <Button variant="primary" href="/categorias/compra-venta/la-comision-por-que-cuanto-y-como-se-paga">AQUÍ</Button>
+          <Button variant="primary" href="/categorias/habilitacion/he-sido-habilitado-que-hago-ahora">AQUÍ</Button>
         </p>
       </ChatA>
     </section>
@@ -249,10 +237,13 @@ export const faqJsonLd = {
         </p>
         <img
           src="/images/articulos/negociable-paso-6-contrapropuesta.png"
-          alt="Modal Vendedor Ofrece con el monto de la contrapropuesta y los botones Aceptar, Rechazar y Contraproponer"
+          alt="Modal Vendedor ofrece con el monto de la contrapropuesta, el plazo de 72 horas y los botones Aceptar, Contraproponer y Rechazar"
           class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Ojo con el plazo: la contrapropuesta del vendedor <strong class="text-orange-vmc">expira en 72 horas</strong>. Desde ahí puedes <strong>Aceptar</strong>, <strong>Contraproponer</strong> o <strong>Rechazar</strong>.
+        </p>
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
           Si todavía quieres seguir negociando, puedes <strong>enviarle una
           contrapropuesta</strong> al vendedor, podrás hacer esto hasta en <strong class="text-orange-vmc">5 oportunidades</strong> por negociación.
@@ -281,26 +272,6 @@ export const faqJsonLd = {
           Si aún te interesa el bien, <strong>podrás iniciar una nueva
           negociación</strong> con el vendedor. Recuerda que podrás iniciar un <strong>máximo de 5 negociaciones por oferta</strong>.
         </p>
-      </ChatA>
-    </section>
-
-    <!-- Q7: Gana Ya -->
-    <section aria-labelledby="gana-ya" class="space-y-4">
-      <ChatQ id="gana-ya">
-        ¿Puedo ganar la oferta sin necesidad de iniciar una negociación con el vendedor?
-      </ChatQ>
-      <ChatA>
-        <p class="text-sm leading-relaxed text-vault-900/80">
-          <strong>Sí.</strong> Cuando la oferta cuente con la opción <strong class="text-orange-vmc">“Gana Ya”</strong>, podrás ganar sin necesidad de
-          negociar. Solo debes proponer el <strong>monto indicado en el “Gana Ya”</strong>.
-        </p>
-        {/* TODO DESACTUALIZADA: reemplazar esta captura (Gana Ya) cuando exista la versión con el diseño actual */}
-        <img
-          src="/images/articulos/negociable-gana-ya.png"
-          alt="Detalle de la oferta con el botón Gana Ya y su precio, sobre el botón Negocia Ahora"
-          class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
-          loading="lazy"
-        />
       </ChatA>
     </section>
 

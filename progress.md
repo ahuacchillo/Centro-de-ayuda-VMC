@@ -120,3 +120,54 @@ ese artículo, no bloquea). Fase F in-progress con 3 videos.
   Resultado: la imagen nunca supera su tamaño natural; se reduce si el contenedor es menor.
 - Las 25 capturas de ancho completo miden ≥774px (> contenedor de ~640px), siguen llenando
   el ancho por reducción. Verificado: build OK y las 3 clases min() presentes en el CSS.
+
+## 2026-07-27 — Auditoría de contenido contra infografías (6 artículos)
+
+Auditoría artículo-por-artículo contra las infografías fuente que pasó el Arquitecto.
+Verificación: `npm run build` → 34 páginas OK tras cada artículo; cada cambio confirmado
+con grep en `dist`.
+
+- **Visitas e inspecciones físicas**: label del botón alineado a la UI real
+  ("Agendar visita" → "Agenda tu visita"); agregado el paso "Ver detalle" que faltaba;
+  Q6 reconciliada (la sección Visitas muestra distrito/provincia, la dirección exacta llega
+  en el mail de confirmación al agendar) con la captura de Ubicación instalada; link de
+  registro → `https://www.vmcsubastas.com/registro` con `target="_blank"`; quitados los
+  ImgPh de auto y reloj. Sin placeholders.
+- **Oferta Negociable**: eliminado "Gana Ya" (sección, FAQPage, QuickAnswer, meta,
+  asset) por decisión de producto; agregados los dos plazos que faltaban (propuesta
+  enviada expira en 24 h, contrapropuesta del vendedor en 72 h); eliminado el párrafo
+  "se pueden dar 3 casos" (redundante con Q4-Q6); captura de Tu Actividad reubicada
+  debajo de "los pasos a seguir"; botón AQUÍ → artículo de habilitación.
+- **Oferta En Vivo (información)**: CORRECCIÓN FACTUAL — Q6 decía "es imposible que un
+  proceso empiece sin que el otro haya terminado", la fuente dice "es **posible**"
+  (con "imposible" la recomendación de tener clara la hora antes de consignar no tiene
+  sentido). Definición de Precio Base restaurada a la canónica ("punto de partida desde
+  donde se dará inicio al proceso de bids en Sala"). Q2: pasados al cuerpo dos datos que
+  solo estaban en el JSON-LD (aceptación al consignar + "con SubasCoins la consignación
+  será menor"). Q7: agregado el SubasTip. Eliminado "Gana Ya" (Q9 + FAQPage + QuickAnswer
+  + meta + asset). Cero referencias a Gana Ya en src/ y dist/.
+- **En Vivo — Es hora de participar**: sin errores factuales. `5mbps` → `5 Mbps`
+  (consistencia con schema/QuickAnswer/meta); `alt` de la captura de Q6 ajustado (la
+  captura solo llega a "A la una", no a la cuenta completa).
+- **En Vivo — El proceso terminó**: agregados "la garantía se mantiene consignada hasta que
+  finalice el proceso de venta" (Q2) y "la opción de compra tiene fecha y hora de vigencia"
+  (Q3). PENDIENTE: las dos capturas ilustran el estado equivocado —
+  `envivo-ganado-la-oferta.png` en Q2 muestra al ganador directo (no la oportunidad de
+  compra) y `envivo-has-sido-habilitado.png` en Q3 muestra el post-aceptación (no el
+  ofrecimiento con Aceptar/Rechazar). Faltan capturas reales del Arquitecto.
+- **Gané una oferta En Vivo**: Q4 agrega dónde se paga (desglose comisión/consignado/
+  pendiente + botón "Paga la comisión aquí"). PENDIENTE: `gane-paso-3-habilitado-fecha-limite.png`
+  en Q4 muestra "¡Has sido habilitado!", no la pantalla de pago de comisión.
+  NO tocado a propósito: el plazo de "10 días hábiles" en Q1 (Ganador Directo) fue una
+  adición deliberada del 2026-07-17 y no está en la infografía, que dice "tendrás una
+  respuesta pronto" — confirmar con el Arquitecto si aplica. Tampoco tocada la redacción
+  "Recarga o SubasCoins" (decisión del 2026-07-17 por el fee de pasarela).
+
+Limpieza transversal: ~12 `div.flex` vestigiales que solo envolvían un `<p>` (restos de
+ilustraciones removidas) colapsados. Las 6 fechas `updated`/`dateModified` → 2026-07-27.
+
+Riesgos / pendientes abiertos:
+- 3 capturas mal emparejadas (arriba). No se reemplazaron: requieren assets del Arquitecto.
+- El plazo de 10 días hábiles del Ganador Directo sigue sin respaldo en la fuente.
+- La captura de Ubicación (visitas) es recorte de la infografía, no UI actual — se ve
+  distinta a las otras tres capturas reales del mismo artículo.

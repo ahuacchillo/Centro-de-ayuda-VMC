@@ -5,11 +5,10 @@ import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
-import ImgPh from "../../../components/ImgPh.astro";
 import Button from "../../../components/Button.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-07-27";
 const title = "Las visitas e inspecciones físicas · Centro de Ayuda VMC Subastas";
 const description =
   "Cómo agendar una visita para ver un vehículo en VMC Subastas: requisitos, anticipación mínima de 48 horas, número de visitantes permitidos, qué llevar (DNI vigente), por qué las inspecciones son solo visuales y dónde encontrar la ubicación del bien.";
@@ -20,14 +19,14 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-07-27",
   mainEntity: [
     {
       "@type": "Question",
       name: "¿Qué debo hacer para agendar visitas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Solo debes estar registrado como usuario del servicio. Luego selecciona la oferta de tu interés en el Marketplace, entra al detalle, haz clic o tap en Visitas (si la oferta cuenta con la opción de visitas disponibles), selecciona la fecha y hora, y presiona Agendar Visita.",
+        text: "Solo debes estar registrado como usuario del servicio. Luego selecciona la oferta de tu interés en el Marketplace, entra a Ver detalle, baja hasta la sección Visitas (si la oferta cuenta con la opción de visitas disponibles), selecciona la fecha y hora, y presiona Agenda tu visita.",
       },
     },
     {
@@ -67,7 +66,7 @@ export const faqJsonLd = {
       name: "¿Dónde se encuentra la oferta de mi interés?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Puedes encontrar la ubicación de la oferta en la sección Visitas. Cada uno de los vendedores tiene lugares específicos, ya sea un almacén o depósito, donde mantiene ubicado el bien. Una vez agendada la visita, tendrás el detalle de la ubicación en el mail de confirmación que llegará a tu bandeja de correo electrónico. Para visitar el bien debes haber agendado previamente y seguir las indicaciones del vendedor y/o los requisitos.",
+        text: "Puedes encontrar la ubicación de la oferta en la sección Visitas, en el campo Ubicación, donde verás el distrito y la provincia. Cada uno de los vendedores tiene lugares específicos, ya sea un almacén o depósito, donde mantiene ubicado el bien. La dirección exacta se te proporciona una vez que agendas: llega en el mail de confirmación a tu bandeja de correo electrónico. Para visitar el bien debes haber agendado previamente y seguir las indicaciones del vendedor y/o los requisitos.",
       },
     },
   ],
@@ -106,8 +105,8 @@ export const faqJsonLd = {
       desde la sección “Visitas” del detalle de la oferta, con más de 48 horas de
       anticipación. Se permite 1 solo visitante (el dueño de la cuenta o, en cuentas de
       empresa, el representante legal o encargado), debes llevar tu DNI vigente y las
-      inspecciones son solo visuales, no mecánicas. Una vez agendada, el detalle de la
-      ubicación llega en el mail de confirmación.
+      inspecciones son solo visuales, no mecánicas. La sección “Visitas” muestra el distrito y
+      la provincia; la dirección exacta llega en el mail de confirmación al agendar.
     </QuickAnswer>
 
     <p class="text-center text-sm text-vault-700/70">
@@ -130,7 +129,12 @@ export const faqJsonLd = {
           quieres registrarte ingresa:
         </p>
         <p class="mt-3 text-center">
-          <Button variant="primary" href="https://subastop.com/registro">AQUÍ</Button>
+          <Button
+            variant="primary"
+            href="https://www.vmcsubastas.com/registro"
+            target="_blank"
+            rel="noopener">AQUÍ</Button
+          >
         </p>
 
         <p class="mt-5 text-sm font-bold text-vault-900">
@@ -143,8 +147,9 @@ export const faqJsonLd = {
           loading="lazy"
         />
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Clic o tap a <strong>“Visitas”</strong> si es que la oferta cuenta con la opción a
-          visitas disponibles.
+          Entra a <strong>“Ver detalle”</strong> de la oferta y baja hasta la sección <strong
+            >“Visitas”</strong
+          >. Clic o tap ahí si es que la oferta cuenta con la opción a visitas disponibles.
         </p>
         <img
           src="/images/articulos/visitas-paso-2-agenda-visita.png"
@@ -153,7 +158,7 @@ export const faqJsonLd = {
           loading="lazy"
         />
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          <strong>Selecciona la fecha y hora de visita ¡y listo!</strong> Dale clic o tap a <strong>“Agendar visita”</strong>.
+          <strong>Selecciona la fecha y hora de visita ¡y listo!</strong> Dale clic o tap a <strong>“Agenda tu visita”</strong>.
         </p>
         <img
           src="/images/articulos/visitas-paso-3-fecha-hora.png"
@@ -185,12 +190,9 @@ export const faqJsonLd = {
         Durante las visitas, ¿se pueden realizar inspecciones mecánicas?
       </ChatQ>
       <ChatA>
-        <div class="flex items-center gap-4">
-          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
-            Por temas de seguridad <strong>las inspecciones son sólo <span class="text-orange-vmc">visuales</span></strong>.
-          </p>
-          <ImgPh class="h-24 w-32 shrink-0 text-sm">Ilustración de un auto</ImgPh>
-        </div>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Por temas de seguridad <strong>las inspecciones son sólo <span class="text-orange-vmc">visuales</span></strong>.
+        </p>
       </ChatA>
     </section>
 
@@ -198,16 +200,10 @@ export const faqJsonLd = {
     <section aria-labelledby="mismo-dia" class="space-y-4">
       <ChatQ id="mismo-dia">¿Se puede agendar una visita el mismo día del proceso?</ChatQ>
       <ChatA>
-        <div class="flex items-center gap-4">
-          <p class="flex-1 text-sm leading-relaxed text-vault-900/80">
-            Las visitas se deberán <strong>agendar con más de 48 hrs. de
-            anticipación</strong>, a menos que se indique lo contrario en el detalle de la
-            oferta.
-          </p>
-          <ImgPh class="hidden h-24 w-24 shrink-0 text-sm sm:flex">
-            Ilustración de un reloj
-          </ImgPh>
-        </div>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Las visitas se deberán <strong>agendar con más de 48 hrs. de anticipación</strong>, a
+          menos que se indique lo contrario en el detalle de la oferta.
+        </p>
       </ChatA>
     </section>
 
@@ -234,16 +230,21 @@ export const faqJsonLd = {
       <ChatA>
         <p class="text-sm leading-relaxed text-vault-900/80">
           Puedes encontrar la <strong>ubicación de la oferta en la sección
-          “Visitas”</strong>. Cada uno de los vendedores tiene lugares específicos ya sea un
-          almacén o depósito, donde mantiene ubicado el bien.
+          “Visitas”</strong>, en el campo <strong>“Ubicación”</strong>. Cada uno de los
+          vendedores tiene lugares específicos ya sea un almacén o depósito, donde mantiene
+          ubicado el bien.
         </p>
+        <img
+          src="/images/articulos/visitas-paso-4-ubicacion.png"
+          alt="Detalle de la oferta con las secciones Descripción, Condiciones y Visitas, y el campo Ubicación resaltado mostrando CALLAO | CALLAO"
+          class="mx-auto mt-4 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Una vez agendada la visita, podrás tener el <strong>detalle de la ubicación en el
-          mail de confirmación</strong> que llegará a tu bandeja de correo electrónico.
+          Ahí verás el <strong>distrito y la provincia</strong>. La <strong>dirección exacta se
+          te proporciona una vez que agendas</strong>: llega en el mail de confirmación a tu
+          bandeja de correo electrónico.
         </p>
-        <ImgPh class="mt-4 h-56">
-          Captura del detalle de la oferta mostrando el campo Ubicación (ej. CALLAO | CALLAO)
-        </ImgPh>
         <div class="alert-card mt-5 rounded-xl p-4 text-center text-sm leading-relaxed">
           <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
             Para visitar el bien, debes de haber agendado previamente y seguir las
