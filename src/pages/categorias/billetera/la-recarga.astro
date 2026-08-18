@@ -3,11 +3,12 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-08-18";
 const title = "La Recarga: ¿Cómo funciona? · Centro de Ayuda VMC Subastas";
 const description =
   "Qué es la Recarga en VMC Subastas, cómo agregar fondos en US$ a tu Billetera por los medios digitales del BCP o en ventanilla, el monto mínimo de US$ 30 y dónde encontrar tu Código Único de Usuario (C.U.U.).";
@@ -18,7 +19,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -102,13 +103,15 @@ export const faqJsonLd = {
           Podrás <strong>utilizar tus fondos para consignar y/o pagar comisiones por uso de
           nuestro servicio</strong>, en caso de ser ganador habilitado.
         </p>
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          La Recarga es un medio <strong>sin el pago del <a
-            href="/categorias/billetera/fee-por-uso-de-pasarela"
-            class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
-            >Fee por uso de pasarela</a
-          ></strong>.
-        </p>
+        <div class="alert-card mt-5 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">Importante:</strong> <span class="text-white/90">
+            la Recarga es un medio <strong>sin el pago del <a
+              href="/categorias/billetera/fee-por-uso-de-pasarela"
+              class="font-bold text-white underline decoration-2 underline-offset-2"
+              >Fee por uso de pasarela</a
+            ></strong>.</span
+          >
+        </div>
       </ChatA>
     </section>
 
@@ -182,5 +185,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

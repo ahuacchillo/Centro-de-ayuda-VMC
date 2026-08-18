@@ -3,6 +3,7 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
@@ -150,7 +151,7 @@ export const faqJsonLd = {
         habilitado?</ChatQ
       >
       <ChatA>
-        <ol class="list-[lower-alpha] space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+        <ol class="list-[lower-alpha] space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-700">
           <li>
             <strong>Perderás 75 Puntos</strong> y aumentarás tu <a
               href="/categorias/riesgo-usuario/el-riesgo-usuario-y-sus-categorias"
@@ -237,5 +238,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

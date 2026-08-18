@@ -3,12 +3,12 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
-import Button from "../../../components/Button.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-07";
+const updated = "2026-08-18";
 const title = "¿Cuándo me devuelven la consignación? · Centro de Ayuda VMC Subastas";
 const description =
   "Cuándo se devuelve la consignación a tu Billetera en VMC Subastas, las excepciones (Ganador Directo, Mejor Postor, oportunidad de compra), la liberación a las 23:59:59 por Riesgo Usuario Alto o incumplimiento, y por qué pueden devolverte SubasCoins en vez de dólares.";
@@ -19,7 +19,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-07",
-  dateModified: "2026-07-07",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -96,7 +96,7 @@ export const faqJsonLd = {
           La consignación será devuelta a tu Billetera cuando haya concluido el proceso, a
           menos que:
         </p>
-        <ol class="mt-3 list-[lower-alpha] space-y-3 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+        <ol class="mt-3 list-[lower-alpha] space-y-3 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-700">
           <li>Resultes <strong>Ganador Directo</strong> de un proceso “En Vivo”.</li>
           <li>Resultes <strong>Mejor Postor</strong> de un proceso “En Vivo”.</li>
           <li>
@@ -105,11 +105,13 @@ export const faqJsonLd = {
             billetera cuando culmine el proceso de compra.
           </li>
         </ol>
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          <strong>Si incumples tus responsabilidades</strong> como participante o tu <strong>categoría de Riesgo Usuario es Alto</strong>, tu consignación será
-          liberada a las <strong>23:59:59 horas</strong> del mismo día del proceso “En
-          vivo”.
-        </p>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
+            <strong>Si incumples tus responsabilidades</strong> como participante o tu <strong>categoría de Riesgo Usuario es Alto</strong>, tu consignación será
+            liberada a las <strong>23:59:59 horas</strong> del mismo día del proceso “En
+            vivo”.</span
+          >
+        </div>
       </ChatA>
     </section>
 
@@ -125,12 +127,14 @@ export const faqJsonLd = {
           cuenta.</strong> Por lo tanto el usuario puede ganar o perder Puntos, al cumplir o
           incumplir con sus responsabilidades como participante o ganador.
         </p>
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Al incumplir pierdes Puntos y <strong>toda calificación negativa significa el
-          nivel de Riesgo Usuario <span class="font-bold text-vault-700">“Alto”</span></strong>.
-          Cada vez que participes de un proceso “En Vivo”, la consignación se liberará a
-          las <strong>23:59:59 horas</strong> del mismo día del proceso “En vivo”.
-        </p>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
+            Al incumplir pierdes Puntos y <strong>toda calificación negativa significa el
+            nivel de Riesgo Usuario “Alto”</strong>. Cada vez que participes de un proceso
+            “En Vivo”, la consignación se liberará a las <strong>23:59:59 horas</strong> del
+            mismo día del proceso “En vivo”.</span
+          >
+        </div>
       </ChatA>
     </section>
 
@@ -146,15 +150,18 @@ export const faqJsonLd = {
           incumplir tus responsabilidades como participante.
         </p>
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          <strong>Más info</strong> en el artículo <strong class="font-bold text-vault-700">Responsabilidades y Sanciones</strong>.
-        </p>
-        <p class="mt-3 text-center">
-          <Button variant="primary" href="/categorias/responsabilidades-sanciones/responsabilidades-de-los-participantes">AQUÍ</Button>
+          <strong>Más info</strong> en el artículo <a
+            href="/categorias/responsabilidades-sanciones/responsabilidades-de-los-participantes"
+            class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
+            >Responsabilidades y Sanciones</a
+          >.
         </p>
       </ChatA>
     </section>
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

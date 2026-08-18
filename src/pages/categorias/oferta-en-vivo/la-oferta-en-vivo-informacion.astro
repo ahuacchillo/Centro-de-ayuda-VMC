@@ -3,9 +3,9 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
-import Button from "../../../components/Button.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
 const updated = "2026-08-18";
@@ -67,7 +67,7 @@ export const faqJsonLd = {
       name: "¿Cuándo inicia el proceso En Vivo?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Cada oferta En Vivo tiene una hora de inicio programada en orden secuencial, razón por la cual es posible que un proceso empiece sin que el otro haya terminado. Por lo tanto, ten clara la hora de inicio de las ofertas en las que quieres participar antes de consignar. Encontrarás el día y la hora de inicio del proceso En Vivo en el detalle de cada oferta.",
+        text: "Cada oferta En Vivo tiene una hora de inicio programada en orden secuencial, razón por la cual es imposible que un proceso empiece sin que el otro haya terminado. Por lo tanto, ten clara la hora de inicio de las ofertas en las que quieres participar antes de consignar. Encontrarás el día y la hora de inicio del proceso En Vivo en el detalle de cada oferta.",
       },
     },
     {
@@ -170,12 +170,11 @@ export const faqJsonLd = {
           class="mt-3 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Al consignar, <strong>aceptas conectarte a la sala “En Vivo” y a enviar por lo menos
-          un bid válido</strong> durante el proceso en vivo.
-        </p>
-        <div class="mt-4 rounded-xl bg-vault-100 p-4 text-center text-sm leading-relaxed text-vault-900/80">
-          <strong class="font-bold text-vault-700">¡Con SubasCoins la consignación será menor!</strong>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <span class="text-white/90">Al consignar, <strong class="text-white">aceptas
+            conectarte a la sala “En Vivo” y a enviar por lo menos un bid válido</strong> durante el proceso en vivo.</span
+          >
+          <p class="mt-3 font-bold text-white">¡Con SubasCoins la consignación será menor!</p>
         </div>
       </ChatA>
     </section>
@@ -212,12 +211,6 @@ export const faqJsonLd = {
           class="mt-3 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Si deseas ver cómo es una oferta “En Vivo”, puedes ver una <strong>repetición</strong>:
-        </p>
-        <p class="mt-3 text-center">
-          <Button variant="primary" href="/videotutoriales">AQUÍ</Button>
-        </p>
       </ChatA>
     </section>
 
@@ -252,7 +245,7 @@ export const faqJsonLd = {
       <ChatA>
         <p class="text-sm leading-relaxed text-vault-900/80">
           Cada oferta “En Vivo” tiene una <strong>hora de inicio programada en orden
-          secuencial</strong>, razón por la cual <strong>es posible que un proceso empiece sin
+          secuencial</strong>, razón por la cual <strong>es imposible que un proceso empiece sin
           que el otro haya terminado</strong>.
         </p>
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
@@ -286,23 +279,23 @@ export const faqJsonLd = {
           Adicionalmente, al realizar la consignación, <strong>deberás enviar por lo menos un
           bid válido</strong> durante el proceso “En Vivo”.
         </p>
-        <div class="alert-card mt-4 rounded-xl p-4 text-sm leading-relaxed">
-          <span class="text-white/90">
-            <strong class="text-white">Si incumples tus responsabilidades</strong> como
-            participante, la consignación será liberada a las <strong>23:59:59 horas del
-            mismo día</strong> de ser registrado el incumplimiento, <strong>será devuelta en SubasCoins y perderás 15 Puntos</strong>.</span
-          >
-        </div>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          <strong class="font-bold text-vault-700">¡SubasTip!</strong> Para evitar sanciones, conéctate
+          y trata de ser <strong>el primero en enviar un bid</strong> durante el proceso en
+          vivo.
+        </p>
         <img
           src="/images/articulos/envivo-sancion-15-puntos.png"
           alt="Pantalla ¡Has sido sancionado!: el monto consignado queda retenido hasta las 23:59:59, se devuelve en SubasCoins y se pierden 15 Puntos"
           class="mt-4 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
-        <div class="mt-4 rounded-xl bg-vault-100 p-4 text-sm leading-relaxed text-vault-900/80">
-          <strong class="font-bold text-vault-700">¡SubasTip!</strong> Para evitar sanciones, conéctate
-          y trata de ser <strong>el primero en enviar un bid</strong> durante el proceso en
-          vivo.
+        <div class="alert-card mt-4 rounded-xl p-4 text-sm leading-relaxed">
+          <span class="text-white/90">
+            <strong class="text-white">Si incumples tus responsabilidades</strong> como
+            participante, la consignación será liberada a las <strong>23:59:59 horas del
+            mismo día</strong> de ser registrado el incumplimiento, <strong>será devuelta en SubasCoins y perderás 15 Puntos</strong>.</span
+          >
         </div>
       </ChatA>
     </section>
@@ -333,5 +326,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

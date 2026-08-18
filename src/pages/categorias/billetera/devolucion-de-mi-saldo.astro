@@ -3,11 +3,12 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-08-17";
+const updated = "2026-08-18";
 const title = "Devolución de mi saldo · Centro de Ayuda VMC Subastas";
 const description =
   "Cuándo puedes solicitar la devolución de tu saldo en US$ en VMC Subastas, cómo hacerlo desde tu Billetera, el fee administrativo de US$ 30, los plazos (7 a 21 días hábiles) y por qué tu recarga puede convertirse en SubasCoins.";
@@ -18,7 +19,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-08-17",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -182,10 +183,18 @@ export const faqJsonLd = {
           </div>
         </div>
 
+        <div class="alert-card mt-5 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
+            Toda Recarga realizada hasta el <strong>1 de enero del 2015</strong> fue convertida
+            a &gt;S&lt; SubasCoins.</span
+          >
+        </div>
       </ChatA>
     </section>
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

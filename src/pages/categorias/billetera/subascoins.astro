@@ -3,12 +3,13 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import Button from "../../../components/Button.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-08-17";
+const updated = "2026-08-18";
 const title =
   "SubasCoins: ¿Qué son, para qué sirven y cómo se adquieren? · Centro de Ayuda VMC Subastas";
 const description =
@@ -20,7 +21,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-08-17",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -40,10 +41,18 @@ export const faqJsonLd = {
     },
     {
       "@type": "Question",
+      name: "¿Existe algún recargo adicional por el uso de pasarela?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. A partir del 1ero de agosto, las adquisiciones de SubasCoins realizadas a través de la pasarela de pagos Niubiz tendrán un recargo adicional del 3.90%, informado cumpliendo con la normativa de Indecopi (artículo 7 de la Ley 29571). Para evitarlo, puedes recargar tu saldo en dólares a través de ventanilla, agente o la app del BCP utilizando tu C.U.U., operación que carece del cobro de este Fee.",
+      },
+    },
+    {
+      "@type": "Question",
       name: "¿Cuál es el monto mínimo y máximo de subascoins que puedo adquirir?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "El monto mínimo que puedes adquirir en tu recarga es 30 subascoins. Puedes adquirir tus subascoins cuando lo desees, no hay un monto máximo y todo estará en tu cuenta.",
+        text: "El monto mínimo que puedes adquirir en tu recarga es 30 subascoins. Puedes adquirir el monto de subascoins que necesites, no hay un monto máximo y todo estará en tu cuenta. Como máximo podrás realizar 5 operaciones de compra por día.",
       },
     },
     {
@@ -52,14 +61,6 @@ export const faqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Puedes realizar la recarga con tarjeta de crédito o débito Visa, Mastercard, American Express, Diners Club, oh!, CMR, Ripley, Cencosud, pre-pagos y muchas más, siempre que se encuentre habilitada para compras por internet. Sí, sí puedes comprar SubasCoins con una tarjeta en soles: si tu tarjeta está asociada a una cuenta en soles, el banco realizará la conversión a dólares con el tipo de cambio que manejen en ese momento. La adquisición se procesa automáticamente, por lo que podrás disponer de tus SubasCoins de manera inmediata.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "¿Existe algún recargo adicional por el uso de pasarela?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sí. A partir del 01 de agosto, las adquisiciones de SubasCoins realizadas a través de la pasarela de pagos Niubiz tendrán un recargo adicional del 3.90%, informado cumpliendo con la normativa de Indecopi (artículo 7 de la Ley 29571). Para evitarlo, puedes recargar tu saldo en dólares a través de ventanilla, agente o la app del BCP utilizando tu C.U.U., operación que carece del cobro de este Fee.",
       },
     },
     {
@@ -102,7 +103,7 @@ export const faqJsonLd = {
       Las SubasCoins son la moneda virtual de VMC Subastas: 1 US$ = 1 SubasCoin. Te sirven
       para consignar en las ofertas, pagar comisiones y penalizaciones, comprar SubasPass y
       canjear Puntos VMC. Adquiérelas desde tu zona, en la card de Billetera, con tarjeta de
-      crédito o débito —también en soles— desde 30 SubasCoins y sin monto máximo. Con la
+      crédito o débito —también en soles— desde 30 SubasCoins, sin monto máximo y con un tope de 5 operaciones de compra por día. Con la
       pasarela Niubiz se aplica un recargo del 3.90%; recarga por el BCP con tu C.U.U. para
       evitarlo.
     </QuickAnswer>
@@ -128,7 +129,7 @@ export const faqJsonLd = {
           </p>
         </div>
         <p class="mt-3 text-center">
-          <Button variant="primary" href="https://subastop.com/terminos-y-condiciones">¡Ingresa Aquí!</Button>
+          <Button variant="primary" href="https://www.vmcsubastas.com/condiciones-y-terminos">¡Ingresa Aquí!</Button>
         </p>
       </ChatA>
     </section>
@@ -138,14 +139,12 @@ export const faqJsonLd = {
       <ChatQ id="como-adquiero">¿Cómo adquiero Subascoins?</ChatQ>
       <ChatA>
         <p class="text-sm leading-relaxed text-vault-900/80">
-          Solo debes iniciar sesión e ingresar a tu zona y dentro del card de <strong>Billetera</strong>
-          darle al botón <strong>Adquiere SubasCoins</strong>.
+          Solo debes iniciar sesión e ingresar a tu zona y dentro del card de <strong>Billetera</strong> darle al botón <strong>Adquiere SubasCoins</strong>.
         </p>
         <ol class="mt-3 space-y-6 text-sm leading-relaxed text-vault-900/80">
           <li>
             <p>
-              <strong class="text-vault-700">Paso 1:</strong> En tu zona, dentro de la card de
-              <strong>Billetera</strong> dale clic al botón <strong>Adquiere SubasCoins</strong>.
+              <strong class="text-vault-700">Paso 1:</strong> En tu zona, dentro de la card de <strong>Billetera</strong> dale clic al botón <strong>Adquiere SubasCoins</strong>.
             </p>
             <img
               src="/images/articulos/subascoins-paso-1-billetera.png"
@@ -195,9 +194,7 @@ export const faqJsonLd = {
           </li>
           <li>
             <p>
-              <strong class="text-vault-700">Paso 5:</strong> Verás el
-              <strong>Resumen de transacción</strong> con tu número de pedido. Dale clic a
-              <strong>Vamos</strong> para volver a tu zona.
+              <strong class="text-vault-700">Paso 5:</strong> Verás el <strong>Resumen de transacción</strong> con tu número de pedido. Dale clic a <strong>Vamos</strong> para volver a tu zona.
             </p>
             <img
               src="/images/articulos/subascoins-paso-5-confirmacion.png"
@@ -213,7 +210,24 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <!-- Q3: Monto mínimo y máximo -->
+    <!-- Q3: ¿Existe algún recargo adicional por el uso de pasarela? -->
+    <section aria-labelledby="recargo-pasarela" class="space-y-4">
+      <ChatQ id="recargo-pasarela">¿Existe algún recargo adicional por el uso de pasarela?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Sí. A partir del <strong>1ero de agosto</strong>, las adquisiciones de SubasCoins
+          realizadas a través de la pasarela de pagos Niubiz tendrán un <strong class="font-bold text-vault-700">recargo adicional del 3.90%</strong>, informado
+          cumpliendo con la normativa de Indecopi (artículo 7 de la Ley 29571).
+        </p>
+        <div class="alert-card mt-4 rounded-2xl px-5 py-4 text-sm leading-relaxed text-white">
+          <strong>¿Quieres evitarlo?</strong> Recarga tu saldo en dólares a través de ventanilla,
+          agente o la app del <strong>BCP</strong> utilizando tu C.U.U. Esta operación carece
+          del cobro de este Fee.
+        </div>
+      </ChatA>
+    </section>
+
+    <!-- Q4: Monto mínimo y máximo -->
     <section aria-labelledby="monto-minimo" class="space-y-4">
       <ChatQ id="monto-minimo">
         ¿Cuál es el monto mínimo y máximo de subascoins que puedo adquirir?
@@ -222,14 +236,15 @@ export const faqJsonLd = {
         <ul class="list-[square] space-y-3 pl-5 text-sm leading-relaxed text-vault-900/80 marker:text-vault-500">
           <li>El monto mínimo que puedes adquirir en tu recarga es <strong>30 subascoins</strong>.</li>
           <li>
-            Puedes adquirir tus subascoins cuando lo desees, no hay un monto máximo y todo
-            estará en tu cuenta.
+            Puedes adquirir el monto de subascoins que necesites, no hay un monto máximo y
+            todo estará en tu cuenta. Como máximo podrás realizar <strong>5 operaciones de
+            compra por día</strong>.
           </li>
         </ul>
       </ChatA>
     </section>
 
-    <!-- Q4: Tarjetas y métodos de pago -->
+    <!-- Q5: Tarjetas y métodos de pago -->
     <section aria-labelledby="tarjetas" class="space-y-4">
       <ChatQ id="tarjetas">¿Puedo adquirir SubasCoins con cualquier tarjeta?</ChatQ>
       <ChatA>
@@ -265,23 +280,6 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <!-- Q5: ¿Existe algún recargo adicional por el uso de pasarela? -->
-    <section aria-labelledby="recargo-pasarela" class="space-y-4">
-      <ChatQ id="recargo-pasarela">¿Existe algún recargo adicional por el uso de pasarela?</ChatQ>
-      <ChatA>
-        <p class="text-sm leading-relaxed text-vault-900/80">
-          Sí. A partir del <strong>01 de agosto</strong>, las adquisiciones de SubasCoins
-          realizadas a través de la pasarela de pagos Niubiz tendrán un <strong class="font-bold text-vault-700">recargo adicional del 3.90%</strong>, informado
-          cumpliendo con la normativa de Indecopi (artículo 7 de la Ley 29571).
-        </p>
-        <div class="alert-card mt-4 rounded-2xl px-5 py-4 text-sm leading-relaxed text-white">
-          <strong>¿Quieres evitarlo?</strong> Recarga tu saldo en dólares a través de ventanilla,
-          agente o la app del <strong>BCP</strong> utilizando tu C.U.U. Esta operación carece
-          del cobro de este Fee.
-        </div>
-      </ChatA>
-    </section>
-
     <!-- Q6: ¿Qué es el Recibo VMC? -->
     <section aria-labelledby="recibo-vmc" class="space-y-4">
       <ChatQ id="recibo-vmc">¿Qué es el Recibo VMC?</ChatQ>
@@ -300,5 +298,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

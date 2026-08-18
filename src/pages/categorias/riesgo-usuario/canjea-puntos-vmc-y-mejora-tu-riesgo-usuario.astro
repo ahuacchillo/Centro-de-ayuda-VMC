@@ -4,11 +4,12 @@ import ArticleHeader from "../../../components/ArticleHeader.astro";
 import Button from "../../../components/Button.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-08-18";
 const title = "Canjea puntos VMC y mejora tu Riesgo Usuario · Centro de Ayuda VMC Subastas";
 const description =
   "Qué es el canje de Puntos VMC en VMC Subastas (operación final y definitiva que usa SubasCoins, 1 SubasCoin = 1 Punto VMC) y cómo canjearlos paso a paso desde Tu perfil en la Zona de Usuario para mejorar tu Riesgo Usuario de inmediato.";
@@ -19,7 +20,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -110,7 +111,7 @@ export const faqJsonLd = {
           </p>
         </div>
         <p class="mt-3 text-center">
-          <Button variant="primary" href="/categorias/riesgo-usuario/el-riesgo-usuario-y-sus-categorias">AQUÍ</Button>
+          <Button variant="primary" href="/categorias/riesgo-usuario/el-riesgo-usuario-y-sus-categorias">¡Aquí!</Button>
         </p>
       </ChatA>
     </section>
@@ -128,7 +129,7 @@ export const faqJsonLd = {
           La única manera de <strong>canjear Puntos VMC</strong> es <strong>usando SubasCoins</strong>. <strong class="font-bold text-vault-700">1 SubasCoin es equivalente a 1 Punto VMC.</strong>
         </p>
 
-        <ol class="mt-4 list-decimal space-y-4 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+        <ol class="mt-4 list-decimal space-y-4 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-700">
           <li>
             En tu Zona de Usuario dale <strong>clic o tap a “Tu perfil”</strong>.
             <img
@@ -190,5 +191,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

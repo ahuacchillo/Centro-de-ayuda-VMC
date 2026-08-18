@@ -3,15 +3,15 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
-import Button from "../../../components/Button.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-08-18";
 const title = "¡Consignar es necesario para participar! · Centro de Ayuda VMC Subastas";
 const description =
-  "Cómo y cuánto consignar para participar en las ofertas de VMC Subastas: el débito automático desde tu Billetera, el compromiso de enviar al menos un bid válido, la restricción por Riesgo Usuario Alto en ofertas financiables y cómo consignar en ofertas Negociables.";
+  "Cómo y cuánto consignar para participar en las ofertas de VMC Subastas: el débito automático desde tu Billetera, el compromiso de enviar al menos un bid válido y cómo consignar en ofertas Negociables.";
 
 /* FAQ del artículo → JSON-LD (SEO/GEO) */
 export const faqJsonLd = {
@@ -19,7 +19,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -27,14 +27,6 @@ export const faqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Para ver el monto a consignar, inicia sesión, ingresa al detalle de la oferta de tu interés y dale clic o tap a Participa. Podrás ver el monto a consignar: haz clic o tap sobre Acepto y automáticamente el sistema debitará de tu Billetera el monto indicado, y tendrás el acceso al proceso en la sala. Recuerda que al aceptar eres responsable, como participante, de enviar al menos un bid válido durante el proceso En Vivo o serás sancionado.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Quiero participar en una oferta financiable, pero se me impide consignar. ¿Qué puedo hacer?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Si tu Riesgo Usuario es Alto, se te restringirá la consignación en ofertas financiables. Puedes mejorar tu Riesgo Usuario canjeando Puntos VMC o, en su defecto, adquirir un Subaspass para participar en todas las subastas sin importar tu nivel de riesgo.",
       },
     },
     {
@@ -89,8 +81,7 @@ export const faqJsonLd = {
       oferta, dale clic o tap a “Participa” (o inicia la negociación en una oferta
       “Negociable”) y, al aceptar, el sistema debita automáticamente de tu Billetera el monto
       indicado y te da acceso a la sala. Al consignar te comprometes a enviar al menos un bid
-      válido durante el proceso “En Vivo”, o serás sancionado. Si tu Riesgo Usuario es
-      “Alto”, no podrás consignar en ofertas financiables.
+      válido durante el proceso “En Vivo”, o serás sancionado.
     </QuickAnswer>
 
     <p class="text-center text-sm text-vault-700/70">
@@ -128,42 +119,16 @@ export const faqJsonLd = {
           class="mt-3 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Recuerda que al aceptar <strong>eres responsable como participante, de enviar al
-          menos un bid válido</strong> durante el proceso “En Vivo” <strong>o serás sancionado</strong>.
-        </p>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Recuerda!</strong> <span class="text-white/90">
+            Al aceptar <strong>eres responsable como participante, de enviar al menos un bid
+            válido</strong> durante el proceso “En Vivo” <strong>o serás sancionado</strong>.</span
+          >
+        </div>
       </ChatA>
     </section>
 
-    <!-- Q2: Riesgo Usuario Alto -->
-    <section aria-labelledby="riesgo-alto" class="space-y-4">
-      <ChatQ id="riesgo-alto">
-        Quiero participar en una oferta financiable, pero se me impide consignar. ¿Qué puedo
-        hacer?
-      </ChatQ>
-      <ChatA>
-        <p class="text-sm leading-relaxed text-vault-900/80">
-          Si tu <strong>Riesgo Usuario es “Alto”</strong>, se te restringirá la consignación
-          en ofertas financiables.
-        </p>
-        <img
-          src="/images/articulos/consignacion-riesgo-canjear-puntos.png"
-          alt="Tu Perfil en VMC Subastas mostrando el nivel de Riesgo y el botón Canjear Puntos VMC"
-          class="mt-3 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
-          loading="lazy"
-        />
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Puedes <strong>mejorar tu Riesgo Usuario canjeando Puntos VMC</strong> o, en su
-          defecto, <strong>adquirir un Subaspass</strong> para participar en todas las
-          subastas sin importar tu nivel de riesgo. Aprende cómo canjear tus puntos:
-        </p>
-        <p class="mt-3 text-center">
-          <Button variant="primary" href="/categorias/riesgo-usuario/canjea-puntos-vmc-y-mejora-tu-riesgo-usuario">AQUÍ</Button>
-        </p>
-      </ChatA>
-    </section>
-
-    <!-- Q3: Consignar en Negociable -->
+    <!-- Q2: Consignar en Negociable -->
     <section aria-labelledby="consignar-negociable" class="space-y-4">
       <ChatQ id="consignar-negociable">
         ¿Cómo y cuánto debo consignar para poder participar en una oferta “Negociable”?
@@ -189,7 +154,7 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <!-- Q4: ¿Cómo agrego valor a mi billetera? -->
+    <!-- Q3: ¿Cómo agrego valor a mi billetera? -->
     <section aria-labelledby="agregar-valor" class="space-y-4">
       <ChatQ id="agregar-valor">¿Cómo agrego valor a mi billetera para consignar?</ChatQ>
       <ChatA>
@@ -198,7 +163,11 @@ export const faqJsonLd = {
             href="/categorias/billetera/subascoins"
             class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
             >SubasCoins</a
-          >
+          > o haciendo una <a
+            href="/categorias/billetera/la-recarga"
+            class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
+            >recarga</a
+          >.
         </p>
         <img
           src="/images/articulos/consignacion-billetera-adquiere.png"
@@ -206,28 +175,22 @@ export const faqJsonLd = {
           class="mt-3 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          o haciendo una <a
-            href="/categorias/billetera/la-recarga"
-            class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
-            >recarga</a
-          >, aprende cómo hacerlo:
-        </p>
-        <p class="mt-3 text-center">
-          <Button variant="primary" href="/categorias/billetera/la-recarga">AQUÍ</Button>
-        </p>
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          <strong>Recuerda:</strong> adquirir SubasCoins con tarjeta genera el <a
-            href="/categorias/billetera/fee-por-uso-de-pasarela"
-            class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
-            >Fee por uso de pasarela</a
-          > (<strong class="font-bold text-vault-700">3.9% del valor de los SubasCoins
-          adquiridos</strong>); la <strong>Recarga es la opción sin este cobro</strong>.
-        </p>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Recuerda!</strong> <span class="text-white/90">
+            Adquirir SubasCoins con tarjeta genera el <a
+              href="/categorias/billetera/fee-por-uso-de-pasarela"
+              class="font-bold text-white underline decoration-2 underline-offset-2"
+              >Fee por uso de pasarela</a
+            > (<strong>3.9% del valor de los SubasCoins adquiridos</strong>); la <strong>Recarga
+            es la opción sin este cobro</strong>.</span
+          >
+        </div>
       </ChatA>
     </section>
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

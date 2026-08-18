@@ -2,7 +2,7 @@
 
 ## Current State
 
-**Last Updated:** 2026-07-08
+**Last Updated:** 2026-08-18
 **Active Feature:** feat-002 — Fase C **COMPLETA** (22/22 publicados). Siguiente: feat-003 (migración a subastop.com/ayuda, bloqueada por pendiente #5) o feat-005 (más videos, in-progress)
 
 ## Status
@@ -210,3 +210,53 @@ Riesgos / pendientes abiertos (nuevos):
 - **Lead invertido**: 3 QAs abren definiendo un término en vez de responder la query
   (`responsabilidades-de-los-participantes`, `tienes-una-deuda`, `codigo-de-pago-pacifico`).
 - Nit: `3.9%` (fee-por-pasarela, consignación) vs `3.90%` (subascoins) sin unificar.
+
+## 2026-08-18 — Correcciones de revisión (11 artículos) + normalización de UI
+
+Ronda de correcciones sobre capturas de la revisión. Todo verificado en el HTML compilado,
+no en el fuente: se usó un detector sobre `dist/**/*.html` para los textos pegados.
+
+Contenido:
+- **SubasCoins**: "¿Existe algún recargo adicional…?" reubicada tras "¿Cómo adquiero
+  Subascoins?" (cuerpo + orden del FAQPage); "01 de agosto" → "1ero de agosto"; agregado el
+  tope de **5 operaciones de compra por día** (cuerpo, JSON-LD y QuickAnswer).
+- **Consignar es necesario**: eliminada la pregunta de ofertas financiables (cuerpo, FAQ,
+  QuickAnswer y meta description); SubasCoins + recarga fusionados en una sola oración.
+- **La oferta Negociable**: agregado "se pueden dar 3 casos: aceptación, contrapropuesta o
+  rechazo"; eliminado "Ojo con el plazo… 72 horas".
+- **La oferta En Vivo (información)**: "es posible" → "es **imposible** que un proceso
+  empiece sin que el otro haya terminado" (era un error de sentido); eliminados los bloques
+  de "ver una repetición" aquí y en "¡Es hora de participar!".
+- **El proceso terminó**: eliminados "Recuerda: mientras tengas una oportunidad de compra…"
+  y "Ojo con el plazo: la opción de compra…".
+- **Gané una oferta En Vivo**: eliminado "Encontrarás el detalle en el proceso de compra…".
+- **Las visitas**: eliminado el magenta "Para visitar el bien…".
+
+Bug de render (causa raíz): Astro descarta el salto de línea entre texto y una etiqueta
+inline, así que `texto\n<strong>` se renderiza pegado. 6 casos en 2 artículos (SubasCoins,
+El registro). Detector: `dist/**/*.html` buscando `letra<strong` y `</strong>letra` →
+0 casos tras el fix. **Regla para próximas ediciones: nunca cortar la línea justo antes o
+después de una etiqueta inline.**
+
+UI / sistema:
+- `ReactionPicker` agregado a los 20 artículos que no lo tenían (antes solo El registro).
+- 8 bloques movidos a sección magenta (`alert-card`) con Importante/Recuerda: La Recarga,
+  Devolución de mi saldo, Consignar ×2, ¿Cuándo me devuelven? ×2, Negociable, En Vivo,
+  El proceso terminó.
+- Botones "AQUÍ" → "¡Aquí!" (6, uniformes en todo el sitio); 2 botones reemplazados por
+  link inline (Consignar, ¿Cuándo me devuelven?).
+- Marcadores de lista naranjas → morados (`marker:text-vault-700`, 7 listas); numerados de
+  habilitación sin fondo de color.
+- Links de Condiciones y Términos → `https://www.vmcsubastas.com/condiciones-y-terminos`
+  (2 artículos apuntaban a `subastop.com/terminos-y-condiciones`).
+
+Capturas reemplazadas: `consignacion-negociable-paso-1-negocia`, `…-paso-2-proponer`
+(versiones con clic), `envivo-sala-bidear` (BidChat con bids propios en naranja),
+`gane-paso-1-ganador-directo`. Nueva: `negociable-felicitaciones-notificacion.png`.
+
+`updated`/`dateModified` → 2026-08-18 en los 11 artículos con cambio real de contenido; los
+cambios puramente visuales no tocaron fecha. `npm run build` OK (34 páginas).
+
+Pendientes abiertos: los de la sesión 2026-08-17 siguen vigentes (compresión de las 21
+QuickAnswer, canibalización cuando-me-devuelven / el-proceso-termino, lead invertido en 3
+QAs, `3.9%` vs `3.90%`).

@@ -3,6 +3,7 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import Button from "../../../components/Button.astro";
@@ -133,7 +134,7 @@ export const faqJsonLd = {
             variant="primary"
             href="https://www.vmcsubastas.com/registro"
             target="_blank"
-            rel="noopener">AQUÍ</Button
+            rel="noopener">¡Aquí!</Button
           >
         </p>
 
@@ -239,16 +240,12 @@ export const faqJsonLd = {
           te proporciona una vez que agendas</strong>: llega en el mail de confirmación a tu
           bandeja de correo electrónico.
         </p>
-        <div class="alert-card mt-5 rounded-xl p-4 text-center text-sm leading-relaxed">
-          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
-            Para visitar el bien, debes de haber agendado previamente y seguir las
-            indicaciones del vendedor y/o los requisitos.</span
-          >
-        </div>
       </ChatA>
     </section>
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

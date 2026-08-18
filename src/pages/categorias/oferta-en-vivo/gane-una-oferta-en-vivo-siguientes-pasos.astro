@@ -3,11 +3,12 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-08-17";
+const updated = "2026-08-18";
 const title =
   "Gané una oferta “En Vivo”: ¿Cuáles son los siguientes pasos? · Centro de Ayuda VMC Subastas";
 const description =
@@ -19,7 +20,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-08-17",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -50,7 +51,7 @@ export const faqJsonLd = {
       name: "Soy Ganador Directo, quiero seguir participando, ¿qué puedo hacer?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Para poder seguir participando en otros procesos, deberás pagar la comisión de la oferta que has ganado, ya que automáticamente has generado una deuda en plataforma. Encontrarás el detalle en el proceso de compra (comisión, monto consignado y pendiente) junto al botón Paga la comisión aquí. La consignación se toma como adelanto de la comisión por uso del servicio; para pagar lo restante, agrega fondos mediante una Recarga o adquiriendo SubasCoins. En caso hayas consignado por adelantado para acceder a otros procesos, la plataforma te impedirá ingresar y serás sancionado: por ello deberás pagar la comisión de la oferta ganada.",
+        text: "Para poder seguir participando en otros procesos, deberás pagar la comisión de la oferta que has ganado, ya que automáticamente has generado una deuda en plataforma. La consignación se toma como adelanto de la comisión por uso del servicio; para pagar lo restante, agrega fondos mediante una Recarga o adquiriendo SubasCoins. En caso hayas consignado por adelantado para acceder a otros procesos, la plataforma te impedirá ingresar y serás sancionado: por ello deberás pagar la comisión de la oferta ganada.",
       },
     },
     {
@@ -174,16 +175,16 @@ export const faqJsonLd = {
           justificación detallada al respecto.
         </p>
         <ol class="mt-4 space-y-3 text-sm leading-relaxed">
-          <li class="rounded-xl bg-orange-vmc/10 p-3">
+          <li>
             <strong class="font-bold text-vault-700">1. Ganador directo</strong><span class="text-vault-900/80">: sin precio reserva.</span>
           </li>
-          <li class="rounded-xl bg-vault-500/10 p-3">
+          <li>
             <strong class="text-vault-700">2. Habilitación</strong> <span class="text-vault-900/80">
               : en algunos casos, el ganador directo debe ser habilitado por el
               vendedor.</span
             >
           </li>
-          <li class="rounded-xl bg-vault-900/5 p-3">
+          <li>
             <strong class="text-vault-900">3. Ganador habilitado</strong> <span class="text-vault-900/80">
               : ganador responsable de seguir con el proceso de compra, bajo pena de sanción
               en caso de incumplimiento.</span
@@ -209,10 +210,6 @@ export const faqJsonLd = {
           class="mt-3 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Encontrarás el detalle en el proceso de compra (<strong>comisión, monto consignado y
-          pendiente</strong>) junto al botón <strong>“Pagar la comisión”</strong>.
-        </p>
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
           La consignación se toma como adelanto de la comisión por uso de nuestro servicio;
           para pagar lo restante, <strong>agrega fondos mediante una <a
@@ -265,7 +262,7 @@ export const faqJsonLd = {
           En este caso, tu <strong>consignación permanecerá retenida hasta recibir una
           respuesta</strong> por parte del vendedor. <strong>El vendedor tiene hasta 10 días hábiles para:</strong>
         </p>
-        <ol class="mt-3 list-[lower-alpha] space-y-2 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+        <ol class="mt-3 list-[lower-alpha] space-y-2 pl-6 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-700">
           <li>Aceptar tu bid.</li>
           <li>Rechazar tu bid.</li>
           <li>Contra proponerte.</li>
@@ -300,5 +297,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

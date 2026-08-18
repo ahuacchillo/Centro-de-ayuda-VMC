@@ -3,12 +3,12 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
-import Button from "../../../components/Button.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-27";
+const updated = "2026-08-18";
 const title = "La oferta “En Vivo”: ¡Es hora de participar! · Centro de Ayuda VMC Subastas";
 const description =
   "Cómo participar en el proceso En Vivo de VMC Subastas: qué es un bid, cómo enviarlos desde la Sala, cuántos puedes hacer, si puedes entrar con el proceso ya iniciado, la conexión mínima de 5 Mbps y cuándo termina el proceso (12 segundos tras el último bid válido).";
@@ -19,7 +19,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-27",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -42,7 +42,7 @@ export const faqJsonLd = {
       name: "¿Cómo envío mis bids durante el proceso En Vivo?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Solo debes hacer clic o tap sobre el botón inferior de la Sala, donde se muestra el monto a bidear.",
+        text: "Solo debes hacer clic o tap sobre el botón inferior de la Sala, donde se muestra el monto a bidear. Podrás ver tus bids en color naranja.",
       },
     },
     {
@@ -144,11 +144,11 @@ export const faqJsonLd = {
       <ChatA>
         <p class="text-sm leading-relaxed text-vault-900/80">
           Solo debes hacer clic o tap sobre el <strong>botón inferior de la “Sala”</strong>,
-          donde se muestra el monto a bidear.
+          donde se muestra el monto a bidear. Podrás ver tus bids en <strong class="font-bold text-orange-vmc">color naranja</strong>.
         </p>
         <img
           src="/images/articulos/envivo-sala-bidear.png"
-          alt="Sala En Vivo con las propuestas de los participantes y el botón inferior para bidear con el monto"
+          alt="Sala En Vivo: tus bids se muestran en color naranja y el botón inferior indica el monto a bidear"
           class="mx-auto mt-3 max-w-[min(20rem,100%)] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
@@ -162,13 +162,6 @@ export const faqJsonLd = {
         <p class="text-sm leading-relaxed text-vault-900/80">
           Podrás enviar <strong>la cantidad de bids que consideres necesarias</strong> para
           tratar de ganar la oferta.
-        </p>
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Puedes ver la <strong class="font-bold text-vault-700">repetición</strong> de un proceso
-          haciendo clic:
-        </p>
-        <p class="mt-3 text-center">
-          <Button variant="primary" href="/videotutoriales">AQUÍ</Button>
         </p>
       </ChatA>
     </section>
@@ -213,5 +206,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

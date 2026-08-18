@@ -4,11 +4,12 @@ import ArticleHeader from "../../../components/ArticleHeader.astro";
 import Button from "../../../components/Button.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-08-18";
 const title =
   "¿Tienes una deuda y quieres participar en una oferta? · Centro de Ayuda VMC Subastas";
 const description =
@@ -20,7 +21,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -174,7 +175,7 @@ export const faqJsonLd = {
           </p>
         </div>
         <p class="mt-3 text-center">
-          <Button variant="primary" href="https://www.vmcsubastas.com/condiciones-y-terminos" target="_blank">AQUÍ</Button>
+          <Button variant="primary" href="https://www.vmcsubastas.com/condiciones-y-terminos" target="_blank">¡Aquí!</Button>
         </p>
       </ChatA>
     </section>
@@ -288,12 +289,14 @@ export const faqJsonLd = {
           </p>
         </div>
         <p class="mt-3 text-center">
-          <Button variant="primary" href="https://www.vmcsubastas.com/zona/selecciona-monto.html" target="_blank">AQUÍ</Button>
+          <Button variant="primary" href="https://www.vmcsubastas.com/zona/selecciona-monto.html" target="_blank">¡Aquí!</Button>
         </p>
       </ChatA>
     </section>
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

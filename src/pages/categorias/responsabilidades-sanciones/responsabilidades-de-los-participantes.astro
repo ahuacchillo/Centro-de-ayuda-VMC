@@ -3,11 +3,12 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-08-18";
 const title =
   "Responsabilidades de los participantes y sanciones por incumplimiento · Centro de Ayuda VMC Subastas";
 const description =
@@ -19,7 +20,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -148,7 +149,7 @@ export const faqJsonLd = {
           En caso de <strong>incumplir con tus responsabilidades como participante</strong>:
         </p>
         <div class="mt-3 flex items-center gap-4">
-          <ol class="flex-1 list-[lower-alpha] space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+          <ol class="flex-1 list-[lower-alpha] space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-700">
             <li>
               El <strong>monto consignado permanecerá retenido hasta las 23:59:59 horas del
               mismo día</strong> de registrado cada incumplimiento.
@@ -179,7 +180,7 @@ export const faqJsonLd = {
           acceso, o la prestación continua e ininterrumpida de sus servicios</strong> a
           los participantes cuyos equipos y/o conexión a internet <strong>incumplan los requisitos técnicos</strong> establecidos en el Título V,
           Numeral 9 de las <a
-            href="https://subastop.com/terminos-y-condiciones"
+            href="https://www.vmcsubastas.com/condiciones-y-terminos"
             class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
             >Condiciones y Términos</a
           >.
@@ -208,5 +209,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

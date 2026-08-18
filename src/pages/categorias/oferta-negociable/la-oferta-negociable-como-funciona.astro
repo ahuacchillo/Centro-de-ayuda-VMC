@@ -3,6 +3,7 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import Button from "../../../components/Button.astro";
@@ -42,7 +43,7 @@ export const faqJsonLd = {
       name: "¿En dónde puedo ver la respuesta del vendedor y el estado de la negociación?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Mientras el vendedor no responda verás Esperando respuesta; tu propuesta expira en 24 horas. En el módulo Tu Actividad podrás verificar el estado de la negociación y, en caso el vendedor acepte tu propuesta, los pasos a seguir.",
+        text: "Mientras el vendedor no responda verás Esperando respuesta; tu propuesta expira en 24 horas. En el módulo Tu Actividad podrás verificar el estado de la negociación y, en caso el vendedor acepte tu propuesta, los pasos a seguir. Se pueden dar 3 casos: aceptación, contrapropuesta o rechazo, según el vendedor considere conveniente.",
       },
     },
     {
@@ -58,7 +59,7 @@ export const faqJsonLd = {
       name: "El vendedor me ha enviado una contrapropuesta, ¿qué hago?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Si estás de acuerdo con la contrapropuesta del vendedor, acéptala para iniciar el proceso de compra. La contrapropuesta del vendedor expira en 72 horas y desde ahí puedes Aceptar, Contraproponer o Rechazar. Si todavía quieres seguir negociando, puedes enviarle una contrapropuesta al vendedor: podrás hacer esto hasta en 5 oportunidades por negociación.",
+        text: "Si estás de acuerdo con la contrapropuesta del vendedor, acéptala para iniciar el proceso de compra. Si todavía quieres seguir negociando, puedes enviarle una contrapropuesta al vendedor: podrás hacer esto hasta en 5 oportunidades por negociación.",
       },
     },
     {
@@ -157,14 +158,15 @@ export const faqJsonLd = {
           <strong>¡Listo, ya iniciaste la negociación!</strong> Tu propuesta ha sido enviada
           al vendedor.
         </p>
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Recuerda que <strong>para iniciar una negociación, debes contar con fondos en tu
-          billetera</strong> para la <a
-            href="/categorias/consignacion/consignar-es-necesario-para-participar"
-            class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
-            >consignación</a
-          > en SubasCoins o Dólares solicitada.
-        </p>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
+            Para iniciar una negociación, <strong>debes contar con fondos en tu billetera</strong> para la <a
+              href="/categorias/consignacion/consignar-es-necesario-para-participar"
+              class="font-bold text-white underline decoration-2 underline-offset-2"
+              >consignación</a
+            > en SubasCoins o Dólares solicitada.</span
+          >
+        </div>
       </ChatA>
     </section>
 
@@ -188,6 +190,10 @@ export const faqJsonLd = {
           En el módulo <strong>“Tu Actividad”</strong> podrás verificar el <strong>estado de la negociación</strong> y en caso acepte tu propuesta, los pasos
           a seguir.
         </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Se pueden dar <strong>3 casos: aceptación, contrapropuesta o rechazo</strong>,
+          según el vendedor considere conveniente.
+        </p>
         <img
           src="/images/articulos/negociable-paso-4-tu-actividad.png"
           alt="Módulo Tu Actividad con las secciones Ganadas, Consignaciones, Procesos de compra y Rechazadas"
@@ -201,14 +207,22 @@ export const faqJsonLd = {
     <section aria-labelledby="propuesta-aceptada" class="space-y-4">
       <ChatQ id="propuesta-aceptada">El vendedor ha aceptado mi propuesta, ¿qué hago?</ChatQ>
       <ChatA>
-        <p class="text-center text-sm leading-relaxed text-vault-900/80">
-          <strong class="font-bold text-vault-700">¡Felicitaciones!</strong><br />
-          ¡Has concretado exitosamente el proceso de negociación!
-        </p>
+        <img
+          src="/images/articulos/negociable-felicitaciones-notificacion.png"
+          alt="Notificación ¡Felicitaciones! Has concretado exitosamente el proceso de negociación"
+          class="mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
           Es hora de comenzar el proceso de compra, solo <strong>debes ingresar al módulo “Tu
           Actividad”</strong> para ver los pasos a seguir.
         </p>
+        <img
+          src="/images/articulos/tu-actividad-procesos-compra.png"
+          alt="Módulo Tu Actividad con el botón Procesos de compra seleccionado"
+          class="mt-3 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
         <img
           src="/images/articulos/negociable-paso-5-procesos-compra.png"
           alt="Sección Procesos de Compra de Tu Actividad con el vehículo ganado y el botón Ver Detalle"
@@ -220,7 +234,7 @@ export const faqJsonLd = {
           ingresa:
         </p>
         <p class="mt-3 text-center">
-          <Button variant="primary" href="/categorias/habilitacion/he-sido-habilitado-que-hago-ahora">AQUÍ</Button>
+          <Button variant="primary" href="/categorias/habilitacion/he-sido-habilitado-que-hago-ahora">¡Aquí!</Button>
         </p>
       </ChatA>
     </section>
@@ -241,9 +255,6 @@ export const faqJsonLd = {
           class="mt-3 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Ojo con el plazo: la contrapropuesta del vendedor <strong class="font-bold text-vault-700">expira en 72 horas</strong>. Desde ahí puedes <strong>Aceptar</strong>, <strong>Contraproponer</strong> o <strong>Rechazar</strong>.
-        </p>
         <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
           Si todavía quieres seguir negociando, puedes <strong>enviarle una
           contrapropuesta</strong> al vendedor, podrás hacer esto hasta en <strong class="font-bold text-vault-700">5 oportunidades</strong> por negociación.
@@ -277,5 +288,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>

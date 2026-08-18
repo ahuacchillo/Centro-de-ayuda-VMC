@@ -4,11 +4,12 @@ import ArticleHeader from "../../../components/ArticleHeader.astro";
 import Button from "../../../components/Button.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-08-18";
 const title = "El Riesgo Usuario y sus categorías · Centro de Ayuda VMC Subastas";
 const description =
   "Qué es el Riesgo Usuario de VMC Subastas, sus 4 categorías (Muy Bajo, Bajo, Regular y Alto) con sus condiciones de participación y consignación, cómo se ganan y pierden Puntos VMC, y cómo mejorar tu categoría.";
@@ -19,7 +20,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
@@ -166,7 +167,7 @@ export const faqJsonLd = {
       <ChatQ id="categorias-riesgo">¿Cuáles son las categorías de Riesgo Usuario?</ChatQ>
       <ChatA>
         <p class="text-sm font-bold text-vault-700">Son 4 categorías:</p>
-        <ol class="mt-2 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-orange-vmc">
+        <ol class="mt-2 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-vault-900/80 marker:font-bold marker:text-vault-700">
           <li><strong>Riesgo Muy Bajo:</strong> de 300 o más Puntos VMC.</li>
           <li><strong>Riesgo Bajo:</strong> de 150 a 299 Puntos VMC.</li>
           <li><strong>Riesgo Regular:</strong> de 0 a 149 Puntos VMC.</li>
@@ -290,7 +291,7 @@ export const faqJsonLd = {
           </p>
         </div>
         <p class="mt-3 text-center">
-          <Button variant="primary" href="https://www.vmcsubastas.com/zona/canjear-puntos-vmc">AQUÍ</Button>
+          <Button variant="primary" href="https://www.vmcsubastas.com/zona/canjear-puntos-vmc">¡Aquí!</Button>
         </p>
       </ChatA>
     </section>
@@ -326,5 +327,7 @@ export const faqJsonLd = {
 
     <ChatContact />
     </div>
+
+    <ReactionPicker />
   </main>
 </Base>
