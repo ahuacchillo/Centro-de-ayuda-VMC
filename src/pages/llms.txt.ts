@@ -3,7 +3,7 @@ import { navigationPilars, totalArticles } from "../data/helpCenter";
 /* llms.txt para motores generativos (GEO) — se genera desde helpCenter.ts */
 export function GET() {
   const lines: string[] = [
-    "# Centro de Ayuda Comprador · VMC Subastas",
+    "# Centro de Ayuda · VMC Subastas",
     "",
     "Guías oficiales para compradores de VMC Subastas (subastas de vehículos,",
     `maquinaria y bienes diversos). ${totalArticles} artículos organizados por el ciclo de vida del comprador.`,
