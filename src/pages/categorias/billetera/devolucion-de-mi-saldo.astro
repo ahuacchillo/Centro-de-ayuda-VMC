@@ -5,7 +5,6 @@ import ChatIntro from "../../../components/ChatIntro.astro";
 import ChatContact from "../../../components/ChatContact.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
-import ImgPh from "../../../components/ImgPh.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
 const updated = "2026-07-17";
@@ -34,7 +33,7 @@ export const faqJsonLd = {
       name: "¿Cómo solicito la devolución de mi saldo en US$ dólares americanos?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Hazlo desde tu Zona de Usuario, en el módulo Billetera, haciendo clic o tap en Transacciones. Luego, en la parte inferior de la pantalla, en el banner devolución de saldo, dale clic o tap a Solicitar. Puedes solicitar la devolución únicamente desde una computadora, y se descontará US$ 30 por concepto de fee administrativo.",
+        text: "Dirígete a tu Zona de Usuario y, debajo de tu Historial de Transacciones, podrás solicitar la devolución de tu saldo dándole clic o tap a Solicitar. Puedes solicitar la devolución únicamente desde una computadora, y se descontará US$ 30 por concepto de fee administrativo.",
       },
     },
     {
@@ -74,8 +73,8 @@ export const faqJsonLd = {
 
   <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
     <QuickAnswer>
-      Puedes solicitar la devolución de tu saldo en US$ desde tu Zona de Usuario › Billetera
-      › Transacciones (únicamente desde una computadora), siempre que no tengas
+      Puedes solicitar la devolución de tu saldo en US$ desde tu Zona de Usuario, debajo de tu
+      Historial de Transacciones (únicamente desde una computadora), siempre que no tengas
       consignaciones, ofertas ganadas, procesos de compra activos ni deudas, y tu saldo sea
       mayor a US$ 30. Se descuenta US$ 30 por fee administrativo y el abono toma hasta 7 días
       hábiles en una cuenta del BCP o hasta 21 días hábiles en una cuenta interbancaria.
@@ -128,7 +127,9 @@ export const faqJsonLd = {
       </ChatQ>
       <ChatA>
         <p class="text-sm leading-relaxed text-vault-900/80">
-          Hazlo desde tu <strong>Zona de Usuario</strong>, en el módulo <strong>“Billetera”</strong>, haciendo clic o tap en <strong>“Transacciones”</strong>.
+          Dirígete a tu <strong>Zona de Usuario</strong> y, debajo de tu <strong>Historial de
+          Transacciones</strong>, podrás solicitar la devolución de tu saldo dándole clic o tap
+          a <strong>“Solicitar”</strong>.
         </p>
 
         <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
@@ -137,19 +138,12 @@ export const faqJsonLd = {
           >
         </div>
 
-        <ImgPh class="mt-4 h-72">
-          Paso 1: Captura de la Zona de Usuario: módulo Billetera con el botón
-          Transacciones resaltado, mostrando SubasCoins y saldo en US$
-        </ImgPh>
-
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          Luego, en la parte inferior de la pantalla, en el banner <strong>“devolución de
-          saldo”</strong> dale clic o tap a <strong>“Solicitar”</strong>.
-        </p>
-
-        <ImgPh class="mt-4 h-40">
-          Paso 2: Captura del banner de devolución de saldo con el botón Solicitar resaltado
-        </ImgPh>
+        <img
+          src="/images/articulos/devolucion-historial-solicitar.png"
+          alt="Historial de Transacciones y, debajo, el banner de devolución de saldo con el botón Solicitar"
+          class="mt-4 mx-auto w-full max-w-[300px] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
 
         <div class="alert-card mt-5 rounded-xl p-4 text-center text-sm leading-relaxed">
           <strong class="text-white">¡Recuerda!</strong> <span class="text-white/90">
