@@ -3,7 +3,6 @@ import Base from "../../../layouts/Base.astro";
 import ArticleHeader from "../../../components/ArticleHeader.astro";
 import Button from "../../../components/Button.astro";
 import ChatIntro from "../../../components/ChatIntro.astro";
-import ChatContact from "../../../components/ChatContact.astro";
 import ReactionPicker from "../../../components/ReactionPicker.astro";
 import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
@@ -267,10 +266,10 @@ export const faqJsonLd = {
             En caso de incumplimiento de tus responsabilidades como <strong>vendedor y/o ganador habilitado</strong>, serás sancionado con la <strong>pérdida de 75 Puntos VMC</strong>.
           </li>
         </ul>
-        <div class="mt-4 rounded-xl border-2 border-orange-vmc p-4 text-center text-sm leading-relaxed">
-          <strong class="font-bold text-vault-700">Importante:</strong> <span class="text-vault-900/80">
-            Cada incumplimiento es sancionado de manera independiente.
-          </span>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">Importante:</strong> <span class="text-white/90">
+            Cada incumplimiento es sancionado de manera independiente.</span
+          >
         </div>
       </ChatA>
     </section>
@@ -325,7 +324,6 @@ export const faqJsonLd = {
       </ChatA>
     </section>
 
-    <ChatContact />
     </div>
 
     <ReactionPicker />
