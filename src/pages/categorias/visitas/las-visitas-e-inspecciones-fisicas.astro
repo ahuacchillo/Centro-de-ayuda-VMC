@@ -8,7 +8,7 @@ import ChatA from "../../../components/ChatA.astro";
 import Button from "../../../components/Button.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-27";
+const updated = "2026-08-18";
 const title = "Las visitas e inspecciones físicas · Centro de Ayuda VMC Subastas";
 const description =
   "Cómo agendar una visita para ver un vehículo en VMC Subastas: requisitos, anticipación mínima de 48 horas, número de visitantes permitidos, qué llevar (DNI vigente), por qué las inspecciones son solo visuales y dónde encontrar la ubicación del bien.";
@@ -19,14 +19,14 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-27",
+  dateModified: "2026-08-18",
   mainEntity: [
     {
       "@type": "Question",
       name: "¿Qué debo hacer para agendar visitas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Solo debes estar registrado como usuario del servicio. Luego selecciona la oferta de tu interés en el Marketplace, entra a Ver detalle, baja hasta la sección Visitas (si la oferta cuenta con la opción de visitas disponibles), selecciona la fecha y hora, y presiona Agenda tu visita.",
+        text: "Solo debes estar registrado como usuario del servicio. Luego selecciona la oferta de tu interés en el Marketplace, entra a Ver detalle, baja hasta la sección Visitas (si la oferta cuenta con la opción de visitas disponibles), selecciona la fecha y la hora, y presiona Agenda tu visita.",
       },
     },
     {
@@ -66,7 +66,7 @@ export const faqJsonLd = {
       name: "¿Dónde se encuentra la oferta de mi interés?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Puedes encontrar la ubicación de la oferta en la sección Visitas, en el campo Ubicación, donde verás el distrito y la provincia. Cada uno de los vendedores tiene lugares específicos, ya sea un almacén o depósito, donde mantiene ubicado el bien. La dirección exacta se te proporciona una vez que agendas: llega en el mail de confirmación a tu bandeja de correo electrónico. Para visitar el bien debes haber agendado previamente y seguir las indicaciones del vendedor y/o los requisitos.",
+        text: "Puedes encontrar la ubicación de la oferta en la sección Información general, en el campo Ubicación, donde verás el distrito y la provincia. Cada uno de los vendedores tiene lugares específicos, ya sea un almacén o depósito, donde mantiene ubicado el bien. La dirección exacta se te proporciona una vez que agendas: llega en el mail de confirmación a tu bandeja de correo electrónico. Para visitar el bien debes haber agendado previamente y seguir las indicaciones del vendedor y/o los requisitos.",
       },
     },
   ],
@@ -105,8 +105,8 @@ export const faqJsonLd = {
       desde la sección “Visitas” del detalle de la oferta, con más de 48 horas de
       anticipación. Se permite 1 solo visitante (el dueño de la cuenta o, en cuentas de
       empresa, el representante legal o encargado), debes llevar tu DNI vigente y las
-      inspecciones son solo visuales, no mecánicas. La sección “Visitas” muestra el distrito y
-      la provincia; la dirección exacta llega en el mail de confirmación al agendar.
+      inspecciones son solo visuales, no mecánicas. La sección “Información general” muestra el
+      distrito y la provincia; la dirección exacta llega en el mail de confirmación al agendar.
     </QuickAnswer>
 
     <p class="text-center text-sm text-vault-700/70">
@@ -150,19 +150,13 @@ export const faqJsonLd = {
           Entra a <strong>“Ver detalle”</strong> de la oferta y baja hasta la sección <strong
             >“Visitas”</strong
           >. Clic o tap ahí si es que la oferta cuenta con la opción a visitas disponibles.
+          Luego <strong>selecciona la fecha y la hora ¡y listo!</strong> Dale clic o tap a <strong
+            >“Agenda tu visita”</strong
+          >.
         </p>
         <img
           src="/images/articulos/visitas-paso-2-agenda-visita.png"
-          alt="Sección Visitas de la oferta con el botón Agenda tu visita"
-          class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
-          loading="lazy"
-        />
-        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
-          <strong>Selecciona la fecha y hora de visita ¡y listo!</strong> Dale clic o tap a <strong>“Agenda tu visita”</strong>.
-        </p>
-        <img
-          src="/images/articulos/visitas-paso-3-fecha-hora.png"
-          alt="Formulario de la sección Visitas para seleccionar fecha y hora con el botón Agenda tu visita"
+          alt="Sección Visitas de la oferta con los selectores de fecha y hora y el botón Agenda tu visita"
           class="mx-auto mt-3 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
@@ -230,13 +224,13 @@ export const faqJsonLd = {
       <ChatA>
         <p class="text-sm leading-relaxed text-vault-900/80">
           Puedes encontrar la <strong>ubicación de la oferta en la sección
-          “Visitas”</strong>, en el campo <strong>“Ubicación”</strong>. Cada uno de los
+          “Información general”</strong>, en el campo <strong>“Ubicación”</strong>. Cada uno de los
           vendedores tiene lugares específicos ya sea un almacén o depósito, donde mantiene
           ubicado el bien.
         </p>
         <img
           src="/images/articulos/visitas-paso-4-ubicacion.png"
-          alt="Detalle de la oferta con las secciones Descripción, Condiciones y Visitas, y el campo Ubicación resaltado mostrando CALLAO | CALLAO"
+          alt="Sección Información general de la oferta con el campo Ubicación resaltado mostrando LIMA, LURIN"
           class="mx-auto mt-4 max-w-[min(24rem,100%)] rounded-xl border border-vault-300/60"
           loading="lazy"
         />
