@@ -77,6 +77,10 @@ export const navigationPilars: Pilar[] = [
             title: "¿Cuándo me devuelven la consignación?",
             href: "/categorias/consignacion/cuando-me-devuelven-la-consignacion",
           },
+          {
+            title: "SubasPass: Tu pase. Tu estrategia. Tu momento.",
+            href: "/categorias/consignacion/subaspass",
+          },
         ],
       },
     ],

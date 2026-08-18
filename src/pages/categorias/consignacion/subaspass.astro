@@ -1,0 +1,214 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleHeader from "../../../components/ArticleHeader.astro";
+import ChatIntro from "../../../components/ChatIntro.astro";
+import ChatContact from "../../../components/ChatContact.astro";
+import ReactionPicker from "../../../components/ReactionPicker.astro";
+import ChatQ from "../../../components/ChatQ.astro";
+import ChatA from "../../../components/ChatA.astro";
+import ImgPh from "../../../components/ImgPh.astro";
+import QuickAnswer from "../../../components/QuickAnswer.astro";
+
+const updated = "2026-08-18";
+const title =
+  "SubasPass: qué es, cuánto cuesta y cómo consignas con valor 0 · Centro de Ayuda VMC Subastas";
+const description =
+  "SubasPass es la membresía VIP de Subastop: con un solo pago participas en las ofertas con consignación 0 durante la vigencia del plan. Planes mensual, trimestral, semestral y anual, cómo se activa y en qué se diferencia del Canje de Puntos VMC.";
+
+/* FAQ del artículo → JSON-LD (SEO/GEO) */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "es",
+  datePublished: "2026-08-18",
+  dateModified: "2026-08-18",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Qué es SubasPass?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "SubasPass es la membresía VIP de Subastop. Con un solo pago te brinda acceso a participar en las ofertas de la plataforma, con consignación 0 durante la vigencia del plan.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuál es el costo de SubasPass y cómo se compra?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El costo varía según la duración de la membresía: Mensual >S< 30 (30 días), Trimestral >S< 50 (90 días), Semestral >S< 80 (180 días) y Anual >S< 120 (365 días). Puedes usar tus SubasCoins disponibles para adquirir tu SubasPass o, en su defecto, adquirir el monto exacto del valor del pass desde la misma landing. Una vez adquirida tu membresía podrás participar de todos los procesos de subasta dentro del ecosistema Subastop, es decir, tanto en VMC Subastas como en SubasCars.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo se activa mi acceso directo a las subastas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Al adquirir SubasPass tu cuenta se activa como VIP dentro del ecosistema Subastop. En VMC Subastas esto te habilita a participar sin restricciones y con valor 0 en cada subasta activa del Marketplace.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cuál es la diferencia entre canjear Puntos VMC y adquirir SubasPass?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "El Canje de Puntos VMC es una acción donde utilizas tus SubasCoins para adquirir Puntos VMC y mejorar tu Riesgo Usuario: necesitas un riesgo mayor o igual a 0 (Regular) para consignar sin restricciones, ya que algunos procesos limitan la participación de usuarios con riesgo alto. SubasPass es una membresía que te brinda acceso ilimitado a todas las ofertas activas de la plataforma durante la vigencia de tu plan: participas sin costos adicionales por proceso y sin que tu nivel de riesgo limite tu participación.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Entonces cuál me conviene: canjear Puntos VMC o adquirir SubasPass?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Depende de tu estrategia en plataforma. Si eres un usuario ocasional y tu riesgo es alto, canjear Puntos VMC es tu mejor opción. Si quieres participar en múltiples procesos y despreocuparte por los fondos necesarios, el SubasPass es tu mejor alternativa.",
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  breadcrumb={[
+    { name: "Centro de Ayuda", url: "/" },
+    { name: "La consignación", url: "/categorias/consignacion" },
+    {
+      name: "SubasPass: Tu pase. Tu estrategia. Tu momento.",
+      url: "/categorias/consignacion/subaspass",
+    },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <ArticleHeader
+    category="La consignación"
+    categorySlug="consignacion"
+    subtitle="Subastín te explica la membresía que te deja participar con consignación 0."
+    updated={updated}
+  >
+    SubasPass: Tu pase. Tu estrategia. <span
+      class="bg-gradient-to-r from-orange-vmc to-vault-500 bg-clip-text text-transparent"
+      >Tu momento.</span
+    >
+  </ArticleHeader>
+
+  <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
+    <QuickAnswer>
+      SubasPass es la membresía VIP de Subastop: con un solo pago participas en las ofertas
+      con consignación 0 durante la vigencia de tu plan, en VMC Subastas y en SubasCars. Hay
+      cuatro planes —Mensual >S&lt; 30, Trimestral >S&lt; 50, Semestral >S&lt; 80 y Anual
+      >S&lt; 120— que puedes pagar con tus SubasCoins. A diferencia del Canje de Puntos VMC,
+      que mejora tu Riesgo Usuario, el SubasPass te habilita a participar sin restricciones y
+      sin que tu nivel de riesgo te limite.
+    </QuickAnswer>
+
+    <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
+    <ChatIntro />
+
+    <!-- Q1: ¿Qué es SubasPass? -->
+    <section aria-labelledby="que-es-subaspass" class="space-y-4">
+      <ChatQ id="que-es-subaspass">¿Qué es SubasPass?</ChatQ>
+      <ChatA class="msg" style="--d:.3s">
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          SubasPass es la <strong>membresía VIP de Subastop</strong>. Con un solo pago, te
+          brinda acceso a participar en las ofertas de la plataforma, <strong class="font-bold text-vault-700">con consignación 0 durante la vigencia del plan</strong>.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q2: Costo y compra -->
+    <section aria-labelledby="costo-subaspass" class="space-y-4">
+      <ChatQ id="costo-subaspass">¿Cuál es el costo de SubasPass y cómo se compra?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          El costo varía según la <strong>duración de la membresía</strong>: mensual,
+          trimestral, semestral o anual. Puedes usar tus <a
+            href="/categorias/billetera/subascoins"
+            class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
+            >SubasCoins</a
+          > disponibles para adquirir tu SubasPass o, en su defecto, adquirir el monto exacto
+          del valor del pass desde la misma landing.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          En <strong>“Elige tu Plan SubasPass”</strong> verás los cuatro planes: <strong>Mensual &gt;S&lt; 30</strong> (30 días), <strong>Trimestral &gt;S&lt; 50</strong> (90 días), <strong>Semestral &gt;S&lt; 80</strong> (180 días) y <strong>Anual &gt;S&lt; 120</strong> (365 días). Elige el que mejor se adapte a ti y dale clic o tap a <strong>Adquirir SubasPass</strong>.
+        </p>
+        <img
+          src="/images/articulos/subaspass-planes.png"
+          alt="Elige tu Plan SubasPass: Mensual >S< 30 por 30 días, Trimestral >S< 50 por 90 días, Semestral >S< 80 por 180 días y Anual >S< 120 por 365 días, cada uno con su beneficio y el botón Adquirir SubasPass"
+          class="mt-3 mx-auto w-full max-w-[420px] rounded-xl border border-vault-300/60"
+          loading="lazy"
+        />
+
+        <p class="mt-4 text-sm leading-relaxed text-vault-900/80">
+          Una vez adquirida tu membresía, <strong>podrás participar de todos los procesos de
+          subasta dentro del ecosistema Subastop</strong>, es decir, tanto en VMC Subastas
+          como en SubasCars.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q3: Activación del acceso -->
+    <section aria-labelledby="activacion-subaspass" class="space-y-4">
+      <ChatQ id="activacion-subaspass">¿Cómo se activa mi acceso directo a las subastas?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Al adquirir SubasPass, <strong>tu cuenta se activa como VIP dentro del ecosistema
+          Subastop</strong>. En VMC Subastas esto te habilita a participar <strong>sin
+          restricciones y con valor 0 en cada subasta activa</strong> del Marketplace.
+        </p>
+        <ImgPh class="mt-4 h-40">Zona de usuario con el SubasPass activo</ImgPh>
+        <ImgPh class="mt-3 h-40">Consignación en 0 con el SubasPass activo</ImgPh>
+      </ChatA>
+    </section>
+
+    <!-- Q4: Canje de Puntos vs. SubasPass -->
+    <section aria-labelledby="puntos-vs-subaspass" class="space-y-4">
+      <ChatQ id="puntos-vs-subaspass">
+        ¿Cuál es la diferencia entre canjear Puntos VMC y adquirir SubasPass?
+      </ChatQ>
+      <ChatA>
+        <p class="mt-1 text-sm font-bold text-vault-700">1. Canje de Puntos VMC:</p>
+        <p class="mt-2 text-sm leading-relaxed text-vault-900/80">
+          Es una acción donde utilizas tus <strong>SubasCoins para adquirir <a
+            href="/categorias/riesgo-usuario/canjea-puntos-vmc-y-mejora-tu-riesgo-usuario"
+            class="font-bold text-vault-700 underline decoration-2 underline-offset-2"
+            >Puntos VMC</a
+          > y mejorar tu Riesgo Usuario</strong>. Recuerda que necesitas tener un riesgo mayor
+          o igual a 0 (Regular) para consignar sin restricciones, ya que algunos procesos
+          limitan la participación de usuarios con riesgo alto.
+        </p>
+        <p class="mt-4 text-sm font-bold text-vault-700">2. SubasPass:</p>
+        <p class="mt-2 text-sm leading-relaxed text-vault-900/80">
+          Es una membresía que te brinda <strong>acceso ilimitado a todas las ofertas activas
+          de la plataforma durante la vigencia de tu plan</strong>. Con este pase puedes
+          participar sin costos adicionales por proceso y sin que tu nivel de riesgo limite tu
+          participación, permitiéndote ingresar a todas las oportunidades disponibles.
+        </p>
+      </ChatA>
+    </section>
+
+    <!-- Q5: ¿Cuál me conviene? -->
+    <section aria-labelledby="cual-conviene" class="space-y-4">
+      <ChatQ id="cual-conviene">¿Entonces cuál me conviene?</ChatQ>
+      <ChatA>
+        <p class="text-sm leading-relaxed text-vault-900/80">
+          Todo dependerá de <strong>tu estrategia en plataforma</strong>. Si eres un usuario
+          ocasional y tu riesgo es alto, <strong>canjear Puntos VMC</strong> es tu mejor
+          opción.
+        </p>
+        <div class="alert-card mt-4 rounded-xl p-4 text-center text-sm leading-relaxed">
+          <strong class="text-white">¡Importante!</strong> <span class="text-white/90">
+            En caso quieras participar de múltiples procesos y despreocuparte por los fondos
+            necesarios, <strong>el SubasPass es tu mejor alternativa</strong>.</span
+          >
+        </div>
+      </ChatA>
+    </section>
+
+    <ChatContact />
+    </div>
+
+    <ReactionPicker />
+  </main>
+</Base>
