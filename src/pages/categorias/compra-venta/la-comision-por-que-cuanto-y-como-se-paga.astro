@@ -7,7 +7,7 @@ import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-17";
+const updated = "2026-08-17";
 const title = "La Comisión, ¿Por qué, cuánto y cómo se paga? · Centro de Ayuda VMC Subastas";
 const description =
   "Qué es la comisión de VMC Subastas, dónde ver el porcentaje en cada publicación, cómo se calcula sobre el bid del ganador habilitado (mínimo 50 SubasCoins), y cómo se debita automáticamente de tu Billetera.";
@@ -18,7 +18,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-17",
+  dateModified: "2026-08-17",
   mainEntity: [
     {
       "@type": "Question",
@@ -81,12 +81,12 @@ export const faqJsonLd = {
 
   <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
     <QuickAnswer>
-      La comisión es el monto que todo ganador habilitado paga a VMC por el uso del
-      servicio. El porcentaje se muestra en el detalle de cada publicación y se calcula
-      sobre el valor del bid del ganador habilitado: Comisión = bid × porcentaje, con un
-      mínimo de 50 SubasCoins. Se debita automáticamente de tu Billetera; si no tienes
-      fondos suficientes, adquiere SubasCoins o haz una Recarga dentro del plazo indicado
-      en el módulo “Tu Actividad”.
+      Todo ganador habilitado paga a VMC una comisión por el uso del servicio. El porcentaje
+      se muestra en el detalle de cada publicación y se calcula sobre el bid del ganador:
+      Comisión = bid × porcentaje, con un mínimo de 50 SubasCoins. No está incluida en tu
+      bid, se suma aparte. Se debita automáticamente de tu Billetera al ser habilitado; si no
+      tienes fondos suficientes, adquiere SubasCoins o haz una Recarga dentro del plazo
+      indicado en el módulo “Tu Actividad”.
     </QuickAnswer>
 
     <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">

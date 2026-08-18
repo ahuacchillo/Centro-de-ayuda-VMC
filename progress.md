@@ -171,3 +171,42 @@ Riesgos / pendientes abiertos:
 - El plazo de 10 días hábiles del Ganador Directo sigue sin respaldo en la fuente.
 - La captura de Ubicación (visitas) es recorte de la infografía, no UI actual — se ve
   distinta a las otras tres capturas reales del mismo artículo.
+
+## 2026-08-17 — Auditoría UX writing de las Respuestas Rápidas (GEO)
+
+Revisión de las 21 QuickAnswer contra el cuerpo y el JSON-LD de su propio artículo.
+15 correctas; 6 corregidas:
+
+- **Registro**: la QA decía "Regístrate gratis en subastop.com" mientras el cuerpo del
+  mismo artículo dice vmcsubastas.com (5 veces). Confirmado por el Arquitecto:
+  **vmcsubastas.com**. `subastop.com` queda solo en los links de T&C. Eliminados también
+  "gratis" y "tal como figuran en tu DNI" (no respaldados por el artículo), corregida la
+  ruta de persona jurídica (zona "Quiero Recibir" → FACTURA) y la frase colgada final.
+- **Devolución de mi saldo**: faltaban 2 de las 8 excluyentes (Riesgo Usuario "Alto" y
+  "careces de participaciones en el Marketplace"). Además decía "saldo mayor a US$ 30"
+  cuando el artículo excluye "menor a US$ 30" — US$ 30 exactos sí califica.
+- **He sido habilitado**: el primer paso real (pagar comisión + subir documentos) estaba
+  en cláusula subordinada ("Tras pagar la comisión…"), así que lo extractable era el paso 2.
+  Reescrita para que el paso 1 sea la oración principal. Sigue en 111 palabras: se arregló
+  el orden, no la longitud.
+- **La comisión**: agregado "No está incluida en tu bid, se suma aparte" (Q2 del artículo,
+  el dato de mayor fricción económica y el único que no estaba en la QA).
+- **SubasCoins**: el H1 promete "qué son, para qué sirven y cómo se adquieren" y la QA
+  respondía 2 de 3. Agregado para qué sirven (consignar, comisiones, penalizaciones,
+  SubasPass, canje de Puntos).
+- **Gané una oferta En Vivo**: "hasta 10 días" → "hasta 10 días hábiles" en la QA, en el
+  cuerpo (Q6) y en su JSON-LD. El artículo se contradecía a sí mismo: "10 días hábiles" en
+  Q1/Q5 y "10 días" en Q6. Confirmado por el Arquitecto: **días hábiles**.
+
+Las 6 fechas `updated`/`dateModified` → 2026-08-17. `npm run build` OK (34 páginas).
+
+Riesgos / pendientes abiertos (nuevos):
+- **Longitud sistémica**: el componente QuickAnswer declara "2-3 líneas"; el promedio real
+  es ~80 palabras y solo 2 de 21 bajan de 60. El rango extractable para GEO es 40-60
+  palabras en 2-4 oraciones cortas. Pase de compresión sobre las 21 NO ejecutado.
+- **Canibalización**: `consignacion/cuando-me-devuelven` y `oferta-en-vivo/el-proceso-termino`
+  abren con la misma frase casi literal. La segunda debería liderar con "oportunidad de
+  compra vs. opción de compra", que es lo único propio de ese artículo.
+- **Lead invertido**: 3 QAs abren definiendo un término en vez de responder la query
+  (`responsabilidades-de-los-participantes`, `tienes-una-deuda`, `codigo-de-pago-pacifico`).
+- Nit: `3.9%` (fee-por-pasarela, consignación) vs `3.90%` (subascoins) sin unificar.

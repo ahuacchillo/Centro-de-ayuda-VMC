@@ -7,7 +7,7 @@ import ChatQ from "../../../components/ChatQ.astro";
 import ChatA from "../../../components/ChatA.astro";
 import QuickAnswer from "../../../components/QuickAnswer.astro";
 
-const updated = "2026-07-24";
+const updated = "2026-08-17";
 const title = "¡He sido habilitado para comprar! ¿Qué hago ahora? · Centro de Ayuda VMC Subastas";
 const description =
   "Qué sigue después de ser habilitado en VMC Subastas: las instrucciones de pago del vendedor, el Fee de Habilitación, el pago directo al vendedor en dólares, los gastos adicionales, las sanciones por incumplir la compra y dónde encontrar tus comprobantes.";
@@ -18,7 +18,7 @@ export const faqJsonLd = {
   "@type": "FAQPage",
   inLanguage: "es",
   datePublished: "2026-07-17",
-  dateModified: "2026-07-24",
+  dateModified: "2026-08-17",
   mainEntity: [
     {
       "@type": "Question",
@@ -148,15 +148,14 @@ export const faqJsonLd = {
 
   <main class="mx-auto max-w-2xl space-y-10 px-4 pt-6 pb-16 sm:px-6">
     <QuickAnswer>
-      Tras pagar la comisión y subir tus documentos, solo esperas las instrucciones de pago
-      del vendedor: el pago de la oferta se hace directamente al vendedor, en dólares
-      americanos (los fondos de tu Billetera solo sirven para consignar y pagar comisiones).
-      Adjuntas el comprobante de pago y recibes el contacto del vendedor para la
-      transferencia y el recojo. Puede aplicar un Fee de Habilitación adicional a la comisión
-      si las condiciones lo indican, más los gastos administrativos de la transferencia.
-      Incumplir la compra se sanciona: pagas igual la comisión, tu cuenta se inhabilita 7
-      días, pierdes 75 Puntos, y al tercer incumplimiento con un mismo vendedor quedas
-      suspendido permanentemente con él.
+      Tu primer paso es pagar la comisión por uso del servicio y subir los documentos que
+      pide el vendedor, desde el proceso de compra en el módulo “Tu Actividad”. Después
+      recibes las instrucciones de pago: la oferta se paga directamente al vendedor y en
+      dólares americanos, porque los fondos de tu Billetera solo sirven para consignar y
+      pagar comisiones. Si las condiciones de la oferta lo indican, se suma un Fee de
+      Habilitación. Adjuntas el comprobante y recibes el contacto del vendedor para la
+      transferencia y el recojo; incumplir la compra se sanciona con 75 Puntos menos, 7 días
+      de cuenta inhabilitada y el cobro de la comisión de todas formas.
     </QuickAnswer>
 
     <div class="rounded-3xl bg-white px-4 py-4 shadow-[0_2px_10px_rgba(32,0,104,0.06)] space-y-4">
